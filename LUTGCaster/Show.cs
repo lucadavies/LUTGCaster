@@ -8,8 +8,8 @@ namespace LUTGCaster
 {
     public class Show
     {
-        string name;
-        List<string> roles;
+        public string name;
+        public List<string> roles;
 
         public Show(string name)
         {
