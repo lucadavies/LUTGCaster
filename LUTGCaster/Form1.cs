@@ -25,30 +25,91 @@ namespace LUTGCaster
         {
             nameBoxes = new List<TextBox>
             {
+                #region Show1
                 txtS1C1a,
                 txtS1C1b,
                 txtS1C1c,
                 txtS1C1d,
                 txtS1C1e,
                 txtS1C1f,
+
                 txtS1C2a,
                 txtS1C2b,
                 txtS1C2c,
                 txtS1C2d,
                 txtS1C2e,
                 txtS1C2f,
+
                 txtS1C3a,
                 txtS1C3b,
                 txtS1C3c,
                 txtS1C3d,
                 txtS1C3e,
                 txtS1C3f,
+
                 txtS1C4a,
                 txtS1C4b,
                 txtS1C4c,
                 txtS1C4d,
                 txtS1C4e,
-                txtS1C4f
+                txtS1C4f,
+
+                txtS1C5a,
+                txtS1C5b,
+                txtS1C5c,
+                txtS1C5d,
+                txtS1C5e,
+                txtS1C5f,
+
+                txtS1C6a,
+                txtS1C6b,
+                txtS1C6c,
+                txtS1C6d,
+                txtS1C6e,
+                txtS1C6f,
+
+                txtS1C7a,
+                txtS1C7b,
+                txtS1C7c,
+                txtS1C7d,
+                txtS1C7e,
+                txtS1C7f,
+
+                txtS1C8a,
+                txtS1C8b,
+                txtS1C8c,
+                txtS1C8d,
+                txtS1C8e,
+                txtS1C8f,
+
+                txtS1C9a,
+                txtS1C9b,
+                txtS1C9c,
+                txtS1C9d,
+                txtS1C9e,
+                txtS1C9f,
+
+                txtS1C10a,
+                txtS1C10b,
+                txtS1C10c,
+                txtS1C10d,
+                txtS1C10e,
+                txtS1C10f,
+
+                txtS1C11a,
+                txtS1C11b,
+                txtS1C11c,
+                txtS1C11d,
+                txtS1C11e,
+                txtS1C11f,
+
+                txtS1C12a,
+                txtS1C12b,
+                txtS1C12c,
+                txtS1C12d,
+                txtS1C12e,
+                txtS1C12f,
+                #endregion
             };
         }
 
