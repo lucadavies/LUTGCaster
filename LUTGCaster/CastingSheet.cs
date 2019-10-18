@@ -10,15 +10,43 @@ using System.Windows.Forms;
 
 namespace LUTGCaster
 {
-    public partial class Form1 : Form
+    public partial class CastingSheet : Form
     {
 
         List<TextBox> nameBoxes;
 
-        public Form1()
+        public CastingSheet(List<Show> shows)
         {
             InitializeComponent();
-            init();
+            //init();
+            initDyn();
+        }
+
+        private void initDyn()
+        {
+            nameBoxes = new List<TextBox>();
+            for (int i = 0; i < 5; i++)
+            {
+                TextBox txtTest = new TextBox();
+                txtTest = new TextBox();
+                groupBox5.Controls.Add(txtTest);
+                txtTest.BackColor = SystemColors.Window;
+                txtTest.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                txtTest.Location = new Point(122 * i, 10);
+                txtTest.Margin = new Padding(0);
+                txtTest.Name = "txtTest" + i;
+                txtTest.Size = new Size(122, 20);
+                txtTest.TabIndex = 7;
+                txtTest.TextChanged += new EventHandler(UpdateAllColours);
+            }
+
+            foreach (object el in groupBox5.Controls)
+            {
+                if (el is TextBox)
+                {
+                    nameBoxes.Add((TextBox)el);
+                }
+            }
         }
 
         private void init()
@@ -110,27 +138,99 @@ namespace LUTGCaster
                 txtS1C12e,
                 txtS1C12f,
                 #endregion
+
+                #region Show2
+                txtS2C1a,
+                txtS2C1b,
+                txtS2C1c,
+                txtS2C1d,
+                txtS2C1e,
+                txtS2C1f,
+
+                txtS2C2a,
+                txtS2C2b,
+                txtS2C2c,
+                txtS2C2d,
+                txtS2C2e,
+                txtS2C2f,
+
+                txtS2C3a,
+                txtS2C3b,
+                txtS2C3c,
+                txtS2C3d,
+                txtS2C3e,
+                txtS2C3f,
+
+                txtS2C4a,
+                txtS2C4b,
+                txtS2C4c,
+                txtS2C4d,
+                txtS2C4e,
+                txtS2C4f,
+
+                txtS2C5a,
+                txtS2C5b,
+                txtS2C5c,
+                txtS2C5d,
+                txtS2C5e,
+                txtS2C5f,
+
+                txtS2C6a,
+                txtS2C6b,
+                txtS2C6c,
+                txtS2C6d,
+                txtS2C6e,
+                txtS2C6f,
+
+                txtS2C7a,
+                txtS2C7b,
+                txtS2C7c,
+                txtS2C7d,
+                txtS2C7e,
+                txtS2C7f,
+
+                txtS2C8a,
+                txtS2C8b,
+                txtS2C8c,
+                txtS2C8d,
+                txtS2C8e,
+                txtS2C8f,
+
+                txtS2C9a,
+                txtS2C9b,
+                txtS2C9c,
+                txtS2C9d,
+                txtS2C9e,
+                txtS2C9f,
+
+                txtS2C10a,
+                txtS2C10b,
+                txtS2C10c,
+                txtS2C10d,
+                txtS2C10e,
+                txtS2C10f,
+
+                txtS2C11a,
+                txtS2C11b,
+                txtS2C11c,
+                txtS2C11d,
+                txtS2C11e,
+                txtS2C11f,
+
+                txtS2C12a,
+                txtS2C12b,
+                txtS2C12c,
+                txtS2C12d,
+                txtS2C12e,
+                txtS2C12f,
+                #endregion
             };
+            
         }
 
-        private void TxtS1Name_TextChanged(object sender, EventArgs e)
+        private void addNameBox(TextBox t)
         {
-            gBoxS1.Text = txtS1Name.Text;
-        }
-
-        private void TxtS2Name_TextChanged(object sender, EventArgs e)
-        {
-            gBoxS2.Text = txtS2Name.Text;
-        }
-
-        private void TxtS3Name_TextChanged(object sender, EventArgs e)
-        {
-            gBoxS3.Text = txtS3Name.Text;
-        }
-
-        private void TxtS4Name_TextChanged(object sender, EventArgs e)
-        {
-            gBoxS4.Text = txtS4Name.Text;
+            nameBoxes.Add(t);
         }
 
         private void TriggerColourUpdate(object sender, EventArgs e)
@@ -231,126 +331,6 @@ namespace LUTGCaster
             {
                 UpdateColours(t);
             }
-        }
-
-        private void TxtS1C1_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C1.Text = txtS1C1.Text;
-        }
-
-        private void TxtS1C2_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C2.Text = txtS1C2.Text;
-        }
-
-        private void TxtS1C3_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C3.Text = txtS1C3.Text;
-        }
-
-        private void TxtS1C4_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C4.Text = txtS1C4.Text;
-        }
-
-        private void TxtS1C5_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C5.Text = txtS1C5.Text;
-        }
-
-        private void TxtS1C6_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C6.Text = txtS1C6.Text;
-        }
-
-        private void TxtS1C7_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C7.Text = txtS1C7.Text;
-        }
-
-        private void TxtS1C8_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C8.Text = txtS1C8.Text;
-        }
-
-        private void TxtS1C9_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C9.Text = txtS1C9.Text;
-        }
-
-        private void TxtS1C10_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C10.Text = txtS1C10.Text;
-        }
-
-        private void TxtS1C11_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C11.Text = txtS1C11.Text;
-        }
-
-        private void TxtS1C12_TextChanged(object sender, EventArgs e)
-        {
-            lblS1C12.Text = txtS1C12.Text;
-        }
-
-        private void TxtS2C1_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C1.Text = txtS2C1.Text;
-        }
-
-        private void TxtS2C2_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C2.Text = txtS2C2.Text;
-        }
-
-        private void TxtS2C3_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C3.Text = txtS2C3.Text;
-        }
-
-        private void TxtS2C4_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C4.Text = txtS2C4.Text;
-        }
-
-        private void TxtS2C5_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C5.Text = txtS2C5.Text;
-        }
-
-        private void TxtS2C6_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C6.Text = txtS2C6.Text;
-        }
-
-        private void TxtS2C7_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C7.Text = txtS2C7.Text;
-        }
-
-        private void TxtS2C8_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C8.Text = txtS2C8.Text;
-        }
-
-        private void TxtS2C9_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C9.Text = txtS2C9.Text;
-        }
-
-        private void TxtS2C10_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C10.Text = txtS2C10.Text;
-        }
-
-        private void TxtS2C11_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C11.Text = txtS2C11.Text;
-        }
-
-        private void TxtS2C12_TextChanged(object sender, EventArgs e)
-        {
-            lblS2C12.Text = txtS2C12.Text;
         }
     }
 }

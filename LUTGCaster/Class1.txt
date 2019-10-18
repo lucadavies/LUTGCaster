@@ -1,0 +1,22 @@
+﻿for (int i = 0; i < 5; i++)
+            {
+                System.Windows.Forms.TextBox txtTest = new System.Windows.Forms.TextBox();
+txtTest = new System.Windows.Forms.TextBox();
+                this.groupBox5.Controls.Add(txtTest);
+                txtTest.BackColor = System.Drawing.SystemColors.Window;
+                txtTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                txtTest.Location = new System.Drawing.Point(122 * i, 10);
+                txtTest.Margin = new System.Windows.Forms.Padding(0);
+                txtTest.Name = "txtTest" + i;
+                txtTest.Size = new System.Drawing.Size(122, 20);
+                txtTest.TabIndex = 7;
+                txtTest.TextChanged += new System.EventHandler(this.UpdateAllColours);
+}
+
+foreach (object el in groupBox5.Controls)
+            {
+                if (el is TextBox)
+                {
+                    nameBoxes.Add((TextBox) el);
+                }
+            }
