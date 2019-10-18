@@ -252,5 +252,105 @@ namespace LUTGCaster
         {
             lblS1C4.Text = txtS1C4.Text;
         }
+
+        private void TxtS1C5_TextChanged(object sender, EventArgs e)
+        {
+            lblS1C5.Text = txtS1C5.Text;
+        }
+
+        private void TxtS1C6_TextChanged(object sender, EventArgs e)
+        {
+            lblS1C6.Text = txtS1C6.Text;
+        }
+
+        private void TxtS1C7_TextChanged(object sender, EventArgs e)
+        {
+            lblS1C7.Text = txtS1C7.Text;
+        }
+
+        private void TxtS1C8_TextChanged(object sender, EventArgs e)
+        {
+            lblS1C8.Text = txtS1C8.Text;
+        }
+
+        private void TxtS1C9_TextChanged(object sender, EventArgs e)
+        {
+            lblS1C9.Text = txtS1C9.Text;
+        }
+
+        private void TxtS1C10_TextChanged(object sender, EventArgs e)
+        {
+            lblS1C10.Text = txtS1C10.Text;
+        }
+
+        private void TxtS1C11_TextChanged(object sender, EventArgs e)
+        {
+            lblS1C11.Text = txtS1C11.Text;
+        }
+
+        private void TxtS1C12_TextChanged(object sender, EventArgs e)
+        {
+            lblS1C12.Text = txtS1C12.Text;
+        }
+
+        private void TxtS2C1_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C1.Text = txtS2C1.Text;
+        }
+
+        private void TxtS2C2_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C2.Text = txtS2C2.Text;
+        }
+
+        private void TxtS2C3_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C3.Text = txtS2C3.Text;
+        }
+
+        private void TxtS2C4_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C4.Text = txtS2C4.Text;
+        }
+
+        private void TxtS2C5_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C5.Text = txtS2C5.Text;
+        }
+
+        private void TxtS2C6_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C6.Text = txtS2C6.Text;
+        }
+
+        private void TxtS2C7_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C7.Text = txtS2C7.Text;
+        }
+
+        private void TxtS2C8_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C8.Text = txtS2C8.Text;
+        }
+
+        private void TxtS2C9_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C9.Text = txtS2C9.Text;
+        }
+
+        private void TxtS2C10_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C10.Text = txtS2C10.Text;
+        }
+
+        private void TxtS2C11_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C11.Text = txtS2C11.Text;
+        }
+
+        private void TxtS2C12_TextChanged(object sender, EventArgs e)
+        {
+            lblS2C12.Text = txtS2C12.Text;
+        }
     }
 }
