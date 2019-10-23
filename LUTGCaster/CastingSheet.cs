@@ -44,7 +44,7 @@ namespace LUTGCaster
                         tb.Margin = new Padding(0);
                         string st = "lblS" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
                         Label l = (Label)Controls.Find("lblS" + (shows.IndexOf(s) + 1) + "C" + (i + 1), true)[0];
-                        l.Text = s.roles[i];
+                        l.Text = s.roles[i].name;
                         string n = "txtS1C" + (i + 1);
                         switch (j)
                         {
@@ -71,22 +71,13 @@ namespace LUTGCaster
                         tb.Size = new Size(122, 20);
                         tb.TabIndex = 7;
                         tb.TextChanged += new EventHandler(UpdateAllColours);
-                    }
-                }
-                foreach (object el in gBox.Controls)
-                {
-                    if (el is TextBox)
-                    {
-                        nameBoxes.Add((TextBox)el);
+                        nameBoxes.Add(tb);
+                        s.roles[i].addTextBox(tb);
+
                     }
                 }
             }
-            
-        }
 
-        private void addNameBox(TextBox t)
-        {
-            nameBoxes.Add(t);
         }
 
         private void UpdateColours(TextBox tb)
@@ -94,7 +85,7 @@ namespace LUTGCaster
             string name = tb.Text;
             if (!name.Equals(""))
             {
-                
+
                 int countOther = 0;
                 int countFirst = 0;
                 List<TextBox> toColour = new List<TextBox>();
@@ -181,26 +172,46 @@ namespace LUTGCaster
             {
                 Console.WriteLine(t.Name);
                 UpdateColours(t);
-                //DetectLocks(t);
             }
         }
 
-        private void DetectLocks(TextBox tb)
+        //private void DetectLocks(TextBox tb)
+        //{
+        //    List<TextBox> appearBelow = new List<TextBox>();
+        //    List<TextBox> appearAbove = new List<TextBox>();
+        //    List<string> cA = new List<string>();
+        //    List<string> cB = new List<string>();
+        //    int pos = (int)char.GetNumericValue(tb.Name[tb.Name.Length - 1]);
+        //    int show = (int)char.GetNumericValue(tb.Name[4]);
+        //    int character = (int)char.GetNumericValue(tb.Name[6]);
+        //    foreach (Show s in shows)
+        //    {
+        //        Console.WriteLine(tb.Name[4]);
+        //        Console.WriteLine(Convert.ToChar(shows.IndexOf(s) + 1));
+        //        if (tb.Name[4].Equals(Convert.ToChar(shows.IndexOf(s) + 1)))
+        //        {
+        //            foreach (Show.Role r in s.roles)
+        //            {
+        //                cA.Add(r.name);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            foreach (Show.Role r in s.roles)
+        //            {
+        //                cB.Add(r.name);
+        //            }
+        //        }
+                
+        //    }
+
+        //}
+
+        private void btnChkBlk_Click(object sender, EventArgs e)
         {
-            List<TextBox> appearBelow = new List<TextBox>();
-            List<TextBox> appearAbove = new List<TextBox>();
-            List<TextBox> inChar = new List<TextBox>();
-            int pos = (int)char.GetNumericValue(tb.Name[tb.Name.Length - 1]);
-            int show = (int)char.GetNumericValue(tb.Name[4]);
-            int character = (int)char.GetNumericValue(tb.Name[6]);
-            foreach (TextBox t in nameBoxes)
+            foreach (TextBox tb in nameBoxes)
             {
-                inChar.Add(t);
-                if (t.Name[7] == 'f')
-                {
-                    inChar.Clear();
-                    continue;
-                }
+                DetectLocks(tb);
             }
         }
     }

@@ -108,6 +108,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnChkBlk = new System.Windows.Forms.Button();
             this.gBoxS4.SuspendLayout();
             this.gBoxS3.SuspendLayout();
             this.gBoxS2.SuspendLayout();
@@ -1034,11 +1035,23 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Character";
             // 
+            // btnChkBlk
+            // 
+            this.btnChkBlk.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
+            this.btnChkBlk.Location = new System.Drawing.Point(1217, 727);
+            this.btnChkBlk.Name = "btnChkBlk";
+            this.btnChkBlk.Size = new System.Drawing.Size(104, 23);
+            this.btnChkBlk.TabIndex = 3;
+            this.btnChkBlk.Text = "Check Blocks";
+            this.btnChkBlk.UseVisualStyleBackColor = true;
+            this.btnChkBlk.Click += new System.EventHandler(this.btnChkBlk_Click);
+            // 
             // CastingSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1588, 834);
+            this.Controls.Add(this.btnChkBlk);
             this.Controls.Add(this.gBoxS4);
             this.Controls.Add(this.gBoxS3);
             this.Controls.Add(this.gBoxS2);
@@ -1138,6 +1151,7 @@
         private System.Windows.Forms.Label lblS4C7;
         private System.Windows.Forms.Label lblS4C6;
         private System.Windows.Forms.Label lblS4C5;
+        private System.Windows.Forms.Button btnChkBlk;
     }
 }
 
