@@ -177,10 +177,30 @@ namespace LUTGCaster
 
         private void UpdateAllColours(object sender, EventArgs e)
         {
-            Console.WriteLine(((TextBox)sender).Name);
             foreach (TextBox t in nameBoxes)
             {
+                Console.WriteLine(t.Name);
                 UpdateColours(t);
+                //DetectLocks(t);
+            }
+        }
+
+        private void DetectLocks(TextBox tb)
+        {
+            List<TextBox> appearBelow = new List<TextBox>();
+            List<TextBox> appearAbove = new List<TextBox>();
+            List<TextBox> inChar = new List<TextBox>();
+            int pos = (int)char.GetNumericValue(tb.Name[tb.Name.Length - 1]);
+            int show = (int)char.GetNumericValue(tb.Name[4]);
+            int character = (int)char.GetNumericValue(tb.Name[6]);
+            foreach (TextBox t in nameBoxes)
+            {
+                inChar.Add(t);
+                if (t.Name[7] == 'f')
+                {
+                    inChar.Clear();
+                    continue;
+                }
             }
         }
     }
