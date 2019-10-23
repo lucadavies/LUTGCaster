@@ -73,5 +73,62 @@ namespace LUTGCaster
             CastingSheet cs = new CastingSheet(shows);
             cs.Show();
         }
+
+        private void numUDShows_ValueChanged(object sender, EventArgs e)
+        {
+            switch (numUDShows.Value)
+            {
+                case 1:
+                    EnableShowBox(gBoxS1, true);
+                    EnableShowBox(gBoxS2, false);
+                    EnableShowBox(gBoxS3, false);
+                    EnableShowBox(gBoxS4, false);
+                    break;
+                case 2:
+                    EnableShowBox(gBoxS1, true);
+                    EnableShowBox(gBoxS2, true);
+                    EnableShowBox(gBoxS3, false);
+                    EnableShowBox(gBoxS4, false);
+                    break;
+                case 3:
+                    EnableShowBox(gBoxS1, true);
+                    EnableShowBox(gBoxS2, true);
+                    EnableShowBox(gBoxS3, true);
+                    EnableShowBox(gBoxS4, false);
+                    break;
+                case 4:
+                    EnableShowBox(gBoxS1, true);
+                    EnableShowBox(gBoxS2, true);
+                    EnableShowBox(gBoxS3, true);
+                    EnableShowBox(gBoxS4, true);
+                    break;
+            }
+        }
+
+        private void EnableShowBox(GroupBox gb, bool enabled)
+        {
+            if (!enabled)
+            {
+                foreach (Control c in gb.Controls)
+                {
+                    if (c is TextBox)
+                    {
+                        ((TextBox)c).Text = "";
+                    }
+                    else if (c is Panel)
+                    {
+                        foreach (Control pc in c.Controls)
+                        {
+                            if (pc is TextBox)
+                            {
+                                ((TextBox)pc).Text = "";
+                            }
+                        }
+                    }
+                }
+                
+            }
+            gb.Enabled = enabled;
+        }        
     }
 }

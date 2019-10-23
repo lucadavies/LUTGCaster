@@ -29,82 +29,85 @@
         private void InitializeComponent()
         {
             this.gBoxS4 = new System.Windows.Forms.GroupBox();
+            this.panS4 = new System.Windows.Forms.Panel();
+            this.txtS4C12 = new System.Windows.Forms.TextBox();
+            this.txtS4C1 = new System.Windows.Forms.TextBox();
+            this.txtS4C11 = new System.Windows.Forms.TextBox();
+            this.txtS4C2 = new System.Windows.Forms.TextBox();
+            this.txtS4C10 = new System.Windows.Forms.TextBox();
+            this.txtS4C3 = new System.Windows.Forms.TextBox();
+            this.txtS4C9 = new System.Windows.Forms.TextBox();
+            this.txtS4C4 = new System.Windows.Forms.TextBox();
+            this.txtS4C8 = new System.Windows.Forms.TextBox();
+            this.txtS4C5 = new System.Windows.Forms.TextBox();
+            this.txtS4C7 = new System.Windows.Forms.TextBox();
+            this.txtS4C6 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtS4Name = new System.Windows.Forms.TextBox();
             this.gBoxS1 = new System.Windows.Forms.GroupBox();
+            this.panS1 = new System.Windows.Forms.Panel();
             this.txtS1C12 = new System.Windows.Forms.TextBox();
+            this.txtS1C1 = new System.Windows.Forms.TextBox();
             this.txtS1C11 = new System.Windows.Forms.TextBox();
+            this.txtS1C2 = new System.Windows.Forms.TextBox();
             this.txtS1C10 = new System.Windows.Forms.TextBox();
+            this.txtS1C3 = new System.Windows.Forms.TextBox();
             this.txtS1C9 = new System.Windows.Forms.TextBox();
+            this.txtS1C4 = new System.Windows.Forms.TextBox();
             this.txtS1C8 = new System.Windows.Forms.TextBox();
+            this.txtS1C5 = new System.Windows.Forms.TextBox();
             this.txtS1C7 = new System.Windows.Forms.TextBox();
             this.txtS1C6 = new System.Windows.Forms.TextBox();
-            this.txtS1C5 = new System.Windows.Forms.TextBox();
-            this.txtS1C4 = new System.Windows.Forms.TextBox();
-            this.txtS1C3 = new System.Windows.Forms.TextBox();
-            this.txtS1C2 = new System.Windows.Forms.TextBox();
-            this.txtS1C1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtS1Name = new System.Windows.Forms.TextBox();
             this.gBoxS3 = new System.Windows.Forms.GroupBox();
+            this.panS3 = new System.Windows.Forms.Panel();
+            this.txtS3C12 = new System.Windows.Forms.TextBox();
+            this.txtS3C1 = new System.Windows.Forms.TextBox();
+            this.txtS3C5 = new System.Windows.Forms.TextBox();
+            this.txtS3C11 = new System.Windows.Forms.TextBox();
+            this.txtS3C4 = new System.Windows.Forms.TextBox();
+            this.txtS3C6 = new System.Windows.Forms.TextBox();
+            this.txtS3C10 = new System.Windows.Forms.TextBox();
+            this.txtS3C3 = new System.Windows.Forms.TextBox();
+            this.txtS3C7 = new System.Windows.Forms.TextBox();
+            this.txtS3C9 = new System.Windows.Forms.TextBox();
+            this.txtS3C2 = new System.Windows.Forms.TextBox();
+            this.txtS3C8 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtS3Name = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.gBoxS2 = new System.Windows.Forms.GroupBox();
+            this.panS2 = new System.Windows.Forms.Panel();
             this.txtS2C12 = new System.Windows.Forms.TextBox();
+            this.txtS2C1 = new System.Windows.Forms.TextBox();
             this.txtS2C11 = new System.Windows.Forms.TextBox();
+            this.txtS2C2 = new System.Windows.Forms.TextBox();
             this.txtS2C10 = new System.Windows.Forms.TextBox();
+            this.txtS2C3 = new System.Windows.Forms.TextBox();
             this.txtS2C9 = new System.Windows.Forms.TextBox();
+            this.txtS2C4 = new System.Windows.Forms.TextBox();
             this.txtS2C8 = new System.Windows.Forms.TextBox();
+            this.txtS2C5 = new System.Windows.Forms.TextBox();
             this.txtS2C7 = new System.Windows.Forms.TextBox();
             this.txtS2C6 = new System.Windows.Forms.TextBox();
-            this.txtS2C5 = new System.Windows.Forms.TextBox();
-            this.txtS2C4 = new System.Windows.Forms.TextBox();
-            this.txtS2C3 = new System.Windows.Forms.TextBox();
-            this.txtS2C2 = new System.Windows.Forms.TextBox();
-            this.txtS2C1 = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtS2Name = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.txtS3C12 = new System.Windows.Forms.TextBox();
-            this.txtS3C11 = new System.Windows.Forms.TextBox();
-            this.txtS3C10 = new System.Windows.Forms.TextBox();
-            this.txtS3C9 = new System.Windows.Forms.TextBox();
-            this.txtS3C8 = new System.Windows.Forms.TextBox();
-            this.txtS3C7 = new System.Windows.Forms.TextBox();
-            this.txtS3C6 = new System.Windows.Forms.TextBox();
-            this.txtS3C5 = new System.Windows.Forms.TextBox();
-            this.txtS3C4 = new System.Windows.Forms.TextBox();
-            this.txtS3C3 = new System.Windows.Forms.TextBox();
-            this.txtS3C2 = new System.Windows.Forms.TextBox();
-            this.txtS3C1 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.txtS4C12 = new System.Windows.Forms.TextBox();
-            this.txtS4C11 = new System.Windows.Forms.TextBox();
-            this.txtS4C10 = new System.Windows.Forms.TextBox();
-            this.txtS4C9 = new System.Windows.Forms.TextBox();
-            this.txtS4C8 = new System.Windows.Forms.TextBox();
-            this.txtS4C7 = new System.Windows.Forms.TextBox();
-            this.txtS4C6 = new System.Windows.Forms.TextBox();
-            this.txtS4C5 = new System.Windows.Forms.TextBox();
-            this.txtS4C4 = new System.Windows.Forms.TextBox();
-            this.txtS4C3 = new System.Windows.Forms.TextBox();
-            this.txtS4C2 = new System.Windows.Forms.TextBox();
-            this.txtS4C1 = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.panS4 = new System.Windows.Forms.Panel();
-            this.panS3 = new System.Windows.Forms.Panel();
-            this.panS2 = new System.Windows.Forms.Panel();
-            this.panS1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.numUDShows = new System.Windows.Forms.NumericUpDown();
             this.gBoxS4.SuspendLayout();
-            this.gBoxS1.SuspendLayout();
-            this.gBoxS3.SuspendLayout();
-            this.gBoxS2.SuspendLayout();
             this.panS4.SuspendLayout();
-            this.panS3.SuspendLayout();
-            this.panS2.SuspendLayout();
+            this.gBoxS1.SuspendLayout();
             this.panS1.SuspendLayout();
+            this.gBoxS3.SuspendLayout();
+            this.panS3.SuspendLayout();
+            this.gBoxS2.SuspendLayout();
+            this.panS2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUDShows)).BeginInit();
             this.SuspendLayout();
             // 
             // gBoxS4
@@ -119,6 +122,130 @@
             this.gBoxS4.TabIndex = 10;
             this.gBoxS4.TabStop = false;
             this.gBoxS4.Text = "Show 4";
+            // 
+            // panS4
+            // 
+            this.panS4.Controls.Add(this.txtS4C12);
+            this.panS4.Controls.Add(this.txtS4C1);
+            this.panS4.Controls.Add(this.txtS4C11);
+            this.panS4.Controls.Add(this.txtS4C2);
+            this.panS4.Controls.Add(this.txtS4C10);
+            this.panS4.Controls.Add(this.txtS4C3);
+            this.panS4.Controls.Add(this.txtS4C9);
+            this.panS4.Controls.Add(this.txtS4C4);
+            this.panS4.Controls.Add(this.txtS4C8);
+            this.panS4.Controls.Add(this.txtS4C5);
+            this.panS4.Controls.Add(this.txtS4C7);
+            this.panS4.Controls.Add(this.txtS4C6);
+            this.panS4.Location = new System.Drawing.Point(70, 39);
+            this.panS4.Name = "panS4";
+            this.panS4.Size = new System.Drawing.Size(1470, 21);
+            this.panS4.TabIndex = 12;
+            // 
+            // txtS4C12
+            // 
+            this.txtS4C12.Location = new System.Drawing.Point(1342, 0);
+            this.txtS4C12.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C12.Name = "txtS4C12";
+            this.txtS4C12.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C12.TabIndex = 40;
+            // 
+            // txtS4C1
+            // 
+            this.txtS4C1.Location = new System.Drawing.Point(0, 0);
+            this.txtS4C1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C1.Name = "txtS4C1";
+            this.txtS4C1.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C1.TabIndex = 29;
+            // 
+            // txtS4C11
+            // 
+            this.txtS4C11.Location = new System.Drawing.Point(1220, 0);
+            this.txtS4C11.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C11.Name = "txtS4C11";
+            this.txtS4C11.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C11.TabIndex = 39;
+            // 
+            // txtS4C2
+            // 
+            this.txtS4C2.Location = new System.Drawing.Point(122, 0);
+            this.txtS4C2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C2.Name = "txtS4C2";
+            this.txtS4C2.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C2.TabIndex = 30;
+            // 
+            // txtS4C10
+            // 
+            this.txtS4C10.Location = new System.Drawing.Point(1098, 0);
+            this.txtS4C10.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C10.Name = "txtS4C10";
+            this.txtS4C10.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C10.TabIndex = 38;
+            // 
+            // txtS4C3
+            // 
+            this.txtS4C3.Location = new System.Drawing.Point(244, 0);
+            this.txtS4C3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C3.Name = "txtS4C3";
+            this.txtS4C3.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C3.TabIndex = 31;
+            // 
+            // txtS4C9
+            // 
+            this.txtS4C9.Location = new System.Drawing.Point(976, 0);
+            this.txtS4C9.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C9.Name = "txtS4C9";
+            this.txtS4C9.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C9.TabIndex = 37;
+            // 
+            // txtS4C4
+            // 
+            this.txtS4C4.Location = new System.Drawing.Point(366, 0);
+            this.txtS4C4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C4.Name = "txtS4C4";
+            this.txtS4C4.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C4.TabIndex = 32;
+            // 
+            // txtS4C8
+            // 
+            this.txtS4C8.Location = new System.Drawing.Point(854, 0);
+            this.txtS4C8.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C8.Name = "txtS4C8";
+            this.txtS4C8.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C8.TabIndex = 36;
+            // 
+            // txtS4C5
+            // 
+            this.txtS4C5.Location = new System.Drawing.Point(488, 0);
+            this.txtS4C5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C5.Name = "txtS4C5";
+            this.txtS4C5.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C5.TabIndex = 33;
+            // 
+            // txtS4C7
+            // 
+            this.txtS4C7.Location = new System.Drawing.Point(732, 0);
+            this.txtS4C7.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C7.Name = "txtS4C7";
+            this.txtS4C7.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C7.TabIndex = 35;
+            // 
+            // txtS4C6
+            // 
+            this.txtS4C6.Location = new System.Drawing.Point(610, 0);
+            this.txtS4C6.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS4C6.Name = "txtS4C6";
+            this.txtS4C6.Size = new System.Drawing.Size(122, 20);
+            this.txtS4C6.TabIndex = 34;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 42);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(58, 13);
+            this.label6.TabIndex = 28;
+            this.label6.Text = "Characters";
             // 
             // label4
             // 
@@ -149,6 +276,25 @@
             this.gBoxS1.TabStop = false;
             this.gBoxS1.Text = "Show 1";
             // 
+            // panS1
+            // 
+            this.panS1.Controls.Add(this.txtS1C12);
+            this.panS1.Controls.Add(this.txtS1C1);
+            this.panS1.Controls.Add(this.txtS1C11);
+            this.panS1.Controls.Add(this.txtS1C2);
+            this.panS1.Controls.Add(this.txtS1C10);
+            this.panS1.Controls.Add(this.txtS1C3);
+            this.panS1.Controls.Add(this.txtS1C9);
+            this.panS1.Controls.Add(this.txtS1C4);
+            this.panS1.Controls.Add(this.txtS1C8);
+            this.panS1.Controls.Add(this.txtS1C5);
+            this.panS1.Controls.Add(this.txtS1C7);
+            this.panS1.Controls.Add(this.txtS1C6);
+            this.panS1.Location = new System.Drawing.Point(70, 39);
+            this.panS1.Name = "panS1";
+            this.panS1.Size = new System.Drawing.Size(1470, 21);
+            this.panS1.TabIndex = 28;
+            // 
             // txtS1C12
             // 
             this.txtS1C12.Location = new System.Drawing.Point(1342, 0);
@@ -156,6 +302,14 @@
             this.txtS1C12.Name = "txtS1C12";
             this.txtS1C12.Size = new System.Drawing.Size(122, 20);
             this.txtS1C12.TabIndex = 14;
+            // 
+            // txtS1C1
+            // 
+            this.txtS1C1.Location = new System.Drawing.Point(0, 0);
+            this.txtS1C1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS1C1.Name = "txtS1C1";
+            this.txtS1C1.Size = new System.Drawing.Size(122, 20);
+            this.txtS1C1.TabIndex = 3;
             // 
             // txtS1C11
             // 
@@ -165,6 +319,14 @@
             this.txtS1C11.Size = new System.Drawing.Size(122, 20);
             this.txtS1C11.TabIndex = 13;
             // 
+            // txtS1C2
+            // 
+            this.txtS1C2.Location = new System.Drawing.Point(122, 0);
+            this.txtS1C2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS1C2.Name = "txtS1C2";
+            this.txtS1C2.Size = new System.Drawing.Size(122, 20);
+            this.txtS1C2.TabIndex = 4;
+            // 
             // txtS1C10
             // 
             this.txtS1C10.Location = new System.Drawing.Point(1098, 0);
@@ -172,6 +334,14 @@
             this.txtS1C10.Name = "txtS1C10";
             this.txtS1C10.Size = new System.Drawing.Size(122, 20);
             this.txtS1C10.TabIndex = 12;
+            // 
+            // txtS1C3
+            // 
+            this.txtS1C3.Location = new System.Drawing.Point(244, 0);
+            this.txtS1C3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS1C3.Name = "txtS1C3";
+            this.txtS1C3.Size = new System.Drawing.Size(122, 20);
+            this.txtS1C3.TabIndex = 5;
             // 
             // txtS1C9
             // 
@@ -181,6 +351,14 @@
             this.txtS1C9.Size = new System.Drawing.Size(122, 20);
             this.txtS1C9.TabIndex = 11;
             // 
+            // txtS1C4
+            // 
+            this.txtS1C4.Location = new System.Drawing.Point(366, 0);
+            this.txtS1C4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS1C4.Name = "txtS1C4";
+            this.txtS1C4.Size = new System.Drawing.Size(122, 20);
+            this.txtS1C4.TabIndex = 6;
+            // 
             // txtS1C8
             // 
             this.txtS1C8.Location = new System.Drawing.Point(854, 0);
@@ -188,6 +366,14 @@
             this.txtS1C8.Name = "txtS1C8";
             this.txtS1C8.Size = new System.Drawing.Size(122, 20);
             this.txtS1C8.TabIndex = 10;
+            // 
+            // txtS1C5
+            // 
+            this.txtS1C5.Location = new System.Drawing.Point(488, 0);
+            this.txtS1C5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS1C5.Name = "txtS1C5";
+            this.txtS1C5.Size = new System.Drawing.Size(122, 20);
+            this.txtS1C5.TabIndex = 7;
             // 
             // txtS1C7
             // 
@@ -204,46 +390,6 @@
             this.txtS1C6.Name = "txtS1C6";
             this.txtS1C6.Size = new System.Drawing.Size(122, 20);
             this.txtS1C6.TabIndex = 8;
-            // 
-            // txtS1C5
-            // 
-            this.txtS1C5.Location = new System.Drawing.Point(488, 0);
-            this.txtS1C5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS1C5.Name = "txtS1C5";
-            this.txtS1C5.Size = new System.Drawing.Size(122, 20);
-            this.txtS1C5.TabIndex = 7;
-            // 
-            // txtS1C4
-            // 
-            this.txtS1C4.Location = new System.Drawing.Point(366, 0);
-            this.txtS1C4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS1C4.Name = "txtS1C4";
-            this.txtS1C4.Size = new System.Drawing.Size(122, 20);
-            this.txtS1C4.TabIndex = 6;
-            // 
-            // txtS1C3
-            // 
-            this.txtS1C3.Location = new System.Drawing.Point(244, 0);
-            this.txtS1C3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS1C3.Name = "txtS1C3";
-            this.txtS1C3.Size = new System.Drawing.Size(122, 20);
-            this.txtS1C3.TabIndex = 5;
-            // 
-            // txtS1C2
-            // 
-            this.txtS1C2.Location = new System.Drawing.Point(122, 0);
-            this.txtS1C2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS1C2.Name = "txtS1C2";
-            this.txtS1C2.Size = new System.Drawing.Size(122, 20);
-            this.txtS1C2.TabIndex = 4;
-            // 
-            // txtS1C1
-            // 
-            this.txtS1C1.Location = new System.Drawing.Point(0, 0);
-            this.txtS1C1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS1C1.Name = "txtS1C1";
-            this.txtS1C1.Size = new System.Drawing.Size(122, 20);
-            this.txtS1C1.TabIndex = 3;
             // 
             // label12
             // 
@@ -283,6 +429,121 @@
             this.gBoxS3.TabStop = false;
             this.gBoxS3.Text = "Show 3";
             // 
+            // panS3
+            // 
+            this.panS3.Controls.Add(this.txtS3C12);
+            this.panS3.Controls.Add(this.txtS3C1);
+            this.panS3.Controls.Add(this.txtS3C5);
+            this.panS3.Controls.Add(this.txtS3C11);
+            this.panS3.Controls.Add(this.txtS3C4);
+            this.panS3.Controls.Add(this.txtS3C6);
+            this.panS3.Controls.Add(this.txtS3C10);
+            this.panS3.Controls.Add(this.txtS3C3);
+            this.panS3.Controls.Add(this.txtS3C7);
+            this.panS3.Controls.Add(this.txtS3C9);
+            this.panS3.Controls.Add(this.txtS3C2);
+            this.panS3.Controls.Add(this.txtS3C8);
+            this.panS3.Location = new System.Drawing.Point(70, 39);
+            this.panS3.Name = "panS3";
+            this.panS3.Size = new System.Drawing.Size(1470, 21);
+            this.panS3.TabIndex = 12;
+            // 
+            // txtS3C12
+            // 
+            this.txtS3C12.Location = new System.Drawing.Point(1342, 0);
+            this.txtS3C12.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C12.Name = "txtS3C12";
+            this.txtS3C12.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C12.TabIndex = 40;
+            // 
+            // txtS3C1
+            // 
+            this.txtS3C1.Location = new System.Drawing.Point(0, 0);
+            this.txtS3C1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C1.Name = "txtS3C1";
+            this.txtS3C1.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C1.TabIndex = 29;
+            // 
+            // txtS3C5
+            // 
+            this.txtS3C5.Location = new System.Drawing.Point(488, 0);
+            this.txtS3C5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C5.Name = "txtS3C5";
+            this.txtS3C5.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C5.TabIndex = 33;
+            // 
+            // txtS3C11
+            // 
+            this.txtS3C11.Location = new System.Drawing.Point(1220, 0);
+            this.txtS3C11.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C11.Name = "txtS3C11";
+            this.txtS3C11.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C11.TabIndex = 39;
+            // 
+            // txtS3C4
+            // 
+            this.txtS3C4.Location = new System.Drawing.Point(366, 0);
+            this.txtS3C4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C4.Name = "txtS3C4";
+            this.txtS3C4.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C4.TabIndex = 32;
+            // 
+            // txtS3C6
+            // 
+            this.txtS3C6.Location = new System.Drawing.Point(610, 0);
+            this.txtS3C6.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C6.Name = "txtS3C6";
+            this.txtS3C6.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C6.TabIndex = 34;
+            // 
+            // txtS3C10
+            // 
+            this.txtS3C10.Location = new System.Drawing.Point(1098, 0);
+            this.txtS3C10.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C10.Name = "txtS3C10";
+            this.txtS3C10.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C10.TabIndex = 38;
+            // 
+            // txtS3C3
+            // 
+            this.txtS3C3.Location = new System.Drawing.Point(244, 0);
+            this.txtS3C3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C3.Name = "txtS3C3";
+            this.txtS3C3.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C3.TabIndex = 31;
+            // 
+            // txtS3C7
+            // 
+            this.txtS3C7.Location = new System.Drawing.Point(732, 0);
+            this.txtS3C7.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C7.Name = "txtS3C7";
+            this.txtS3C7.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C7.TabIndex = 35;
+            // 
+            // txtS3C9
+            // 
+            this.txtS3C9.Location = new System.Drawing.Point(976, 0);
+            this.txtS3C9.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C9.Name = "txtS3C9";
+            this.txtS3C9.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C9.TabIndex = 37;
+            // 
+            // txtS3C2
+            // 
+            this.txtS3C2.Location = new System.Drawing.Point(122, 0);
+            this.txtS3C2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C2.Name = "txtS3C2";
+            this.txtS3C2.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C2.TabIndex = 30;
+            // 
+            // txtS3C8
+            // 
+            this.txtS3C8.Location = new System.Drawing.Point(854, 0);
+            this.txtS3C8.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS3C8.Name = "txtS3C8";
+            this.txtS3C8.Size = new System.Drawing.Size(122, 20);
+            this.txtS3C8.TabIndex = 36;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -299,6 +560,15 @@
             this.txtS3Name.Size = new System.Drawing.Size(244, 20);
             this.txtS3Name.TabIndex = 2;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 42);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 13);
+            this.label5.TabIndex = 28;
+            this.label5.Text = "Characters";
+            // 
             // gBoxS2
             // 
             this.gBoxS2.Controls.Add(this.panS2);
@@ -312,6 +582,25 @@
             this.gBoxS2.TabStop = false;
             this.gBoxS2.Text = "Show 2";
             // 
+            // panS2
+            // 
+            this.panS2.Controls.Add(this.txtS2C12);
+            this.panS2.Controls.Add(this.txtS2C1);
+            this.panS2.Controls.Add(this.txtS2C11);
+            this.panS2.Controls.Add(this.txtS2C2);
+            this.panS2.Controls.Add(this.txtS2C10);
+            this.panS2.Controls.Add(this.txtS2C3);
+            this.panS2.Controls.Add(this.txtS2C9);
+            this.panS2.Controls.Add(this.txtS2C4);
+            this.panS2.Controls.Add(this.txtS2C8);
+            this.panS2.Controls.Add(this.txtS2C5);
+            this.panS2.Controls.Add(this.txtS2C7);
+            this.panS2.Controls.Add(this.txtS2C6);
+            this.panS2.Location = new System.Drawing.Point(70, 39);
+            this.panS2.Name = "panS2";
+            this.panS2.Size = new System.Drawing.Size(1470, 21);
+            this.panS2.TabIndex = 12;
+            // 
             // txtS2C12
             // 
             this.txtS2C12.Location = new System.Drawing.Point(1342, 0);
@@ -319,6 +608,14 @@
             this.txtS2C12.Name = "txtS2C12";
             this.txtS2C12.Size = new System.Drawing.Size(122, 20);
             this.txtS2C12.TabIndex = 27;
+            // 
+            // txtS2C1
+            // 
+            this.txtS2C1.Location = new System.Drawing.Point(0, 0);
+            this.txtS2C1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS2C1.Name = "txtS2C1";
+            this.txtS2C1.Size = new System.Drawing.Size(122, 20);
+            this.txtS2C1.TabIndex = 16;
             // 
             // txtS2C11
             // 
@@ -328,6 +625,14 @@
             this.txtS2C11.Size = new System.Drawing.Size(122, 20);
             this.txtS2C11.TabIndex = 26;
             // 
+            // txtS2C2
+            // 
+            this.txtS2C2.Location = new System.Drawing.Point(122, 0);
+            this.txtS2C2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS2C2.Name = "txtS2C2";
+            this.txtS2C2.Size = new System.Drawing.Size(122, 20);
+            this.txtS2C2.TabIndex = 17;
+            // 
             // txtS2C10
             // 
             this.txtS2C10.Location = new System.Drawing.Point(1098, 0);
@@ -335,6 +640,14 @@
             this.txtS2C10.Name = "txtS2C10";
             this.txtS2C10.Size = new System.Drawing.Size(122, 20);
             this.txtS2C10.TabIndex = 25;
+            // 
+            // txtS2C3
+            // 
+            this.txtS2C3.Location = new System.Drawing.Point(244, 0);
+            this.txtS2C3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS2C3.Name = "txtS2C3";
+            this.txtS2C3.Size = new System.Drawing.Size(122, 20);
+            this.txtS2C3.TabIndex = 18;
             // 
             // txtS2C9
             // 
@@ -344,6 +657,14 @@
             this.txtS2C9.Size = new System.Drawing.Size(122, 20);
             this.txtS2C9.TabIndex = 24;
             // 
+            // txtS2C4
+            // 
+            this.txtS2C4.Location = new System.Drawing.Point(366, 0);
+            this.txtS2C4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS2C4.Name = "txtS2C4";
+            this.txtS2C4.Size = new System.Drawing.Size(122, 20);
+            this.txtS2C4.TabIndex = 19;
+            // 
             // txtS2C8
             // 
             this.txtS2C8.Location = new System.Drawing.Point(854, 0);
@@ -351,6 +672,14 @@
             this.txtS2C8.Name = "txtS2C8";
             this.txtS2C8.Size = new System.Drawing.Size(122, 20);
             this.txtS2C8.TabIndex = 23;
+            // 
+            // txtS2C5
+            // 
+            this.txtS2C5.Location = new System.Drawing.Point(488, 0);
+            this.txtS2C5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
+            this.txtS2C5.Name = "txtS2C5";
+            this.txtS2C5.Size = new System.Drawing.Size(122, 20);
+            this.txtS2C5.TabIndex = 20;
             // 
             // txtS2C7
             // 
@@ -367,46 +696,6 @@
             this.txtS2C6.Name = "txtS2C6";
             this.txtS2C6.Size = new System.Drawing.Size(122, 20);
             this.txtS2C6.TabIndex = 21;
-            // 
-            // txtS2C5
-            // 
-            this.txtS2C5.Location = new System.Drawing.Point(488, 0);
-            this.txtS2C5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS2C5.Name = "txtS2C5";
-            this.txtS2C5.Size = new System.Drawing.Size(122, 20);
-            this.txtS2C5.TabIndex = 20;
-            // 
-            // txtS2C4
-            // 
-            this.txtS2C4.Location = new System.Drawing.Point(366, 0);
-            this.txtS2C4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS2C4.Name = "txtS2C4";
-            this.txtS2C4.Size = new System.Drawing.Size(122, 20);
-            this.txtS2C4.TabIndex = 19;
-            // 
-            // txtS2C3
-            // 
-            this.txtS2C3.Location = new System.Drawing.Point(244, 0);
-            this.txtS2C3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS2C3.Name = "txtS2C3";
-            this.txtS2C3.Size = new System.Drawing.Size(122, 20);
-            this.txtS2C3.TabIndex = 18;
-            // 
-            // txtS2C2
-            // 
-            this.txtS2C2.Location = new System.Drawing.Point(122, 0);
-            this.txtS2C2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS2C2.Name = "txtS2C2";
-            this.txtS2C2.Size = new System.Drawing.Size(122, 20);
-            this.txtS2C2.TabIndex = 17;
-            // 
-            // txtS2C1
-            // 
-            this.txtS2C1.Location = new System.Drawing.Point(0, 0);
-            this.txtS2C1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS2C1.Name = "txtS2C1";
-            this.txtS2C1.Size = new System.Drawing.Size(122, 20);
-            this.txtS2C1.TabIndex = 16;
             // 
             // label46
             // 
@@ -443,297 +732,45 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // txtS3C12
+            // label7
             // 
-            this.txtS3C12.Location = new System.Drawing.Point(1342, 0);
-            this.txtS3C12.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C12.Name = "txtS3C12";
-            this.txtS3C12.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C12.TabIndex = 40;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 346);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 13);
+            this.label7.TabIndex = 29;
+            this.label7.Text = "Shows";
             // 
-            // txtS3C11
+            // numUDShows
             // 
-            this.txtS3C11.Location = new System.Drawing.Point(1220, 0);
-            this.txtS3C11.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C11.Name = "txtS3C11";
-            this.txtS3C11.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C11.TabIndex = 39;
-            // 
-            // txtS3C10
-            // 
-            this.txtS3C10.Location = new System.Drawing.Point(1098, 0);
-            this.txtS3C10.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C10.Name = "txtS3C10";
-            this.txtS3C10.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C10.TabIndex = 38;
-            // 
-            // txtS3C9
-            // 
-            this.txtS3C9.Location = new System.Drawing.Point(976, 0);
-            this.txtS3C9.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C9.Name = "txtS3C9";
-            this.txtS3C9.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C9.TabIndex = 37;
-            // 
-            // txtS3C8
-            // 
-            this.txtS3C8.Location = new System.Drawing.Point(854, 0);
-            this.txtS3C8.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C8.Name = "txtS3C8";
-            this.txtS3C8.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C8.TabIndex = 36;
-            // 
-            // txtS3C7
-            // 
-            this.txtS3C7.Location = new System.Drawing.Point(732, 0);
-            this.txtS3C7.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C7.Name = "txtS3C7";
-            this.txtS3C7.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C7.TabIndex = 35;
-            // 
-            // txtS3C6
-            // 
-            this.txtS3C6.Location = new System.Drawing.Point(610, 0);
-            this.txtS3C6.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C6.Name = "txtS3C6";
-            this.txtS3C6.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C6.TabIndex = 34;
-            // 
-            // txtS3C5
-            // 
-            this.txtS3C5.Location = new System.Drawing.Point(488, 0);
-            this.txtS3C5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C5.Name = "txtS3C5";
-            this.txtS3C5.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C5.TabIndex = 33;
-            // 
-            // txtS3C4
-            // 
-            this.txtS3C4.Location = new System.Drawing.Point(366, 0);
-            this.txtS3C4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C4.Name = "txtS3C4";
-            this.txtS3C4.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C4.TabIndex = 32;
-            // 
-            // txtS3C3
-            // 
-            this.txtS3C3.Location = new System.Drawing.Point(244, 0);
-            this.txtS3C3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C3.Name = "txtS3C3";
-            this.txtS3C3.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C3.TabIndex = 31;
-            // 
-            // txtS3C2
-            // 
-            this.txtS3C2.Location = new System.Drawing.Point(122, 0);
-            this.txtS3C2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C2.Name = "txtS3C2";
-            this.txtS3C2.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C2.TabIndex = 30;
-            // 
-            // txtS3C1
-            // 
-            this.txtS3C1.Location = new System.Drawing.Point(0, 0);
-            this.txtS3C1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS3C1.Name = "txtS3C1";
-            this.txtS3C1.Size = new System.Drawing.Size(122, 20);
-            this.txtS3C1.TabIndex = 29;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 42);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(58, 13);
-            this.label5.TabIndex = 28;
-            this.label5.Text = "Characters";
-            // 
-            // txtS4C12
-            // 
-            this.txtS4C12.Location = new System.Drawing.Point(1342, 0);
-            this.txtS4C12.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C12.Name = "txtS4C12";
-            this.txtS4C12.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C12.TabIndex = 40;
-            // 
-            // txtS4C11
-            // 
-            this.txtS4C11.Location = new System.Drawing.Point(1220, 0);
-            this.txtS4C11.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C11.Name = "txtS4C11";
-            this.txtS4C11.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C11.TabIndex = 39;
-            // 
-            // txtS4C10
-            // 
-            this.txtS4C10.Location = new System.Drawing.Point(1098, 0);
-            this.txtS4C10.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C10.Name = "txtS4C10";
-            this.txtS4C10.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C10.TabIndex = 38;
-            // 
-            // txtS4C9
-            // 
-            this.txtS4C9.Location = new System.Drawing.Point(976, 0);
-            this.txtS4C9.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C9.Name = "txtS4C9";
-            this.txtS4C9.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C9.TabIndex = 37;
-            // 
-            // txtS4C8
-            // 
-            this.txtS4C8.Location = new System.Drawing.Point(854, 0);
-            this.txtS4C8.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C8.Name = "txtS4C8";
-            this.txtS4C8.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C8.TabIndex = 36;
-            // 
-            // txtS4C7
-            // 
-            this.txtS4C7.Location = new System.Drawing.Point(732, 0);
-            this.txtS4C7.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C7.Name = "txtS4C7";
-            this.txtS4C7.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C7.TabIndex = 35;
-            // 
-            // txtS4C6
-            // 
-            this.txtS4C6.Location = new System.Drawing.Point(610, 0);
-            this.txtS4C6.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C6.Name = "txtS4C6";
-            this.txtS4C6.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C6.TabIndex = 34;
-            // 
-            // txtS4C5
-            // 
-            this.txtS4C5.Location = new System.Drawing.Point(488, 0);
-            this.txtS4C5.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C5.Name = "txtS4C5";
-            this.txtS4C5.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C5.TabIndex = 33;
-            // 
-            // txtS4C4
-            // 
-            this.txtS4C4.Location = new System.Drawing.Point(366, 0);
-            this.txtS4C4.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C4.Name = "txtS4C4";
-            this.txtS4C4.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C4.TabIndex = 32;
-            // 
-            // txtS4C3
-            // 
-            this.txtS4C3.Location = new System.Drawing.Point(244, 0);
-            this.txtS4C3.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C3.Name = "txtS4C3";
-            this.txtS4C3.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C3.TabIndex = 31;
-            // 
-            // txtS4C2
-            // 
-            this.txtS4C2.Location = new System.Drawing.Point(122, 0);
-            this.txtS4C2.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C2.Name = "txtS4C2";
-            this.txtS4C2.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C2.TabIndex = 30;
-            // 
-            // txtS4C1
-            // 
-            this.txtS4C1.Location = new System.Drawing.Point(0, 0);
-            this.txtS4C1.Margin = new System.Windows.Forms.Padding(0, 3, 0, 3);
-            this.txtS4C1.Name = "txtS4C1";
-            this.txtS4C1.Size = new System.Drawing.Size(122, 20);
-            this.txtS4C1.TabIndex = 29;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 42);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
-            this.label6.TabIndex = 28;
-            this.label6.Text = "Characters";
-            // 
-            // panS4
-            // 
-            this.panS4.Controls.Add(this.txtS4C12);
-            this.panS4.Controls.Add(this.txtS4C1);
-            this.panS4.Controls.Add(this.txtS4C11);
-            this.panS4.Controls.Add(this.txtS4C2);
-            this.panS4.Controls.Add(this.txtS4C10);
-            this.panS4.Controls.Add(this.txtS4C3);
-            this.panS4.Controls.Add(this.txtS4C9);
-            this.panS4.Controls.Add(this.txtS4C4);
-            this.panS4.Controls.Add(this.txtS4C8);
-            this.panS4.Controls.Add(this.txtS4C5);
-            this.panS4.Controls.Add(this.txtS4C7);
-            this.panS4.Controls.Add(this.txtS4C6);
-            this.panS4.Location = new System.Drawing.Point(70, 39);
-            this.panS4.Name = "panS4";
-            this.panS4.Size = new System.Drawing.Size(1470, 21);
-            this.panS4.TabIndex = 12;
-            // 
-            // panS3
-            // 
-            this.panS3.Controls.Add(this.txtS3C12);
-            this.panS3.Controls.Add(this.txtS3C1);
-            this.panS3.Controls.Add(this.txtS3C5);
-            this.panS3.Controls.Add(this.txtS3C11);
-            this.panS3.Controls.Add(this.txtS3C4);
-            this.panS3.Controls.Add(this.txtS3C6);
-            this.panS3.Controls.Add(this.txtS3C10);
-            this.panS3.Controls.Add(this.txtS3C3);
-            this.panS3.Controls.Add(this.txtS3C7);
-            this.panS3.Controls.Add(this.txtS3C9);
-            this.panS3.Controls.Add(this.txtS3C2);
-            this.panS3.Controls.Add(this.txtS3C8);
-            this.panS3.Location = new System.Drawing.Point(70, 39);
-            this.panS3.Name = "panS3";
-            this.panS3.Size = new System.Drawing.Size(1470, 21);
-            this.panS3.TabIndex = 12;
-            // 
-            // panS2
-            // 
-            this.panS2.Controls.Add(this.txtS2C12);
-            this.panS2.Controls.Add(this.txtS2C1);
-            this.panS2.Controls.Add(this.txtS2C11);
-            this.panS2.Controls.Add(this.txtS2C2);
-            this.panS2.Controls.Add(this.txtS2C10);
-            this.panS2.Controls.Add(this.txtS2C3);
-            this.panS2.Controls.Add(this.txtS2C9);
-            this.panS2.Controls.Add(this.txtS2C4);
-            this.panS2.Controls.Add(this.txtS2C8);
-            this.panS2.Controls.Add(this.txtS2C5);
-            this.panS2.Controls.Add(this.txtS2C7);
-            this.panS2.Controls.Add(this.txtS2C6);
-            this.panS2.Location = new System.Drawing.Point(70, 39);
-            this.panS2.Name = "panS2";
-            this.panS2.Size = new System.Drawing.Size(1470, 21);
-            this.panS2.TabIndex = 12;
-            // 
-            // panS1
-            // 
-            this.panS1.Controls.Add(this.txtS1C12);
-            this.panS1.Controls.Add(this.txtS1C1);
-            this.panS1.Controls.Add(this.txtS1C11);
-            this.panS1.Controls.Add(this.txtS1C2);
-            this.panS1.Controls.Add(this.txtS1C10);
-            this.panS1.Controls.Add(this.txtS1C3);
-            this.panS1.Controls.Add(this.txtS1C9);
-            this.panS1.Controls.Add(this.txtS1C4);
-            this.panS1.Controls.Add(this.txtS1C8);
-            this.panS1.Controls.Add(this.txtS1C5);
-            this.panS1.Controls.Add(this.txtS1C7);
-            this.panS1.Controls.Add(this.txtS1C6);
-            this.panS1.Location = new System.Drawing.Point(70, 39);
-            this.panS1.Name = "panS1";
-            this.panS1.Size = new System.Drawing.Size(1470, 21);
-            this.panS1.TabIndex = 28;
+            this.numUDShows.Location = new System.Drawing.Point(54, 344);
+            this.numUDShows.Maximum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numUDShows.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numUDShows.Name = "numUDShows";
+            this.numUDShows.Size = new System.Drawing.Size(43, 20);
+            this.numUDShows.TabIndex = 30;
+            this.numUDShows.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.numUDShows.ValueChanged += new System.EventHandler(this.numUDShows_ValueChanged);
             // 
             // SetupCasting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1572, 461);
+            this.Controls.Add(this.numUDShows);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gBoxS4);
             this.Controls.Add(this.gBoxS1);
@@ -743,21 +780,23 @@
             this.Text = "SetupCasting";
             this.gBoxS4.ResumeLayout(false);
             this.gBoxS4.PerformLayout();
-            this.gBoxS1.ResumeLayout(false);
-            this.gBoxS1.PerformLayout();
-            this.gBoxS3.ResumeLayout(false);
-            this.gBoxS3.PerformLayout();
-            this.gBoxS2.ResumeLayout(false);
-            this.gBoxS2.PerformLayout();
             this.panS4.ResumeLayout(false);
             this.panS4.PerformLayout();
-            this.panS3.ResumeLayout(false);
-            this.panS3.PerformLayout();
-            this.panS2.ResumeLayout(false);
-            this.panS2.PerformLayout();
+            this.gBoxS1.ResumeLayout(false);
+            this.gBoxS1.PerformLayout();
             this.panS1.ResumeLayout(false);
             this.panS1.PerformLayout();
+            this.gBoxS3.ResumeLayout(false);
+            this.gBoxS3.PerformLayout();
+            this.panS3.ResumeLayout(false);
+            this.panS3.PerformLayout();
+            this.gBoxS2.ResumeLayout(false);
+            this.gBoxS2.PerformLayout();
+            this.panS2.ResumeLayout(false);
+            this.panS2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numUDShows)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -832,5 +871,7 @@
         private System.Windows.Forms.Panel panS1;
         private System.Windows.Forms.Panel panS3;
         private System.Windows.Forms.Panel panS2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numUDShows;
     }
 }
