@@ -29,22 +29,21 @@ namespace LUTGCaster
             foreach (Show s in shows)
             {
                 GroupBox gBox = new GroupBox();
+                gBox = (GroupBox)Controls.Find("gBoxS" + (shows.IndexOf(s) + 1), false)[0];
+
                 for (int i = 0; i < s.roles.Count; i++)
                 {
+                    
                     for (int j = 0; j < 6; j++)
                     {
                         TextBox tb = new TextBox();
                         tb = new TextBox();
-                        gBox = (GroupBox)Controls.Find("gBoxS" + (shows.IndexOf(s) + 1), false)[0];
                         gBox.Controls.Add(tb);
                         gBox.Text = s.name;
                         tb.BackColor = SystemColors.Window;
                         tb.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
                         tb.Location = new Point(74 + (i * 122), 39 + (j * 20));
                         tb.Margin = new Padding(0);
-                        string st = "lblS" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
-                        Label l = (Label)Controls.Find("lblS" + (shows.IndexOf(s) + 1) + "C" + (i + 1), true)[0];
-                        l.Text = s.roles[i].name;
                         string n = "txtS1C" + (i + 1);
                         switch (j)
                         {
@@ -75,9 +74,27 @@ namespace LUTGCaster
                         s.roles[i].addTextBox(tb);
 
                     }
+                    Button btn = new Button();
+                    gBox.Controls.Add(btn);
+                    btn.Location = new Point(115 + (i * 122), 19);
+                    btn.Name = "btnCastS" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
+                    btn.Size = new Size(50, 20);
+                    btn.Text = "Cast";
+                    btn.UseVisualStyleBackColor = true;
+                    btn.Click += new EventHandler(CastCharacter);
+
+                    Label l = (Label)Controls.Find("lblS" + (shows.IndexOf(s) + 1) + "C" + (i + 1), true)[0];
+                    l.Text = s.roles[i].name;
                 }
             }
 
+        }
+
+        private void CastCharacter(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+            Console.WriteLine(btn.Name);
+            int charNum = (int)char.GetNumericValue(btn.Name, 10) - 1;
         }
 
         private void UpdateColours(TextBox tb)
@@ -211,7 +228,7 @@ namespace LUTGCaster
         {
             foreach (TextBox tb in nameBoxes)
             {
-                DetectLocks(tb);
+                //DetectLocks(tb);
             }
         }
     }

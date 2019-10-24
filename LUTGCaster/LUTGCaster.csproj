@@ -55,7 +55,6 @@
     <Compile Include="CastingSheet.Designer.cs">
       <DependentUpon>CastingSheet.cs</DependentUpon>
     </Compile>
-    <Content Include="Class1.txt" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SetupCasting.cs">
