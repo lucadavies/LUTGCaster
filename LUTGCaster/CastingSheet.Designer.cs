@@ -29,18 +29,6 @@
         private void InitializeComponent()
         {
             this.gBoxS4 = new System.Windows.Forms.GroupBox();
-            this.lblS4C12 = new System.Windows.Forms.Label();
-            this.lblS4C11 = new System.Windows.Forms.Label();
-            this.lblS4C10 = new System.Windows.Forms.Label();
-            this.lblS4C9 = new System.Windows.Forms.Label();
-            this.lblS4C8 = new System.Windows.Forms.Label();
-            this.lblS4C7 = new System.Windows.Forms.Label();
-            this.lblS4C6 = new System.Windows.Forms.Label();
-            this.lblS4C5 = new System.Windows.Forms.Label();
-            this.lblS4C4 = new System.Windows.Forms.Label();
-            this.lblS4C3 = new System.Windows.Forms.Label();
-            this.lblS4C2 = new System.Windows.Forms.Label();
-            this.lblS4C1 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
@@ -49,18 +37,6 @@
             this.label44 = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.gBoxS3 = new System.Windows.Forms.GroupBox();
-            this.lblS3C12 = new System.Windows.Forms.Label();
-            this.lblS3C11 = new System.Windows.Forms.Label();
-            this.lblS3C10 = new System.Windows.Forms.Label();
-            this.lblS3C9 = new System.Windows.Forms.Label();
-            this.lblS3C8 = new System.Windows.Forms.Label();
-            this.lblS3C7 = new System.Windows.Forms.Label();
-            this.lblS3C6 = new System.Windows.Forms.Label();
-            this.lblS3C5 = new System.Windows.Forms.Label();
-            this.lblS3C4 = new System.Windows.Forms.Label();
-            this.lblS3C3 = new System.Windows.Forms.Label();
-            this.lblS3C2 = new System.Windows.Forms.Label();
-            this.lblS3C1 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -69,18 +45,6 @@
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.gBoxS2 = new System.Windows.Forms.GroupBox();
-            this.lblS2C12 = new System.Windows.Forms.Label();
-            this.lblS2C11 = new System.Windows.Forms.Label();
-            this.lblS2C10 = new System.Windows.Forms.Label();
-            this.lblS2C9 = new System.Windows.Forms.Label();
-            this.lblS2C8 = new System.Windows.Forms.Label();
-            this.lblS2C7 = new System.Windows.Forms.Label();
-            this.lblS2C6 = new System.Windows.Forms.Label();
-            this.lblS2C5 = new System.Windows.Forms.Label();
-            this.lblS2C4 = new System.Windows.Forms.Label();
-            this.lblS2C3 = new System.Windows.Forms.Label();
-            this.lblS2C2 = new System.Windows.Forms.Label();
-            this.lblS2C1 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -89,18 +53,6 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.gBoxS1 = new System.Windows.Forms.GroupBox();
-            this.lblS1C12 = new System.Windows.Forms.Label();
-            this.lblS1C11 = new System.Windows.Forms.Label();
-            this.lblS1C10 = new System.Windows.Forms.Label();
-            this.lblS1C9 = new System.Windows.Forms.Label();
-            this.lblS1C8 = new System.Windows.Forms.Label();
-            this.lblS1C7 = new System.Windows.Forms.Label();
-            this.lblS1C6 = new System.Windows.Forms.Label();
-            this.lblS1C5 = new System.Windows.Forms.Label();
-            this.lblS1C4 = new System.Windows.Forms.Label();
-            this.lblS1C3 = new System.Windows.Forms.Label();
-            this.lblS1C2 = new System.Windows.Forms.Label();
-            this.lblS1C1 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -119,18 +71,6 @@
             // 
             // gBoxS4
             // 
-            this.gBoxS4.Controls.Add(this.lblS4C12);
-            this.gBoxS4.Controls.Add(this.lblS4C11);
-            this.gBoxS4.Controls.Add(this.lblS4C10);
-            this.gBoxS4.Controls.Add(this.lblS4C9);
-            this.gBoxS4.Controls.Add(this.lblS4C8);
-            this.gBoxS4.Controls.Add(this.lblS4C7);
-            this.gBoxS4.Controls.Add(this.lblS4C6);
-            this.gBoxS4.Controls.Add(this.lblS4C5);
-            this.gBoxS4.Controls.Add(this.lblS4C4);
-            this.gBoxS4.Controls.Add(this.lblS4C3);
-            this.gBoxS4.Controls.Add(this.lblS4C2);
-            this.gBoxS4.Controls.Add(this.lblS4C1);
             this.gBoxS4.Controls.Add(this.label39);
             this.gBoxS4.Controls.Add(this.label40);
             this.gBoxS4.Controls.Add(this.label41);
@@ -138,132 +78,12 @@
             this.gBoxS4.Controls.Add(this.label43);
             this.gBoxS4.Controls.Add(this.label44);
             this.gBoxS4.Controls.Add(this.label45);
-            this.gBoxS4.Location = new System.Drawing.Point(12, 548);
+            this.gBoxS4.Location = new System.Drawing.Point(12, 600);
             this.gBoxS4.Name = "gBoxS4";
             this.gBoxS4.Size = new System.Drawing.Size(1544, 172);
             this.gBoxS4.TabIndex = 2;
             this.gBoxS4.TabStop = false;
             this.gBoxS4.Text = "Show 4";
-            // 
-            // lblS4C12
-            // 
-            this.lblS4C12.AutoSize = true;
-            this.lblS4C12.Location = new System.Drawing.Point(1413, 15);
-            this.lblS4C12.Name = "lblS4C12";
-            this.lblS4C12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C12.Size = new System.Drawing.Size(44, 23);
-            this.lblS4C12.TabIndex = 189;
-            this.lblS4C12.Text = "Char 12";
-            // 
-            // lblS4C11
-            // 
-            this.lblS4C11.AutoSize = true;
-            this.lblS4C11.Location = new System.Drawing.Point(1291, 15);
-            this.lblS4C11.Name = "lblS4C11";
-            this.lblS4C11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C11.Size = new System.Drawing.Size(44, 23);
-            this.lblS4C11.TabIndex = 188;
-            this.lblS4C11.Text = "Char 11";
-            // 
-            // lblS4C10
-            // 
-            this.lblS4C10.AutoSize = true;
-            this.lblS4C10.Location = new System.Drawing.Point(1169, 15);
-            this.lblS4C10.Name = "lblS4C10";
-            this.lblS4C10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C10.Size = new System.Drawing.Size(44, 23);
-            this.lblS4C10.TabIndex = 187;
-            this.lblS4C10.Text = "Char 10";
-            // 
-            // lblS4C9
-            // 
-            this.lblS4C9.AutoSize = true;
-            this.lblS4C9.Location = new System.Drawing.Point(1047, 15);
-            this.lblS4C9.Name = "lblS4C9";
-            this.lblS4C9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C9.Size = new System.Drawing.Size(38, 23);
-            this.lblS4C9.TabIndex = 186;
-            this.lblS4C9.Text = "Char 9";
-            // 
-            // lblS4C8
-            // 
-            this.lblS4C8.AutoSize = true;
-            this.lblS4C8.Location = new System.Drawing.Point(925, 15);
-            this.lblS4C8.Name = "lblS4C8";
-            this.lblS4C8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C8.Size = new System.Drawing.Size(38, 23);
-            this.lblS4C8.TabIndex = 185;
-            this.lblS4C8.Text = "Char 8";
-            // 
-            // lblS4C7
-            // 
-            this.lblS4C7.AutoSize = true;
-            this.lblS4C7.Location = new System.Drawing.Point(803, 15);
-            this.lblS4C7.Name = "lblS4C7";
-            this.lblS4C7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C7.Size = new System.Drawing.Size(38, 23);
-            this.lblS4C7.TabIndex = 184;
-            this.lblS4C7.Text = "Char 7";
-            // 
-            // lblS4C6
-            // 
-            this.lblS4C6.AutoSize = true;
-            this.lblS4C6.Location = new System.Drawing.Point(681, 15);
-            this.lblS4C6.Name = "lblS4C6";
-            this.lblS4C6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C6.Size = new System.Drawing.Size(38, 23);
-            this.lblS4C6.TabIndex = 183;
-            this.lblS4C6.Text = "Char 6";
-            // 
-            // lblS4C5
-            // 
-            this.lblS4C5.AutoSize = true;
-            this.lblS4C5.Location = new System.Drawing.Point(559, 15);
-            this.lblS4C5.Name = "lblS4C5";
-            this.lblS4C5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C5.Size = new System.Drawing.Size(38, 23);
-            this.lblS4C5.TabIndex = 182;
-            this.lblS4C5.Text = "Char 5";
-            // 
-            // lblS4C4
-            // 
-            this.lblS4C4.AutoSize = true;
-            this.lblS4C4.Location = new System.Drawing.Point(437, 15);
-            this.lblS4C4.Name = "lblS4C4";
-            this.lblS4C4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C4.Size = new System.Drawing.Size(38, 23);
-            this.lblS4C4.TabIndex = 117;
-            this.lblS4C4.Text = "Char 4";
-            // 
-            // lblS4C3
-            // 
-            this.lblS4C3.AutoSize = true;
-            this.lblS4C3.Location = new System.Drawing.Point(315, 15);
-            this.lblS4C3.Name = "lblS4C3";
-            this.lblS4C3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C3.Size = new System.Drawing.Size(38, 23);
-            this.lblS4C3.TabIndex = 116;
-            this.lblS4C3.Text = "Char 3";
-            // 
-            // lblS4C2
-            // 
-            this.lblS4C2.AutoSize = true;
-            this.lblS4C2.Location = new System.Drawing.Point(193, 15);
-            this.lblS4C2.Name = "lblS4C2";
-            this.lblS4C2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C2.Size = new System.Drawing.Size(38, 23);
-            this.lblS4C2.TabIndex = 115;
-            this.lblS4C2.Text = "Char 2";
-            // 
-            // lblS4C1
-            // 
-            this.lblS4C1.AutoSize = true;
-            this.lblS4C1.Location = new System.Drawing.Point(71, 15);
-            this.lblS4C1.Name = "lblS4C1";
-            this.lblS4C1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS4C1.Size = new System.Drawing.Size(38, 23);
-            this.lblS4C1.TabIndex = 114;
-            this.lblS4C1.Text = "Char 1";
             // 
             // label39
             // 
@@ -349,18 +169,6 @@
             // 
             // gBoxS3
             // 
-            this.gBoxS3.Controls.Add(this.lblS3C12);
-            this.gBoxS3.Controls.Add(this.lblS3C11);
-            this.gBoxS3.Controls.Add(this.lblS3C10);
-            this.gBoxS3.Controls.Add(this.lblS3C9);
-            this.gBoxS3.Controls.Add(this.lblS3C8);
-            this.gBoxS3.Controls.Add(this.lblS3C7);
-            this.gBoxS3.Controls.Add(this.lblS3C6);
-            this.gBoxS3.Controls.Add(this.lblS3C5);
-            this.gBoxS3.Controls.Add(this.lblS3C4);
-            this.gBoxS3.Controls.Add(this.lblS3C3);
-            this.gBoxS3.Controls.Add(this.lblS3C2);
-            this.gBoxS3.Controls.Add(this.lblS3C1);
             this.gBoxS3.Controls.Add(this.label28);
             this.gBoxS3.Controls.Add(this.label29);
             this.gBoxS3.Controls.Add(this.label30);
@@ -368,132 +176,12 @@
             this.gBoxS3.Controls.Add(this.label32);
             this.gBoxS3.Controls.Add(this.label33);
             this.gBoxS3.Controls.Add(this.label34);
-            this.gBoxS3.Location = new System.Drawing.Point(12, 368);
+            this.gBoxS3.Location = new System.Drawing.Point(12, 420);
             this.gBoxS3.Name = "gBoxS3";
             this.gBoxS3.Size = new System.Drawing.Size(1544, 172);
             this.gBoxS3.TabIndex = 1;
             this.gBoxS3.TabStop = false;
             this.gBoxS3.Text = "Show 3";
-            // 
-            // lblS3C12
-            // 
-            this.lblS3C12.AutoSize = true;
-            this.lblS3C12.Location = new System.Drawing.Point(1413, 15);
-            this.lblS3C12.Name = "lblS3C12";
-            this.lblS3C12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C12.Size = new System.Drawing.Size(44, 23);
-            this.lblS3C12.TabIndex = 181;
-            this.lblS3C12.Text = "Char 12";
-            // 
-            // lblS3C11
-            // 
-            this.lblS3C11.AutoSize = true;
-            this.lblS3C11.Location = new System.Drawing.Point(1291, 15);
-            this.lblS3C11.Name = "lblS3C11";
-            this.lblS3C11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C11.Size = new System.Drawing.Size(44, 23);
-            this.lblS3C11.TabIndex = 180;
-            this.lblS3C11.Text = "Char 11";
-            // 
-            // lblS3C10
-            // 
-            this.lblS3C10.AutoSize = true;
-            this.lblS3C10.Location = new System.Drawing.Point(1169, 15);
-            this.lblS3C10.Name = "lblS3C10";
-            this.lblS3C10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C10.Size = new System.Drawing.Size(44, 23);
-            this.lblS3C10.TabIndex = 179;
-            this.lblS3C10.Text = "Char 10";
-            // 
-            // lblS3C9
-            // 
-            this.lblS3C9.AutoSize = true;
-            this.lblS3C9.Location = new System.Drawing.Point(1047, 15);
-            this.lblS3C9.Name = "lblS3C9";
-            this.lblS3C9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C9.Size = new System.Drawing.Size(38, 23);
-            this.lblS3C9.TabIndex = 178;
-            this.lblS3C9.Text = "Char 9";
-            // 
-            // lblS3C8
-            // 
-            this.lblS3C8.AutoSize = true;
-            this.lblS3C8.Location = new System.Drawing.Point(925, 15);
-            this.lblS3C8.Name = "lblS3C8";
-            this.lblS3C8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C8.Size = new System.Drawing.Size(38, 23);
-            this.lblS3C8.TabIndex = 177;
-            this.lblS3C8.Text = "Char 8";
-            // 
-            // lblS3C7
-            // 
-            this.lblS3C7.AutoSize = true;
-            this.lblS3C7.Location = new System.Drawing.Point(803, 15);
-            this.lblS3C7.Name = "lblS3C7";
-            this.lblS3C7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C7.Size = new System.Drawing.Size(38, 23);
-            this.lblS3C7.TabIndex = 176;
-            this.lblS3C7.Text = "Char 7";
-            // 
-            // lblS3C6
-            // 
-            this.lblS3C6.AutoSize = true;
-            this.lblS3C6.Location = new System.Drawing.Point(681, 15);
-            this.lblS3C6.Name = "lblS3C6";
-            this.lblS3C6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C6.Size = new System.Drawing.Size(38, 23);
-            this.lblS3C6.TabIndex = 175;
-            this.lblS3C6.Text = "Char 6";
-            // 
-            // lblS3C5
-            // 
-            this.lblS3C5.AutoSize = true;
-            this.lblS3C5.Location = new System.Drawing.Point(559, 15);
-            this.lblS3C5.Name = "lblS3C5";
-            this.lblS3C5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C5.Size = new System.Drawing.Size(38, 23);
-            this.lblS3C5.TabIndex = 174;
-            this.lblS3C5.Text = "Char 5";
-            // 
-            // lblS3C4
-            // 
-            this.lblS3C4.AutoSize = true;
-            this.lblS3C4.Location = new System.Drawing.Point(437, 15);
-            this.lblS3C4.Name = "lblS3C4";
-            this.lblS3C4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C4.Size = new System.Drawing.Size(38, 23);
-            this.lblS3C4.TabIndex = 117;
-            this.lblS3C4.Text = "Char 4";
-            // 
-            // lblS3C3
-            // 
-            this.lblS3C3.AutoSize = true;
-            this.lblS3C3.Location = new System.Drawing.Point(315, 15);
-            this.lblS3C3.Name = "lblS3C3";
-            this.lblS3C3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C3.Size = new System.Drawing.Size(38, 23);
-            this.lblS3C3.TabIndex = 116;
-            this.lblS3C3.Text = "Char 3";
-            // 
-            // lblS3C2
-            // 
-            this.lblS3C2.AutoSize = true;
-            this.lblS3C2.Location = new System.Drawing.Point(193, 15);
-            this.lblS3C2.Name = "lblS3C2";
-            this.lblS3C2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C2.Size = new System.Drawing.Size(38, 23);
-            this.lblS3C2.TabIndex = 115;
-            this.lblS3C2.Text = "Char 2";
-            // 
-            // lblS3C1
-            // 
-            this.lblS3C1.AutoSize = true;
-            this.lblS3C1.Location = new System.Drawing.Point(71, 15);
-            this.lblS3C1.Name = "lblS3C1";
-            this.lblS3C1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS3C1.Size = new System.Drawing.Size(38, 23);
-            this.lblS3C1.TabIndex = 114;
-            this.lblS3C1.Text = "Char 1";
             // 
             // label28
             // 
@@ -579,18 +267,6 @@
             // 
             // gBoxS2
             // 
-            this.gBoxS2.Controls.Add(this.lblS2C12);
-            this.gBoxS2.Controls.Add(this.lblS2C11);
-            this.gBoxS2.Controls.Add(this.lblS2C10);
-            this.gBoxS2.Controls.Add(this.lblS2C9);
-            this.gBoxS2.Controls.Add(this.lblS2C8);
-            this.gBoxS2.Controls.Add(this.lblS2C7);
-            this.gBoxS2.Controls.Add(this.lblS2C6);
-            this.gBoxS2.Controls.Add(this.lblS2C5);
-            this.gBoxS2.Controls.Add(this.lblS2C4);
-            this.gBoxS2.Controls.Add(this.lblS2C3);
-            this.gBoxS2.Controls.Add(this.lblS2C2);
-            this.gBoxS2.Controls.Add(this.lblS2C1);
             this.gBoxS2.Controls.Add(this.label17);
             this.gBoxS2.Controls.Add(this.label18);
             this.gBoxS2.Controls.Add(this.label19);
@@ -598,132 +274,12 @@
             this.gBoxS2.Controls.Add(this.label21);
             this.gBoxS2.Controls.Add(this.label22);
             this.gBoxS2.Controls.Add(this.label23);
-            this.gBoxS2.Location = new System.Drawing.Point(12, 190);
+            this.gBoxS2.Location = new System.Drawing.Point(12, 242);
             this.gBoxS2.Name = "gBoxS2";
             this.gBoxS2.Size = new System.Drawing.Size(1544, 172);
             this.gBoxS2.TabIndex = 1;
             this.gBoxS2.TabStop = false;
             this.gBoxS2.Text = "Show 2";
-            // 
-            // lblS2C12
-            // 
-            this.lblS2C12.AutoSize = true;
-            this.lblS2C12.Location = new System.Drawing.Point(1413, 15);
-            this.lblS2C12.Name = "lblS2C12";
-            this.lblS2C12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C12.Size = new System.Drawing.Size(44, 23);
-            this.lblS2C12.TabIndex = 173;
-            this.lblS2C12.Text = "Char 12";
-            // 
-            // lblS2C11
-            // 
-            this.lblS2C11.AutoSize = true;
-            this.lblS2C11.Location = new System.Drawing.Point(1291, 15);
-            this.lblS2C11.Name = "lblS2C11";
-            this.lblS2C11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C11.Size = new System.Drawing.Size(44, 23);
-            this.lblS2C11.TabIndex = 172;
-            this.lblS2C11.Text = "Char 11";
-            // 
-            // lblS2C10
-            // 
-            this.lblS2C10.AutoSize = true;
-            this.lblS2C10.Location = new System.Drawing.Point(1169, 15);
-            this.lblS2C10.Name = "lblS2C10";
-            this.lblS2C10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C10.Size = new System.Drawing.Size(44, 23);
-            this.lblS2C10.TabIndex = 171;
-            this.lblS2C10.Text = "Char 10";
-            // 
-            // lblS2C9
-            // 
-            this.lblS2C9.AutoSize = true;
-            this.lblS2C9.Location = new System.Drawing.Point(1047, 15);
-            this.lblS2C9.Name = "lblS2C9";
-            this.lblS2C9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C9.Size = new System.Drawing.Size(38, 23);
-            this.lblS2C9.TabIndex = 170;
-            this.lblS2C9.Text = "Char 9";
-            // 
-            // lblS2C8
-            // 
-            this.lblS2C8.AutoSize = true;
-            this.lblS2C8.Location = new System.Drawing.Point(925, 15);
-            this.lblS2C8.Name = "lblS2C8";
-            this.lblS2C8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C8.Size = new System.Drawing.Size(38, 23);
-            this.lblS2C8.TabIndex = 169;
-            this.lblS2C8.Text = "Char 8";
-            // 
-            // lblS2C7
-            // 
-            this.lblS2C7.AutoSize = true;
-            this.lblS2C7.Location = new System.Drawing.Point(803, 15);
-            this.lblS2C7.Name = "lblS2C7";
-            this.lblS2C7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C7.Size = new System.Drawing.Size(38, 23);
-            this.lblS2C7.TabIndex = 168;
-            this.lblS2C7.Text = "Char 7";
-            // 
-            // lblS2C6
-            // 
-            this.lblS2C6.AutoSize = true;
-            this.lblS2C6.Location = new System.Drawing.Point(681, 15);
-            this.lblS2C6.Name = "lblS2C6";
-            this.lblS2C6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C6.Size = new System.Drawing.Size(38, 23);
-            this.lblS2C6.TabIndex = 167;
-            this.lblS2C6.Text = "Char 6";
-            // 
-            // lblS2C5
-            // 
-            this.lblS2C5.AutoSize = true;
-            this.lblS2C5.Location = new System.Drawing.Point(559, 15);
-            this.lblS2C5.Name = "lblS2C5";
-            this.lblS2C5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C5.Size = new System.Drawing.Size(38, 23);
-            this.lblS2C5.TabIndex = 166;
-            this.lblS2C5.Text = "Char 5";
-            // 
-            // lblS2C4
-            // 
-            this.lblS2C4.AutoSize = true;
-            this.lblS2C4.Location = new System.Drawing.Point(437, 15);
-            this.lblS2C4.Name = "lblS2C4";
-            this.lblS2C4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C4.Size = new System.Drawing.Size(38, 23);
-            this.lblS2C4.TabIndex = 117;
-            this.lblS2C4.Text = "Char 4";
-            // 
-            // lblS2C3
-            // 
-            this.lblS2C3.AutoSize = true;
-            this.lblS2C3.Location = new System.Drawing.Point(315, 15);
-            this.lblS2C3.Name = "lblS2C3";
-            this.lblS2C3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C3.Size = new System.Drawing.Size(38, 23);
-            this.lblS2C3.TabIndex = 116;
-            this.lblS2C3.Text = "Char 3";
-            // 
-            // lblS2C2
-            // 
-            this.lblS2C2.AutoSize = true;
-            this.lblS2C2.Location = new System.Drawing.Point(193, 15);
-            this.lblS2C2.Name = "lblS2C2";
-            this.lblS2C2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C2.Size = new System.Drawing.Size(38, 23);
-            this.lblS2C2.TabIndex = 115;
-            this.lblS2C2.Text = "Char 2";
-            // 
-            // lblS2C1
-            // 
-            this.lblS2C1.AutoSize = true;
-            this.lblS2C1.Location = new System.Drawing.Point(71, 15);
-            this.lblS2C1.Name = "lblS2C1";
-            this.lblS2C1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS2C1.Size = new System.Drawing.Size(38, 23);
-            this.lblS2C1.TabIndex = 114;
-            this.lblS2C1.Text = "Char 1";
             // 
             // label17
             // 
@@ -809,18 +365,6 @@
             // 
             // gBoxS1
             // 
-            this.gBoxS1.Controls.Add(this.lblS1C12);
-            this.gBoxS1.Controls.Add(this.lblS1C11);
-            this.gBoxS1.Controls.Add(this.lblS1C10);
-            this.gBoxS1.Controls.Add(this.lblS1C9);
-            this.gBoxS1.Controls.Add(this.lblS1C8);
-            this.gBoxS1.Controls.Add(this.lblS1C7);
-            this.gBoxS1.Controls.Add(this.lblS1C6);
-            this.gBoxS1.Controls.Add(this.lblS1C5);
-            this.gBoxS1.Controls.Add(this.lblS1C4);
-            this.gBoxS1.Controls.Add(this.lblS1C3);
-            this.gBoxS1.Controls.Add(this.lblS1C2);
-            this.gBoxS1.Controls.Add(this.lblS1C1);
             this.gBoxS1.Controls.Add(this.label11);
             this.gBoxS1.Controls.Add(this.label10);
             this.gBoxS1.Controls.Add(this.label9);
@@ -830,136 +374,16 @@
             this.gBoxS1.Controls.Add(this.label5);
             this.gBoxS1.Location = new System.Drawing.Point(12, 12);
             this.gBoxS1.Name = "gBoxS1";
-            this.gBoxS1.Size = new System.Drawing.Size(1544, 172);
+            this.gBoxS1.Size = new System.Drawing.Size(1544, 224);
             this.gBoxS1.TabIndex = 0;
             this.gBoxS1.TabStop = false;
             this.gBoxS1.Text = "Show 1";
-            // 
-            // lblS1C12
-            // 
-            this.lblS1C12.AutoSize = true;
-            this.lblS1C12.Location = new System.Drawing.Point(1413, 16);
-            this.lblS1C12.Name = "lblS1C12";
-            this.lblS1C12.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C12.Size = new System.Drawing.Size(44, 23);
-            this.lblS1C12.TabIndex = 90;
-            this.lblS1C12.Text = "Char 12";
-            // 
-            // lblS1C11
-            // 
-            this.lblS1C11.AutoSize = true;
-            this.lblS1C11.Location = new System.Drawing.Point(1291, 16);
-            this.lblS1C11.Name = "lblS1C11";
-            this.lblS1C11.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C11.Size = new System.Drawing.Size(44, 23);
-            this.lblS1C11.TabIndex = 89;
-            this.lblS1C11.Text = "Char 11";
-            // 
-            // lblS1C10
-            // 
-            this.lblS1C10.AutoSize = true;
-            this.lblS1C10.Location = new System.Drawing.Point(1169, 16);
-            this.lblS1C10.Name = "lblS1C10";
-            this.lblS1C10.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C10.Size = new System.Drawing.Size(44, 23);
-            this.lblS1C10.TabIndex = 88;
-            this.lblS1C10.Text = "Char 10";
-            // 
-            // lblS1C9
-            // 
-            this.lblS1C9.AutoSize = true;
-            this.lblS1C9.Location = new System.Drawing.Point(1047, 16);
-            this.lblS1C9.Name = "lblS1C9";
-            this.lblS1C9.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C9.Size = new System.Drawing.Size(38, 23);
-            this.lblS1C9.TabIndex = 87;
-            this.lblS1C9.Text = "Char 9";
-            // 
-            // lblS1C8
-            // 
-            this.lblS1C8.AutoSize = true;
-            this.lblS1C8.Location = new System.Drawing.Point(925, 16);
-            this.lblS1C8.Name = "lblS1C8";
-            this.lblS1C8.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C8.Size = new System.Drawing.Size(38, 23);
-            this.lblS1C8.TabIndex = 86;
-            this.lblS1C8.Text = "Char 8";
-            // 
-            // lblS1C7
-            // 
-            this.lblS1C7.AutoSize = true;
-            this.lblS1C7.Location = new System.Drawing.Point(803, 16);
-            this.lblS1C7.Name = "lblS1C7";
-            this.lblS1C7.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C7.Size = new System.Drawing.Size(38, 23);
-            this.lblS1C7.TabIndex = 85;
-            this.lblS1C7.Text = "Char 7";
-            // 
-            // lblS1C6
-            // 
-            this.lblS1C6.AutoSize = true;
-            this.lblS1C6.Location = new System.Drawing.Point(681, 16);
-            this.lblS1C6.Name = "lblS1C6";
-            this.lblS1C6.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C6.Size = new System.Drawing.Size(38, 23);
-            this.lblS1C6.TabIndex = 84;
-            this.lblS1C6.Text = "Char 6";
-            // 
-            // lblS1C5
-            // 
-            this.lblS1C5.AutoSize = true;
-            this.lblS1C5.Location = new System.Drawing.Point(559, 16);
-            this.lblS1C5.Name = "lblS1C5";
-            this.lblS1C5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C5.Size = new System.Drawing.Size(38, 23);
-            this.lblS1C5.TabIndex = 83;
-            this.lblS1C5.Text = "Char 5";
-            // 
-            // lblS1C4
-            // 
-            this.lblS1C4.AutoSize = true;
-            this.lblS1C4.Location = new System.Drawing.Point(437, 16);
-            this.lblS1C4.Name = "lblS1C4";
-            this.lblS1C4.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C4.Size = new System.Drawing.Size(38, 23);
-            this.lblS1C4.TabIndex = 34;
-            this.lblS1C4.Text = "Char 4";
-            // 
-            // lblS1C3
-            // 
-            this.lblS1C3.AutoSize = true;
-            this.lblS1C3.Location = new System.Drawing.Point(315, 16);
-            this.lblS1C3.Name = "lblS1C3";
-            this.lblS1C3.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C3.Size = new System.Drawing.Size(38, 23);
-            this.lblS1C3.TabIndex = 33;
-            this.lblS1C3.Text = "Char 3";
-            // 
-            // lblS1C2
-            // 
-            this.lblS1C2.AutoSize = true;
-            this.lblS1C2.Location = new System.Drawing.Point(193, 16);
-            this.lblS1C2.Name = "lblS1C2";
-            this.lblS1C2.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C2.Size = new System.Drawing.Size(38, 23);
-            this.lblS1C2.TabIndex = 32;
-            this.lblS1C2.Text = "Char 2";
-            // 
-            // lblS1C1
-            // 
-            this.lblS1C1.AutoSize = true;
-            this.lblS1C1.Location = new System.Drawing.Point(71, 16);
-            this.lblS1C1.Name = "lblS1C1";
-            this.lblS1C1.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
-            this.lblS1C1.Size = new System.Drawing.Size(38, 23);
-            this.lblS1C1.TabIndex = 31;
-            this.lblS1C1.Text = "Char 1";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label11.Location = new System.Drawing.Point(6, 139);
+            this.label11.Location = new System.Drawing.Point(0, 163);
             this.label11.MinimumSize = new System.Drawing.Size(65, 2);
             this.label11.Name = "label11";
             this.label11.Padding = new System.Windows.Forms.Padding(0, 2, 0, 3);
@@ -971,7 +395,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label10.Location = new System.Drawing.Point(6, 119);
+            this.label10.Location = new System.Drawing.Point(0, 143);
             this.label10.MinimumSize = new System.Drawing.Size(65, 2);
             this.label10.Name = "label10";
             this.label10.Padding = new System.Windows.Forms.Padding(0, 2, 0, 3);
@@ -983,7 +407,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label9.Location = new System.Drawing.Point(6, 99);
+            this.label9.Location = new System.Drawing.Point(0, 123);
             this.label9.MinimumSize = new System.Drawing.Size(65, 2);
             this.label9.Name = "label9";
             this.label9.Padding = new System.Windows.Forms.Padding(0, 2, 0, 3);
@@ -995,7 +419,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label8.Location = new System.Drawing.Point(6, 79);
+            this.label8.Location = new System.Drawing.Point(0, 103);
             this.label8.MinimumSize = new System.Drawing.Size(65, 2);
             this.label8.Name = "label8";
             this.label8.Padding = new System.Windows.Forms.Padding(0, 2, 0, 3);
@@ -1007,7 +431,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label7.Location = new System.Drawing.Point(6, 59);
+            this.label7.Location = new System.Drawing.Point(0, 83);
             this.label7.MinimumSize = new System.Drawing.Size(65, 2);
             this.label7.Name = "label7";
             this.label7.Padding = new System.Windows.Forms.Padding(0, 2, 0, 3);
@@ -1019,7 +443,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label6.Location = new System.Drawing.Point(6, 39);
+            this.label6.Location = new System.Drawing.Point(0, 63);
             this.label6.MinimumSize = new System.Drawing.Size(65, 2);
             this.label6.Name = "label6";
             this.label6.Padding = new System.Windows.Forms.Padding(0, 2, 0, 3);
@@ -1030,7 +454,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 16);
+            this.label5.Location = new System.Drawing.Point(0, 40);
             this.label5.Name = "label5";
             this.label5.Padding = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.label5.Size = new System.Drawing.Size(53, 23);
@@ -1106,14 +530,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lblS1C4;
-        private System.Windows.Forms.Label lblS1C3;
-        private System.Windows.Forms.Label lblS1C2;
-        private System.Windows.Forms.Label lblS1C1;
-        private System.Windows.Forms.Label lblS4C4;
-        private System.Windows.Forms.Label lblS4C3;
-        private System.Windows.Forms.Label lblS4C2;
-        private System.Windows.Forms.Label lblS4C1;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
@@ -1121,10 +537,6 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label lblS3C4;
-        private System.Windows.Forms.Label lblS3C3;
-        private System.Windows.Forms.Label lblS3C2;
-        private System.Windows.Forms.Label lblS3C1;
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
@@ -1132,10 +544,6 @@
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label lblS2C4;
-        private System.Windows.Forms.Label lblS2C3;
-        private System.Windows.Forms.Label lblS2C2;
-        private System.Windows.Forms.Label lblS2C1;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
@@ -1143,38 +551,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label lblS1C12;
-        private System.Windows.Forms.Label lblS1C11;
-        private System.Windows.Forms.Label lblS1C10;
-        private System.Windows.Forms.Label lblS1C9;
-        private System.Windows.Forms.Label lblS1C8;
-        private System.Windows.Forms.Label lblS1C7;
-        private System.Windows.Forms.Label lblS1C6;
-        private System.Windows.Forms.Label lblS1C5;
-        private System.Windows.Forms.Label lblS2C12;
-        private System.Windows.Forms.Label lblS2C11;
-        private System.Windows.Forms.Label lblS2C10;
-        private System.Windows.Forms.Label lblS2C9;
-        private System.Windows.Forms.Label lblS2C8;
-        private System.Windows.Forms.Label lblS2C7;
-        private System.Windows.Forms.Label lblS2C6;
-        private System.Windows.Forms.Label lblS2C5;
-        private System.Windows.Forms.Label lblS3C12;
-        private System.Windows.Forms.Label lblS3C11;
-        private System.Windows.Forms.Label lblS3C10;
-        private System.Windows.Forms.Label lblS3C9;
-        private System.Windows.Forms.Label lblS3C8;
-        private System.Windows.Forms.Label lblS3C7;
-        private System.Windows.Forms.Label lblS3C6;
-        private System.Windows.Forms.Label lblS3C5;
-        private System.Windows.Forms.Label lblS4C12;
-        private System.Windows.Forms.Label lblS4C11;
-        private System.Windows.Forms.Label lblS4C10;
-        private System.Windows.Forms.Label lblS4C9;
-        private System.Windows.Forms.Label lblS4C8;
-        private System.Windows.Forms.Label lblS4C7;
-        private System.Windows.Forms.Label lblS4C6;
-        private System.Windows.Forms.Label lblS4C5;
         private System.Windows.Forms.Button btnChkBlk;
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Button btnLoad;

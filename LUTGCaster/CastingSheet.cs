@@ -45,7 +45,7 @@ namespace LUTGCaster
                         gBox.Text = s.name;
                         tb.BackColor = SystemColors.Window;
                         tb.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-                        tb.Location = new Point(74 + (i * 122), 39 + (j * 20));
+                        tb.Location = new Point(74 + (i * 122), 63 + (j * 20));
                         tb.Margin = new Padding(0);
                         string n = "txtS1C" + (i + 1);
                         switch (j)
@@ -77,17 +77,25 @@ namespace LUTGCaster
                         s.roles[i].addTextBox(tb);
 
                     }
+                    Label l = new Label();
+                    gBox.Controls.Add(l);
+                    l.AutoSize = true;
+                    l.Location = new Point(71 + (i * 122), 40);
+                    l.Name = "lbl" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
+                    l.Padding = new Padding(0, 5, 0, 5);
+                    l.Size = new Size(44, 23);
+                    l.Text = s.roles[i].name;
+
                     Button btn = new Button();
                     gBox.Controls.Add(btn);
-                    btn.Location = new Point(115 + (i * 122), 19);
+                    btn.Location = new Point(71 + (i * 122), 19);
                     btn.Name = "btnCastS" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
-                    btn.Size = new Size(50, 20);
+                    btn.Size = new Size(122, 20);
                     btn.Text = "Cast";
                     btn.UseVisualStyleBackColor = true;
                     btn.Click += new EventHandler(CastCharacter);
 
-                    Label l = (Label)Controls.Find("lblS" + (shows.IndexOf(s) + 1) + "C" + (i + 1), true)[0];
-                    l.Text = s.roles[i].name;
+                    //Label l = (Label)Controls.Find("lblS" + (shows.IndexOf(s) + 1) + "C" + (i + 1), true)[0];
                 }
             }
 
