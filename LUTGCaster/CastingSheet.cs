@@ -222,7 +222,6 @@ namespace LUTGCaster
         {
             foreach (TextBox t in nameBoxes)
             {
-                Console.WriteLine(t.Name);
                 UpdateColours(t);
             }
         }
@@ -288,7 +287,7 @@ namespace LUTGCaster
                             {
                                 foreach (TextBox t in r.boxes)
                                 {
-                                    f.Write(t.Text = ",");
+                                    f.Write(t.Text + ",");
                                     Console.WriteLine(t.Text + ",");
                                 }
                             }
@@ -306,7 +305,6 @@ namespace LUTGCaster
 
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.InitialDirectory = "c:\\";
                 ofd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs*";
                 ofd.FilterIndex = 2;
                 ofd.RestoreDirectory = true;
@@ -324,6 +322,18 @@ namespace LUTGCaster
                         fileContent = reader.ReadToEnd();
                     }
                 }
+            }
+            string[] loadedNames   = fileContent.Split(',');
+            try
+            {
+                for (int i = 0; i < nameBoxes.Count; i++)
+                {
+                    nameBoxes[i].Text = loadedNames[i];
+                }
+            }
+            catch (IndexOutOfRangeException ex)
+            {
+                MessageBox.Show("Error: loaded file does not match show setup. Please check show setup and tyr again.");
             }
         }
     }
