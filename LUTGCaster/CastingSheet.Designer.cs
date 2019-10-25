@@ -1044,7 +1044,7 @@
             this.btnChkBlk.TabIndex = 3;
             this.btnChkBlk.Text = "Check Blocks";
             this.btnChkBlk.UseVisualStyleBackColor = true;
-            this.btnChkBlk.Click += new System.EventHandler(this.btnChkBlk_Click);
+            this.btnChkBlk.Click += new System.EventHandler(this.BtnChkBlk_Click);
             // 
             // CastingSheet
             // 

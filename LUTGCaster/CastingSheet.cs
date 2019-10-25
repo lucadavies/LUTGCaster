@@ -20,13 +20,13 @@ namespace LUTGCaster
         {
             InitializeComponent();
             this.shows = shows;
-            initDyn();
+            InitDyn();
         }
 
         /// <summary>
         /// Initialises the Casting Sheet by populating the form with the required numebr of textboxes for roles and labelling things accordingly.
         /// </summary>
-        private void initDyn()
+        private void InitDyn()
         {
             nameBoxes = new List<TextBox>();
             foreach (Show s in shows) //loop thorugh all shows
@@ -258,7 +258,7 @@ namespace LUTGCaster
 
         //}
 
-        private void btnChkBlk_Click(object sender, EventArgs e)
+        private void BtnChkBlk_Click(object sender, EventArgs e)
         {
             foreach (TextBox tb in nameBoxes)
             {
