@@ -270,27 +270,28 @@ namespace LUTGCaster
         {
             using (System.IO.StreamWriter f = new System.IO.StreamWriter("sheet.tgcs", false))
             {
+                f.WriteLine("{\n");
                 foreach (Show s in shows)
                 {
-                    f.WriteLine(@"{" +
-                    "   \"show1\": {" +
-                    "       \"title\": \"" + s.name + "\"," +
-                    "       \"roles\": {");
+                    f.WriteLine("   \"show1\": {\n" +
+                    "       \"title\": \"" + s.name + "\",\n" +
+                    "       \"roles\": {\n");
                     foreach (Show.Role r in s.roles)
                     {
-                        f.WriteLine(@"           \" + r.name + "\": {" +
+                        f.WriteLine("           \"" + r.name + "\": {\n" +
                         "               \"names\": [");
                         for (int n = 0; n < 6; n++)
                         {
                             f.WriteLine("                   \"choice" + n + "\"" + (n == 5 ? "" : ","));
                         }
-                        f.WriteLine(@"               ]," +
-                        "               \"cast\": \"" + false + "\"" +
+                        f.WriteLine("               ],\n" +
+                        "               \"cast\": \"" + false + "\"\n" +
                         "           }" + (s.roles.IndexOf(r) == s.roles.Count - 1 ? "" : ","));
                     }
-                    f.WriteLine(@"       }" +
-                    "   }" + (shows.IndexOf(s) == shows.Count - 1 ? "" : ","));
+                    f.WriteLine("       }\n" +
+                    "   }" + (shows.IndexOf(s) == shows.Count - 1 ? "" : ",") + "\n");
                 }
+                f.WriteLine("}");
             }
         }
     }
