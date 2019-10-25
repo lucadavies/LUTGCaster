@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -268,30 +269,61 @@ namespace LUTGCaster
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            using (System.IO.StreamWriter f = new System.IO.StreamWriter("sheet.tgcs", false))
+
+            string fileName;
+            using (SaveFileDialog sfd = new SaveFileDialog())
             {
-                f.WriteLine("{\n");
-                foreach (Show s in shows)
+                sfd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs";
+                sfd.FilterIndex = 2;
+                sfd.RestoreDirectory = true;
+
+                if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    f.WriteLine("   \"show1\": {\n" +
-                    "       \"title\": \"" + s.name + "\",\n" +
-                    "       \"roles\": {\n");
-                    foreach (Show.Role r in s.roles)
+                    fileName = sfd.FileName;
+                    using (StreamWriter f = new StreamWriter(fileName, false))
                     {
-                        f.WriteLine("           \"" + r.name + "\": {\n" +
-                        "               \"names\": [");
-                        for (int n = 0; n < 6; n++)
+                        foreach (Show s in shows)
                         {
-                            f.WriteLine("                   \"choice" + n + "\"" + (n == 5 ? "" : ","));
+                            foreach (Show.Role r in s.roles)
+                            {
+                                foreach (TextBox t in r.boxes)
+                                {
+                                    f.Write(t.Text = ",");
+                                    Console.WriteLine(t.Text + ",");
+                                }
+                            }
                         }
-                        f.WriteLine("               ],\n" +
-                        "               \"cast\": \"" + false + "\"\n" +
-                        "           }" + (s.roles.IndexOf(r) == s.roles.Count - 1 ? "" : ","));
                     }
-                    f.WriteLine("       }\n" +
-                    "   }" + (shows.IndexOf(s) == shows.Count - 1 ? "" : ",") + "\n");
                 }
-                f.WriteLine("}");
+            }            
+        }
+
+        private void BtnLoad_Click(object sender, EventArgs e)
+        {
+
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.InitialDirectory = "c:\\";
+                ofd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs*";
+                ofd.FilterIndex = 2;
+                ofd.RestoreDirectory = true;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = ofd.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = ofd.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
             }
         }
     }
