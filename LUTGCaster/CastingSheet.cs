@@ -23,25 +23,27 @@ namespace LUTGCaster
             initDyn();
         }
 
+        /// <summary>
+        /// Initialises the Casting Sheet by populating the form with the required numebr of textboxes for roles and labelling things accordingly.
+        /// </summary>
         private void initDyn()
         {
             nameBoxes = new List<TextBox>();
-            foreach (Show s in shows)
+            foreach (Show s in shows) //loop thorugh all shows
             {
                 GroupBox gBox = new GroupBox();
-                gBox = (GroupBox)Controls.Find("gBoxS" + (shows.IndexOf(s) + 1), false)[0];
+                gBox = (GroupBox)Controls.Find("gBoxS" + (shows.IndexOf(s) + 1), false)[0]; //get Show's gBox for reference to add controls
 
-                for (int i = 0; i < s.roles.Count; i++)
+                for (int i = 0; i < s.roles.Count; i++) //loop through all roles for Show
                 {
-                    
-                    for (int j = 0; j < 6; j++)
+                    for (int j = 0; j < 6; j++) //loop to create six TextBoxes 
                     {
                         TextBox tb = new TextBox();
                         tb = new TextBox();
                         gBox.Controls.Add(tb);
                         gBox.Text = s.name;
                         tb.BackColor = SystemColors.Window;
-                        tb.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+                        tb.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
                         tb.Location = new Point(74 + (i * 122), 39 + (j * 20));
                         tb.Margin = new Padding(0);
                         string n = "txtS1C" + (i + 1);
@@ -90,13 +92,43 @@ namespace LUTGCaster
 
         }
 
+        /// <summary>
+        /// Event handler: Called by all "Cast" buttons. To show a cast role, disables all textboxes for the role, bolds the top choice
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CastCharacter(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             Console.WriteLine(btn.Name);
-            int charNum = (int)char.GetNumericValue(btn.Name, 10) - 1;
+            int charNum = int.Parse(btn.Name.Substring(10, btn.Name.Length == 11 ? 1 : 2)) - 1; //ternary to check if it's a single or two digit character number
+            int showNum = (int)char.GetNumericValue(((Control)sender).Parent.Name, 5) - 1;       //get show number from parent (groupBox) name
+            foreach (TextBox t in shows[showNum].roles[charNum].boxes)
+            {
+                if (t.Enabled)      //disable if enabled
+                {
+                    t.Enabled = false;
+                    if (t.Name[t.Name.Length - 1].Equals('a')) //bold if first choice
+                    {
+                        t.Font = new Font(t.Font, FontStyle.Bold);
+                    }
+                }
+                else      //enable if disabled
+
+                {
+                    t.Enabled = true;
+                    if (t.Name[t.Name.Length - 1].Equals('a')) //unbold if first choice
+                    {
+                        t.Font = new Font(t.Font, FontStyle.Regular);
+                    }
+                }
+            }
         }
 
+        /// <summary>
+        /// Checks for duplicate names in ALL other textboxes present on sheet, colours passed textbox accordingly
+        /// </summary>
+        /// <param name="tb">Textbox name to check against</param>
         private void UpdateColours(TextBox tb)
         {
             string name = tb.Text;
@@ -106,7 +138,7 @@ namespace LUTGCaster
                 int countOther = 0;
                 int countFirst = 0;
                 List<TextBox> toColour = new List<TextBox>();
-                foreach (TextBox nb in nameBoxes)
+                foreach (TextBox nb in nameBoxes)   //count all first choice appearances and other appearacnes
                 {
                     if (nb.Text.Equals(name))
                     {
@@ -121,7 +153,7 @@ namespace LUTGCaster
                         toColour.Add(nb);
                     }
                 }
-                foreach (TextBox t in toColour)
+                foreach (TextBox t in toColour) //colour all textboxes found with same name the same colour
                 {
                     t.ForeColor = Color.Black;
                     switch (countFirst)
@@ -171,9 +203,6 @@ namespace LUTGCaster
                                 t.BackColor = Color.Red;            //4 1st choice + other
                             }
                             break;
-                        default:
-                            //t.BackColor = Color.Gray;
-                            break;
                     }
                 }
             }
@@ -183,6 +212,11 @@ namespace LUTGCaster
             }
         }
 
+        /// <summary>
+        /// Event handler: called when any textbox raises TextChanged event. Calls UpdateColours for all textboxes.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateAllColours(object sender, EventArgs e)
         {
             foreach (TextBox t in nameBoxes)
