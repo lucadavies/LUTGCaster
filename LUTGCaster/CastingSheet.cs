@@ -265,5 +265,33 @@ namespace LUTGCaster
                 //DetectLocks(tb);
             }
         }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            using (System.IO.StreamWriter f = new System.IO.StreamWriter("sheet.tgcs", false))
+            {
+                foreach (Show s in shows)
+                {
+                    f.WriteLine(@"{" +
+                    "   \"show1\": {" +
+                    "       \"title\": \"" + s.name + "\"," +
+                    "       \"roles\": {");
+                    foreach (Show.Role r in s.roles)
+                    {
+                        f.WriteLine(@"           \" + r.name + "\": {" +
+                        "               \"names\": [");
+                        for (int n = 0; n < 6; n++)
+                        {
+                            f.WriteLine("                   \"choice" + n + "\"" + (n == 5 ? "" : ","));
+                        }
+                        f.WriteLine(@"               ]," +
+                        "               \"cast\": \"" + false + "\"" +
+                        "           }" + (s.roles.IndexOf(r) == s.roles.Count - 1 ? "" : ","));
+                    }
+                    f.WriteLine(@"       }" +
+                    "   }" + (shows.IndexOf(s) == shows.Count - 1 ? "" : ","));
+                }
+            }
+        }
     }
 }

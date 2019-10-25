@@ -109,6 +109,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnChkBlk = new System.Windows.Forms.Button();
+            this.BtnSave = new System.Windows.Forms.Button();
             this.gBoxS4.SuspendLayout();
             this.gBoxS3.SuspendLayout();
             this.gBoxS2.SuspendLayout();
@@ -1046,11 +1047,22 @@
             this.btnChkBlk.UseVisualStyleBackColor = true;
             this.btnChkBlk.Click += new System.EventHandler(this.BtnChkBlk_Click);
             // 
+            // BtnSave
+            // 
+            this.BtnSave.Location = new System.Drawing.Point(12, 799);
+            this.BtnSave.Name = "BtnSave";
+            this.BtnSave.Size = new System.Drawing.Size(90, 23);
+            this.BtnSave.TabIndex = 4;
+            this.BtnSave.Text = "Save Sheet";
+            this.BtnSave.UseVisualStyleBackColor = true;
+            this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
+            // 
             // CastingSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1588, 834);
+            this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.btnChkBlk);
             this.Controls.Add(this.gBoxS4);
             this.Controls.Add(this.gBoxS3);
@@ -1152,6 +1164,7 @@
         private System.Windows.Forms.Label lblS4C6;
         private System.Windows.Forms.Label lblS4C5;
         private System.Windows.Forms.Button btnChkBlk;
+        private System.Windows.Forms.Button BtnSave;
     }
 }
 
