@@ -17,7 +17,15 @@ namespace LUTGCaster
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void BtnGenerate_Click(object sender, EventArgs e)
+        {
+            GenerateCastingSheet();
+        }
+
+        /// <summary>
+        /// Extracts show information from this form and contructs a list of Show objects to intantiate a new CastinSheet with.
+        /// </summary>
+        private void GenerateCastingSheet()
         {
             List<Show> shows = new List<Show>();
             if (!txtS1Name.Text.Equals(""))
@@ -74,7 +82,15 @@ namespace LUTGCaster
             cs.Show();
         }
 
-        private void numUDShows_ValueChanged(object sender, EventArgs e)
+        private void NumUDShows_ValueChanged(object sender, EventArgs e)
+        {
+            EnableDisableShowBoxes();
+        }
+
+        /// <summary>
+        /// Enables / disables show box based on value of selector for numebr of shows
+        /// </summary>
+        private void EnableDisableShowBoxes()
         {
             switch (numUDShows.Value)
             {
@@ -105,19 +121,24 @@ namespace LUTGCaster
             }
         }
 
+        /// <summary>
+        /// Enables / disables shows boxes and blanks their child controls
+        /// </summary>
+        /// <param name="gb">Show box (groupBox) to enable/disable</param>
+        /// <param name="enabled"></param>
         private void EnableShowBox(GroupBox gb, bool enabled)
         {
             if (!enabled)
             {
                 foreach (Control c in gb.Controls)
                 {
-                    if (c is TextBox)
+                    if (c is TextBox)   //blank title box
                     {
                         ((TextBox)c).Text = "";
                     }
                     else if (c is Panel)
                     {
-                        foreach (Control pc in c.Controls)
+                        foreach (Control pc in c.Controls)  //blank all role boxes
                         {
                             if (pc is TextBox)
                             {

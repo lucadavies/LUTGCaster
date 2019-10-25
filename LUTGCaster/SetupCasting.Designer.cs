@@ -96,7 +96,7 @@
             this.label46 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtS2Name = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnGenerate = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.numUDShows = new System.Windows.Forms.NumericUpDown();
             this.gBoxS4.SuspendLayout();
@@ -722,15 +722,15 @@
             this.txtS2Name.Size = new System.Drawing.Size(244, 20);
             this.txtS2Name.TabIndex = 2;
             // 
-            // button1
+            // BtnGenerate
             // 
-            this.button1.Location = new System.Drawing.Point(1407, 408);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 41);
-            this.button1.TabIndex = 11;
-            this.button1.Text = "Generate Casting Sheet";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.BtnGenerate.Location = new System.Drawing.Point(1407, 408);
+            this.BtnGenerate.Name = "BtnGenerate";
+            this.BtnGenerate.Size = new System.Drawing.Size(153, 41);
+            this.BtnGenerate.TabIndex = 11;
+            this.BtnGenerate.Text = "Generate Casting Sheet";
+            this.BtnGenerate.UseVisualStyleBackColor = true;
+            this.BtnGenerate.Click += new System.EventHandler(this.BtnGenerate_Click);
             // 
             // label7
             // 
@@ -762,7 +762,7 @@
             0,
             0,
             0});
-            this.numUDShows.ValueChanged += new System.EventHandler(this.numUDShows_ValueChanged);
+            this.numUDShows.ValueChanged += new System.EventHandler(this.NumUDShows_ValueChanged);
             // 
             // SetupCasting
             // 
@@ -771,7 +771,7 @@
             this.ClientSize = new System.Drawing.Size(1572, 461);
             this.Controls.Add(this.numUDShows);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnGenerate);
             this.Controls.Add(this.gBoxS4);
             this.Controls.Add(this.gBoxS1);
             this.Controls.Add(this.gBoxS3);
@@ -866,7 +866,7 @@
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtS2Name;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnGenerate;
         private System.Windows.Forms.Panel panS4;
         private System.Windows.Forms.Panel panS1;
         private System.Windows.Forms.Panel panS3;
