@@ -425,7 +425,7 @@
             this.gBoxS3.Location = new System.Drawing.Point(12, 164);
             this.gBoxS3.Name = "gBoxS3";
             this.gBoxS3.Size = new System.Drawing.Size(1545, 70);
-            this.gBoxS3.TabIndex = 8;
+            this.gBoxS3.TabIndex = 9;
             this.gBoxS3.TabStop = false;
             this.gBoxS3.Text = "Show 3";
             // 
@@ -578,7 +578,7 @@
             this.gBoxS2.Location = new System.Drawing.Point(12, 88);
             this.gBoxS2.Name = "gBoxS2";
             this.gBoxS2.Size = new System.Drawing.Size(1545, 70);
-            this.gBoxS2.TabIndex = 9;
+            this.gBoxS2.TabIndex = 8;
             this.gBoxS2.TabStop = false;
             this.gBoxS2.Text = "Show 2";
             // 

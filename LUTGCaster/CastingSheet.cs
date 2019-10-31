@@ -37,6 +37,24 @@ namespace LUTGCaster
 
                 for (int i = 0; i < s.roles.Count; i++) //loop through all roles for Show
                 {
+                    Button btn = new Button();
+                    gBox.Controls.Add(btn);
+                    btn.Location = new Point(71 + (i * 122), 16);
+                    btn.Name = "btnCastS" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
+                    btn.Size = new Size(122, 20);
+                    btn.Text = "Cast";
+                    btn.UseVisualStyleBackColor = true;
+                    btn.Click += new EventHandler(CastCharacter);
+
+                    Label l = new Label();
+                    gBox.Controls.Add(l);
+                    l.AutoSize = true;
+                    l.Location = new Point(71 + (i * 122), 37);
+                    l.Name = "lbl" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
+                    l.Padding = new Padding(0, 5, 0, 5);
+                    l.Size = new Size(44, 23);
+                    l.Text = s.roles[i].name;
+
                     for (int j = 0; j < 6; j++) //loop to create six TextBoxes 
                     {
                         TextBox tb = new TextBox();
@@ -77,25 +95,6 @@ namespace LUTGCaster
                         s.roles[i].addTextBox(tb);
 
                     }
-                    Label l = new Label();
-                    gBox.Controls.Add(l);
-                    l.AutoSize = true;
-                    l.Location = new Point(71 + (i * 122), 40);
-                    l.Name = "lbl" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
-                    l.Padding = new Padding(0, 5, 0, 5);
-                    l.Size = new Size(44, 23);
-                    l.Text = s.roles[i].name;
-
-                    Button btn = new Button();
-                    gBox.Controls.Add(btn);
-                    btn.Location = new Point(71 + (i * 122), 19);
-                    btn.Name = "btnCastS" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
-                    btn.Size = new Size(122, 20);
-                    btn.Text = "Cast";
-                    btn.UseVisualStyleBackColor = true;
-                    btn.Click += new EventHandler(CastCharacter);
-
-                    //Label l = (Label)Controls.Find("lblS" + (shows.IndexOf(s) + 1) + "C" + (i + 1), true)[0];
                 }
             }
 
