@@ -32,35 +32,102 @@ namespace LUTGCaster
             nameBoxes = new List<TextBox>();
             foreach (Show s in shows) //loop thorugh all shows
             {
-                GroupBox gBox = new GroupBox();
-                gBox = (GroupBox)Controls.Find("gBoxS" + (shows.IndexOf(s) + 1), false)[0]; //get Show's gBox for reference to add controls
+                int index = shows.IndexOf(s);
+                GroupBox gBox = new GroupBox
+                {
+                    Location = new Point(12, 12 + (198 * index)),
+                    Name = "gBoxS" + (index + 1),
+                    Padding = new Padding(3, 3, 3, 10),
+                    Size = new Size(1544, 192),
+                    TabIndex = index,
+                    TabStop = false,
+                    Text = "<Show " + index + ">"
+                };
+                Controls.Add(gBox);
+
+                Label lblCharHead = new Label
+                {
+                    AutoSize = true,
+                    Location = new Point(6, 37),
+                    Name = "lblCharHead" + index,
+                    Padding = new Padding(0, 5, 0, 5),
+                    Size = new Size(53, 23),
+                    TabIndex = 0,
+                    Text = "Character"
+                };
+                gBox.Controls.Add(lblCharHead);
+
+                for (int i = 0; i < 6; i++)
+                {
+                    Label lbl = new Label
+                    {
+                        AutoSize = true,
+                        BorderStyle = BorderStyle.FixedSingle,
+                        Location = new Point(6, 63 + (20 * i)),
+                        MinimumSize = new Size(65, 2),
+                        Name = "lblChoiceHeadS" + index,
+                        Padding = new Padding(0, 2, 0, 3),
+                        Size = new Size(65, 20),
+                        TabIndex = 1
+                    };
+                    switch (i)
+                    {
+                        case 0:
+                            lbl.Name += "a";
+                            lbl.Text = "1st Choice";
+                            break;
+                        case 1:
+                            lbl.Name += "b";
+                            lbl.Text = "2nd Choice";
+                            break;
+                        case 2:
+                            lbl.Name += "c";
+                            lbl.Text = "3rd Choice";
+                            break;
+                        case 3:
+                            lbl.Name += "d";
+                            lbl.Text = "4th Choice";
+                            break;
+                        case 4:
+                            lbl.Name += "e";
+                            lbl.Text = "5th Choice";
+                            break;
+                        case 5:
+                            lbl.Name += "f";
+                            lbl.Text = "6th Choice";
+                            break;
+                    }
+                    gBox.Controls.Add(lbl);
+                }
 
                 for (int i = 0; i < s.roles.Count; i++) //loop through all roles for Show
                 {
-                    Button btn = new Button();
-                    gBox.Controls.Add(btn);
-                    btn.Location = new Point(71 + (i * 122), 16);
-                    btn.Name = "btnCastS" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
-                    btn.Size = new Size(122, 20);
-                    btn.Text = "Cast";
-                    btn.UseVisualStyleBackColor = true;
+                    Button btn = new Button
+                    {
+                        Location = new Point(71 + (i * 122), 16),
+                        Name = "btnCastS" + (shows.IndexOf(s) + 1) + "C" + (i + 1),
+                        Size = new Size(122, 20),
+                        Text = "Cast",
+                        UseVisualStyleBackColor = true
+                    };
                     btn.Click += new EventHandler(CastCharacter);
+                    gBox.Controls.Add(btn);
 
-                    Label l = new Label();
+                    Label l = new Label
+                    {
+                        AutoSize = true,
+                        Location = new Point(71 + (i * 122), 37),
+                        Name = "lbl" + (shows.IndexOf(s) + 1) + "C" + (i + 1),
+                        Padding = new Padding(0, 5, 0, 5),
+                        Size = new Size(44, 23),
+                        Text = s.roles[i].name
+                    };
                     gBox.Controls.Add(l);
-                    l.AutoSize = true;
-                    l.Location = new Point(71 + (i * 122), 37);
-                    l.Name = "lbl" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
-                    l.Padding = new Padding(0, 5, 0, 5);
-                    l.Size = new Size(44, 23);
-                    l.Text = s.roles[i].name;
 
                     for (int j = 0; j < 6; j++) //loop to create six TextBoxes 
                     {
                         TextBox tb = new TextBox();
                         tb = new TextBox();
-                        gBox.Controls.Add(tb);
-                        gBox.Text = s.name;
                         tb.BackColor = SystemColors.Window;
                         tb.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
                         tb.Location = new Point(74 + (i * 122), 63 + (j * 20));
@@ -91,6 +158,8 @@ namespace LUTGCaster
                         tb.Size = new Size(122, 20);
                         tb.TabIndex = 7;
                         tb.TextChanged += new EventHandler(UpdateAllColours);
+                        gBox.Controls.Add(tb);
+                        gBox.Text = s.name;
                         nameBoxes.Add(tb);
                         s.roles[i].addTextBox(tb);
 
@@ -340,7 +409,7 @@ namespace LUTGCaster
             }
             catch (IndexOutOfRangeException ex)
             {
-                MessageBox.Show("Error: loaded file does not match show setup. Please check show setup and tyr again.");
+                MessageBox.Show("Error: loaded file does not match show setup. Please check show setup and try again." + Environment.NewLine + ex.Message);
             }
         }
     }
