@@ -165,8 +165,8 @@ namespace LUTGCaster
 
                     }
                 }
+                Height += 198; //enlarge form to fit number of shows
             }
-
         }
 
         /// <summary>

@@ -36,7 +36,8 @@
             // btnChkBlk
             // 
             this.btnChkBlk.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.btnChkBlk.Location = new System.Drawing.Point(258, 804);
+            this.btnChkBlk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnChkBlk.Location = new System.Drawing.Point(258, 25);
             this.btnChkBlk.Name = "btnChkBlk";
             this.btnChkBlk.Size = new System.Drawing.Size(104, 23);
             this.btnChkBlk.TabIndex = 3;
@@ -46,7 +47,8 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(12, 804);
+            this.BtnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.BtnSave.Location = new System.Drawing.Point(12, 25);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(90, 23);
             this.BtnSave.TabIndex = 4;
@@ -56,7 +58,8 @@
             // 
             // btnLoad
             // 
-            this.btnLoad.Location = new System.Drawing.Point(108, 804);
+            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnLoad.Location = new System.Drawing.Point(108, 25);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(90, 23);
             this.btnLoad.TabIndex = 5;
@@ -69,7 +72,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(1588, 834);
+            this.ClientSize = new System.Drawing.Size(1588, 55);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.btnChkBlk);
