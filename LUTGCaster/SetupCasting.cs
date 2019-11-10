@@ -48,21 +48,27 @@ namespace LUTGCaster
                         t = (TextBox)c;
                     }
                 }
-
                 Show s = new Show(t.Text);
-                s.addRole("Dave");
+                foreach (Control c in p.Controls)
+                {
+                    if (!((TextBox)c).Text.Equals(""))
+                    {
+                        s.addRole(((TextBox)c).Text);
+                    }
+                }
+                shows.Add(s);
             }
 
             //if (!txtS1Name.Text.Equals(""))
             //{
             //    Show s = new Show(txtS1Name.Text);
-            //    foreach (Control el in panS1.Controls)
+            //foreach (Control el in panS1.Controls)
+            //{
+            //    if (!((TextBox)el).Text.Equals(""))
             //    {
-            //        if (!((TextBox)el).Text.Equals(""))
-            //        {
-            //            s.addRole(((TextBox)el).Text);
-            //        }
+            //        s.addRole(((TextBox)el).Text);
             //    }
+            //}
             //    shows.Add(s);
             //}
             //if (!txtS2Name.Text.Equals(""))
@@ -144,7 +150,7 @@ namespace LUTGCaster
             {
                 Location = new Point(12, 12 + (76 * (setupShows))),
                 Name = "gBoxS" + (setupShows + 1),
-                Size = new Size(320, 70),
+                Size = new Size(365, 70),
                 TabIndex = 7,
                 TabStop = false,
                 Text = "Show " + (setupShows + 1)
@@ -182,7 +188,7 @@ namespace LUTGCaster
             {
                 Location = new Point(70, 39),
                 Name = "panS1",
-                Size = new Size(300, 21),
+                Size = new Size(245, 21),
                 TabIndex = 28
             };
 
@@ -199,14 +205,25 @@ namespace LUTGCaster
             {
                 Location = new Point(122, 0),
                 Margin = new Padding(0, 3, 0, 3),
-                Name = "txtS" + (setupShows + 1) + "C1",
+                Name = "txtS" + (setupShows + 1) + "C2",
                 Size = new Size(122, 20)
             };
+
+            Button btnAddChar = new Button
+            {
+                Location = new Point(320, 12),
+                Name = "btnS" + (setupShows + 1) + "AddChar",
+                Size = new Size(38, 48),
+                Text = "Add Role"
+            };
+            btnAddChar.Click += new EventHandler(btnAddChar_Click);
+
 
             gBox.Controls.Add(panChars);
             gBox.Controls.Add(lblName);
             gBox.Controls.Add(lblChar);
             gBox.Controls.Add(txtSName);
+            gBox.Controls.Add(btnAddChar);
             panChars.Controls.Add(txtChar1);
             panChars.Controls.Add(txtChar2);
             Controls.Add(gBox);
@@ -215,9 +232,43 @@ namespace LUTGCaster
             setupShows += 1;
         }
 
-        private void AddCharacter(int show)
+        private void btnAddChar_Click(object sender, EventArgs e)
         {
-             
+            int showIndex = (int)char.GetNumericValue(((Button)sender).Name[4]) - 1;
+            AddChar(showIndex);
+        }
+
+        private void AddChar(int showIndex)
+        {
+            GroupBox gBox = showBoxes[showIndex];
+            Panel pan = null;
+            Button btn = null;
+            foreach (Control c in gBox.Controls)
+            {
+                if (c is Panel)
+                {
+                    pan = (Panel)c; //unsafe but internal
+                }
+                else if (c is Button)
+                {
+                    btn = (Button)c;
+                }
+            }
+            if (!(pan == null) && !(btn == null))
+            {
+                gBox.Width += 122;
+                pan.Width += 122;
+
+                TextBox txt = new TextBox
+                {
+                    Location = new Point((((pan.Width - 1) / 122) - 1) * 122, 0),
+                    Margin = new Padding(0, 3, 0, 3),
+                    Name = "txtS" + (setupShows + 1) + "C" + (pan.Width - 1) / 122,
+                    Size = new Size(122, 20)
+                };
+                pan.Controls.Add(txt);
+                btn.Location = new Point(btn.Location.X + 122, btn.Location.Y);
+            }
         }
 
         private void btnAddShow_Click(object sender, EventArgs e)

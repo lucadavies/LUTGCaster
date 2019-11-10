@@ -381,7 +381,7 @@ namespace LUTGCaster
 
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
-                ofd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs*";
+                ofd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs|All files (*.*)|*.*";
                 ofd.FilterIndex = 2;
                 ofd.RestoreDirectory = true;
 
