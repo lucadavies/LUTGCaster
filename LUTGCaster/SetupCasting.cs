@@ -21,129 +21,9 @@ namespace LUTGCaster
             InitializeComponent();
         }
 
-        private void BtnGenerate_Click(object sender, EventArgs e)
-        {
-            GenerateCastingSheet();
-        }
-
         /// <summary>
-        /// Extracts show information from this form and contructs a list of Show objects to intantiate a new CastinSheet with.
+        /// Generates new controls to input show information for a new show and adds them to the appropriate variables
         /// </summary>
-        private void GenerateCastingSheet()
-        {
-            shows = new List<Show>();
-
-            foreach (GroupBox g in showBoxes)
-            {
-                Panel p = new Panel();
-                TextBox t = new TextBox();
-                foreach (Control c in g.Controls)
-                {
-                    if (c is Panel)
-                    {
-                        p = (Panel)c;
-                    }
-                    else if (c is TextBox)
-                    {
-                        t = (TextBox)c;
-                    }
-                }
-                Show s = new Show(t.Text);
-                foreach (Control c in p.Controls)
-                {
-                    if (!((TextBox)c).Text.Equals(""))
-                    {
-                        s.addRole(((TextBox)c).Text);
-                    }
-                }
-                shows.Add(s);
-            }
-
-            //if (!txtS1Name.Text.Equals(""))
-            //{
-            //    Show s = new Show(txtS1Name.Text);
-            //foreach (Control el in panS1.Controls)
-            //{
-            //    if (!((TextBox)el).Text.Equals(""))
-            //    {
-            //        s.addRole(((TextBox)el).Text);
-            //    }
-            //}
-            //    shows.Add(s);
-            //}
-            //if (!txtS2Name.Text.Equals(""))
-            //{
-            //    Show s = new Show(txtS2Name.Text);
-            //    foreach (Control el in panS2.Controls)
-            //    {
-            //        if (!((TextBox)el).Text.Equals(""))
-            //        {
-            //            s.addRole(((TextBox)el).Text);
-            //        }
-            //    }
-            //    shows.Add(s);
-            //}
-            //if (!txtS3Name.Text.Equals(""))
-            //{
-            //    Show s = new Show(txtS3Name.Text);
-            //    foreach (Control el in panS3.Controls)
-            //    {
-            //        if (!((TextBox)el).Text.Equals(""))
-            //        {
-            //            s.addRole(((TextBox)el).Text);
-            //        }
-            //    }
-            //    shows.Add(s);
-            //}
-            //if (!txtS4Name.Text.Equals(""))
-            //{
-            //    Show s = new Show(txtS4Name.Text);
-            //    foreach (Control el in panS4.Controls)
-            //    {
-            //        if (!((TextBox)el).Text.Equals(""))
-            //        {
-            //            s.addRole(((TextBox)el).Text);
-            //        }
-            //    }
-            //    shows.Add(s);
-            //}
-
-
-            CastingSheet cs = new CastingSheet(shows);
-            cs.Show();
-        }
-
-        /// <summary>
-        /// Enables / disables shows boxes and blanks their child controls
-        /// </summary>
-        /// <param name="gb">Show box (groupBox) to enable/disable</param>
-        /// <param name="enabled"></param>
-        private void EnableShowBox(GroupBox gb, bool enabled)
-        {
-            if (!enabled)
-            {
-                foreach (Control c in gb.Controls)
-                {
-                    if (c is TextBox)   //blank title box
-                    {
-                        ((TextBox)c).Text = "";
-                    }
-                    else if (c is Panel)
-                    {
-                        foreach (Control pc in c.Controls)  //blank all role boxes
-                        {
-                            if (pc is TextBox)
-                            {
-                                ((TextBox)pc).Text = "";
-                            }
-                        }
-                    }
-                }
-                
-            }
-            gb.Enabled = enabled;
-        }
-
         private void AddShow()
         {
             GroupBox gBox = new GroupBox
@@ -232,12 +112,10 @@ namespace LUTGCaster
             setupShows += 1;
         }
 
-        private void btnAddChar_Click(object sender, EventArgs e)
-        {
-            int showIndex = (int)char.GetNumericValue(((Button)sender).Name[4]) - 1;
-            AddChar(showIndex);
-        }
-
+        /// <summary>
+        /// Generates new controls to input show information for a new character to the given show and adds them to the appropriate variables
+        /// </summary>
+        /// <param name="showIndex">The index of the show ot add the character to</param>
         private void AddChar(int showIndex)
         {
             GroupBox gBox = showBoxes[showIndex];
@@ -271,9 +149,58 @@ namespace LUTGCaster
             }
         }
 
+        /// <summary>
+        /// Extracts show information from this form and contructs a list of Show objects to intantiate a new CastinSheet with.
+        /// </summary>
+        private void GenerateCastingSheet()
+        {
+            shows = new List<Show>();
+
+            foreach (GroupBox g in showBoxes)
+            {
+                Panel p = new Panel();
+                TextBox t = new TextBox();
+                foreach (Control c in g.Controls)
+                {
+                    if (c is Panel)
+                    {
+                        p = (Panel)c;
+                    }
+                    else if (c is TextBox)
+                    {
+                        t = (TextBox)c;
+                    }
+                }
+                Show s = new Show(t.Text);
+                foreach (Control c in p.Controls)
+                {
+                    if (!((TextBox)c).Text.Equals(""))
+                    {
+                        s.addRole(((TextBox)c).Text);
+                    }
+                }
+                shows.Add(s);
+            }
+
+            CastingSheet cs = new CastingSheet(shows);
+            cs.Show();
+        }
+
         private void btnAddShow_Click(object sender, EventArgs e)
         {
             AddShow();
         }
+
+        private void btnAddChar_Click(object sender, EventArgs e)
+        {
+            int showIndex = (int)char.GetNumericValue(((Button)sender).Name[4]) - 1;
+            AddChar(showIndex);
+        }
+
+        private void BtnGenerate_Click(object sender, EventArgs e)
+        {
+            GenerateCastingSheet();
+        }
+
     }
 }
