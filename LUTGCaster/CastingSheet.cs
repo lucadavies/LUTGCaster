@@ -170,6 +170,7 @@ namespace LUTGCaster
                         gBox.Controls.Add(tb);
                         gBox.Text = s.name;
                         nameBoxes.Add(tb);
+                        tb.Text = s.roles[i].names[j];
 
                     }
                 }
@@ -418,62 +419,10 @@ namespace LUTGCaster
                     fileName = sfd.FileName;
                     using (StreamWriter f = new StreamWriter(fileName, false))
                     {
-                        //foreach (Show s in shows)
-                        //{
-                        //    foreach (Show.Role r in s.roles)
-                        //    {
-                        //        foreach (TextBox t in r.names)
-                        //        {
-                        //            f.Write(t.Text + ",");
-                        //            Console.WriteLine(t.Text + ",");
-                        //        }
-                        //    }
-                        //}
                         string json = JsonConvert.SerializeObject(shows, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
                         f.Write(json);
-                        List<Show> newShows = JsonConvert.DeserializeObject<List<Show>>(json);
                     }
                 }
-            }
-        }
-
-        private void BtnLoad_Click(object sender, EventArgs e)
-        {
-
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs|All files (*.*)|*.*";
-                ofd.FilterIndex = 2;
-                ofd.RestoreDirectory = true;
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    //Get the path of specified file
-                    filePath = ofd.FileName;
-
-                    //Read the contents of the file into a stream
-                    var fileStream = ofd.OpenFile();
-
-                    using (StreamReader reader = new StreamReader(fileStream))
-                    {
-                        fileContent = reader.ReadToEnd();
-                    }
-                }
-            }
-            string[] loadedNames = fileContent.Split(',');
-            try
-            {
-                for (int i = 0; i < nameBoxes.Count; i++)
-                {
-                    nameBoxes[i].Text = loadedNames[i];
-                }
-            }
-            catch (IndexOutOfRangeException ex)
-            {
-                MessageBox.Show("Error: loaded file does not match show setup. Please check show setup and try again." + Environment.NewLine + ex.Message);
             }
         }
 
@@ -510,7 +459,6 @@ namespace LUTGCaster
             Color original = textBox.BackColor;
             for (int i = 0; i < flashes; i++)
             {
-
                 UpdateTextbox(textBox, flashColor);
                 Thread.Sleep(interval / 2);
                 UpdateTextbox(textBox, original);
