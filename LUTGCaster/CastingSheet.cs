@@ -440,18 +440,18 @@ namespace LUTGCaster
             {
                 if (nb.Text.Equals(name))
                 {
-                    Flash(nb, 500, Color.MediumPurple, 5);
+                    Flash(nb, 250, Color.MediumPurple, 5);
                 }
             } 
         }
 
-        public void Flash(TextBox textBox, int interval, Color color, int flashes)
+        private void Flash(TextBox textBox, int interval, Color color, int flashes)
         {
             new Thread(() => FlashInternal(textBox, interval, color, flashes)).Start();
         }
 
         private delegate void UpdateTextboxDelegate(TextBox textBox, Color originalColor);
-        public void UpdateTextbox(TextBox textBox, Color color)
+        private void UpdateTextbox(TextBox textBox, Color color)
         {
             if (textBox.InvokeRequired)
             {

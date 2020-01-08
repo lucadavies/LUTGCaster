@@ -34,6 +34,7 @@
             // 
             // BtnGenerate
             // 
+            this.BtnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnGenerate.Location = new System.Drawing.Point(1407, 408);
             this.BtnGenerate.Name = "BtnGenerate";
             this.BtnGenerate.Size = new System.Drawing.Size(153, 41);
@@ -44,6 +45,7 @@
             // 
             // btnAddShow
             // 
+            this.btnAddShow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddShow.Location = new System.Drawing.Point(12, 426);
             this.btnAddShow.Name = "btnAddShow";
             this.btnAddShow.Size = new System.Drawing.Size(75, 23);
