@@ -430,13 +430,16 @@ namespace LUTGCaster
         {
             TextBox t = (TextBox)sender;
             string name = t.Text;
-            foreach (TextBox nb in nameBoxes)
+            if (!name.Equals(""))
             {
-                if (nb.Text.Equals(name))
+                foreach (TextBox nb in nameBoxes)
                 {
-                    Flash(nb, 250, Color.MediumPurple, 5);
+                    if (nb.Text.Equals(name))
+                    {
+                        Flash(nb, 250, Color.MediumPurple, 5);
+                    }
                 }
-            }
+            } 
         }
 
         private void Flash(TextBox textBox, int interval, Color color, int flashes)
