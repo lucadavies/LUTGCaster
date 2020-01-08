@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading;
+using Newtonsoft.Json;
 
 namespace LUTGCaster
 {
@@ -348,7 +349,7 @@ namespace LUTGCaster
         //                cB.Add(r.name);
         //            }
         //        }
-                
+
         //    }
 
         //}
@@ -376,20 +377,23 @@ namespace LUTGCaster
                     fileName = sfd.FileName;
                     using (StreamWriter f = new StreamWriter(fileName, false))
                     {
-                        foreach (Show s in shows)
-                        {
-                            foreach (Show.Role r in s.roles)
-                            {
-                                foreach (TextBox t in r.boxes)
-                                {
-                                    f.Write(t.Text + ",");
-                                    Console.WriteLine(t.Text + ",");
-                                }
-                            }
-                        }
+                        //foreach (Show s in shows)
+                        //{
+                        //    foreach (Show.Role r in s.roles)
+                        //    {
+                        //        foreach (TextBox t in r.boxes)
+                        //        {
+                        //            f.Write(t.Text + ",");
+                        //            Console.WriteLine(t.Text + ",");
+                        //        }
+                        //    }
+                        //}
+                        string json = JsonConvert.SerializeObject(shows, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+                        f.Write(json);
+                        List<Show> newShows = JsonConvert.DeserializeObject<List<Show>>(json);
                     }
                 }
-            }            
+            }
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
@@ -418,7 +422,7 @@ namespace LUTGCaster
                     }
                 }
             }
-            string[] loadedNames   = fileContent.Split(',');
+            string[] loadedNames = fileContent.Split(',');
             try
             {
                 for (int i = 0; i < nameBoxes.Count; i++)
@@ -440,18 +444,18 @@ namespace LUTGCaster
             {
                 if (nb.Text.Equals(name))
                 {
-                    Flash(nb, 500, Color.MediumPurple, 5);
+                    Flash(nb, 250, Color.MediumPurple, 5);
                 }
-            } 
+            }
         }
 
-        public void Flash(TextBox textBox, int interval, Color color, int flashes)
+        private void Flash(TextBox textBox, int interval, Color color, int flashes)
         {
             new Thread(() => FlashInternal(textBox, interval, color, flashes)).Start();
         }
 
         private delegate void UpdateTextboxDelegate(TextBox textBox, Color originalColor);
-        public void UpdateTextbox(TextBox textBox, Color color)
+        private void UpdateTextbox(TextBox textBox, Color color)
         {
             if (textBox.InvokeRequired)
             {
