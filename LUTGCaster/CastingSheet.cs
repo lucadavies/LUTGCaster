@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace LUTGCaster
 {
@@ -162,6 +163,7 @@ namespace LUTGCaster
                         tb.Size = new Size(122, 20);
                         tb.TabIndex = 7;
                         tb.TextChanged += new EventHandler(UpdateAllColours);
+                        tb.DoubleClick += new EventHandler(Tb_DoubleClick);
                         gBox.Controls.Add(tb);
                         gBox.Text = s.name;
                         nameBoxes.Add(tb);
@@ -427,6 +429,47 @@ namespace LUTGCaster
             catch (IndexOutOfRangeException ex)
             {
                 MessageBox.Show("Error: loaded file does not match show setup. Please check show setup and try again." + Environment.NewLine + ex.Message);
+            }
+        }
+
+        private void Tb_DoubleClick(object sender, EventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            string name = t.Text;
+            foreach (TextBox nb in nameBoxes)
+            {
+                if (nb.Text.Equals(name))
+                {
+                    Flash(nb, 500, Color.MediumPurple, 5);
+                }
+            } 
+        }
+
+        public void Flash(TextBox textBox, int interval, Color color, int flashes)
+        {
+            new Thread(() => FlashInternal(textBox, interval, color, flashes)).Start();
+        }
+
+        private delegate void UpdateTextboxDelegate(TextBox textBox, Color originalColor);
+        public void UpdateTextbox(TextBox textBox, Color color)
+        {
+            if (textBox.InvokeRequired)
+            {
+                this.Invoke(new UpdateTextboxDelegate(UpdateTextbox), new object[] { textBox, color });
+            }
+            textBox.BackColor = color;
+        }
+
+        private void FlashInternal(TextBox textBox, int interval, Color flashColor, int flashes)
+        {
+            Color original = textBox.BackColor;
+            for (int i = 0; i < flashes; i++)
+            {
+
+                UpdateTextbox(textBox, flashColor);
+                Thread.Sleep(interval / 2);
+                UpdateTextbox(textBox, original);
+                Thread.Sleep(interval / 2);
             }
         }
     }
