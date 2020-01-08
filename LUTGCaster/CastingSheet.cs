@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace LUTGCaster
 {
@@ -16,6 +17,7 @@ namespace LUTGCaster
 
         List<TextBox> nameBoxes;
         List<Show> shows;
+        Regex alphaNumSlashRgx = new Regex("[^a-zA-Z0-9/.' -]");
 
         public CastingSheet(List<Show> shows)
         {
@@ -26,6 +28,7 @@ namespace LUTGCaster
 
         /// <summary>
         /// Initialises the Casting Sheet by populating the form with the required numebr of textboxes for roles and labelling things accordingly.
+        /// Role textbox names are in the format: txtSxCyz where x is the show number, y is the character number and z is a letter (a-f) representign choices 1-6
         /// </summary>
         private void InitDyn()
         {
@@ -126,12 +129,13 @@ namespace LUTGCaster
 
                     for (int j = 0; j < 6; j++) //loop to create six TextBoxes 
                     {
-                        TextBox tb = new TextBox();
-                        tb = new TextBox();
-                        tb.BackColor = SystemColors.Window;
-                        tb.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-                        tb.Location = new Point(74 + (i * 122), 63 + (j * 20));
-                        tb.Margin = new Padding(0);
+                        TextBox tb = new TextBox
+                        {
+                            BackColor = SystemColors.Window,
+                            Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                            Location = new Point(74 + (i * 122), 63 + (j * 20)),
+                            Margin = new Padding(0)
+                        };
                         string n = "txtS1C" + (i + 1);
                         switch (j)
                         {
@@ -182,28 +186,37 @@ namespace LUTGCaster
             int showNum = (int)char.GetNumericValue(((Control)sender).Parent.Name, 5) - 1;       //get show number from parent (groupBox) name
             foreach (TextBox t in shows[showNum].roles[charNum].boxes)
             {
-                if (t.Enabled)      //disable if enabled
+                if (!t.ReadOnly)      //disable if enabled
                 {
-                    t.Enabled = false;
+                    t.ReadOnly = true;
                     if (t.Name[t.Name.Length - 1].Equals('a')) //bold if first choice
                     {
                         t.Font = new Font(t.Font, FontStyle.Bold);
+                    }
+                    else
+                    {
+                        t.Visible = false;
                     }
                 }
                 else      //enable if disabled
 
                 {
-                    t.Enabled = true;
+                    t.ReadOnly = false;
                     if (t.Name[t.Name.Length - 1].Equals('a')) //unbold if first choice
                     {
                         t.Font = new Font(t.Font, FontStyle.Regular);
                     }
+                    else
+                    {
+                        t.Visible = true;
+                    }
                 }
+
             }
         }
 
         /// <summary>
-        /// Checks for duplicate names in ALL other textboxes present on sheet, colours passed textbox accordingly
+        /// Checks for duplicate names in ALL other textboxes present on sheet, colours each textbox accordingly
         /// </summary>
         /// <param name="tb">Textbox name to check against</param>
         private void UpdateColours(TextBox tb)
@@ -296,6 +309,10 @@ namespace LUTGCaster
         /// <param name="e"></param>
         private void UpdateAllColours(object sender, EventArgs e)
         {
+            TextBox tb = (TextBox)sender;
+            tb.Text = alphaNumSlashRgx.Replace(tb.Text, "");
+            tb.SelectionStart = tb.Text.Length;
+            tb.SelectionLength = 0;
             foreach (TextBox t in nameBoxes)
             {
                 UpdateColours(t);
