@@ -58,90 +58,8 @@ namespace LUTGCaster
                 }
                 shows.Add(s);
             }
-
-            //if (!txtS1Name.Text.Equals(""))
-            //{
-            //    Show s = new Show(txtS1Name.Text);
-            //foreach (Control el in panS1.Controls)
-            //{
-            //    if (!((TextBox)el).Text.Equals(""))
-            //    {
-            //        s.addRole(((TextBox)el).Text);
-            //    }
-            //}
-            //    shows.Add(s);
-            //}
-            //if (!txtS2Name.Text.Equals(""))
-            //{
-            //    Show s = new Show(txtS2Name.Text);
-            //    foreach (Control el in panS2.Controls)
-            //    {
-            //        if (!((TextBox)el).Text.Equals(""))
-            //        {
-            //            s.addRole(((TextBox)el).Text);
-            //        }
-            //    }
-            //    shows.Add(s);
-            //}
-            //if (!txtS3Name.Text.Equals(""))
-            //{
-            //    Show s = new Show(txtS3Name.Text);
-            //    foreach (Control el in panS3.Controls)
-            //    {
-            //        if (!((TextBox)el).Text.Equals(""))
-            //        {
-            //            s.addRole(((TextBox)el).Text);
-            //        }
-            //    }
-            //    shows.Add(s);
-            //}
-            //if (!txtS4Name.Text.Equals(""))
-            //{
-            //    Show s = new Show(txtS4Name.Text);
-            //    foreach (Control el in panS4.Controls)
-            //    {
-            //        if (!((TextBox)el).Text.Equals(""))
-            //        {
-            //            s.addRole(((TextBox)el).Text);
-            //        }
-            //    }
-            //    shows.Add(s);
-            //}
-
-
             CastingSheet cs = new CastingSheet(shows);
             cs.Show();
-        }
-
-        /// <summary>
-        /// Enables / disables shows boxes and blanks their child controls
-        /// </summary>
-        /// <param name="gb">Show box (groupBox) to enable/disable</param>
-        /// <param name="enabled"></param>
-        private void EnableShowBox(GroupBox gb, bool enabled)
-        {
-            if (!enabled)
-            {
-                foreach (Control c in gb.Controls)
-                {
-                    if (c is TextBox)   //blank title box
-                    {
-                        ((TextBox)c).Text = "";
-                    }
-                    else if (c is Panel)
-                    {
-                        foreach (Control pc in c.Controls)  //blank all role boxes
-                        {
-                            if (pc is TextBox)
-                            {
-                                ((TextBox)pc).Text = "";
-                            }
-                        }
-                    }
-                }
-                
-            }
-            gb.Enabled = enabled;
         }
 
         private void AddShow()
@@ -216,8 +134,7 @@ namespace LUTGCaster
                 Size = new Size(38, 48),
                 Text = "Add Role"
             };
-            btnAddChar.Click += new EventHandler(btnAddChar_Click);
-
+            btnAddChar.Click += new EventHandler(BtnAddChar_Click);
 
             gBox.Controls.Add(panChars);
             gBox.Controls.Add(lblName);
@@ -232,7 +149,7 @@ namespace LUTGCaster
             setupShows += 1;
         }
 
-        private void btnAddChar_Click(object sender, EventArgs e)
+        private void BtnAddChar_Click(object sender, EventArgs e)
         {
             int showIndex = (int)char.GetNumericValue(((Button)sender).Name[4]) - 1;
             AddChar(showIndex);
@@ -271,7 +188,7 @@ namespace LUTGCaster
             }
         }
 
-        private void btnAddShow_Click(object sender, EventArgs e)
+        private void BtnAddShow_Click(object sender, EventArgs e)
         {
             AddShow();
         }

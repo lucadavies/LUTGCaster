@@ -50,7 +50,7 @@
             this.btnAddShow.TabIndex = 31;
             this.btnAddShow.Text = "Add Show";
             this.btnAddShow.UseVisualStyleBackColor = true;
-            this.btnAddShow.Click += new System.EventHandler(this.btnAddShow_Click);
+            this.btnAddShow.Click += new System.EventHandler(this.BtnAddShow_Click);
             // 
             // SetupCasting
             // 
