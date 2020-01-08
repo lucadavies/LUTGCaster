@@ -10,7 +10,7 @@
         /// <summary>
         /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        /// <param rName="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -30,7 +30,6 @@
         {
             this.btnChkBlk = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
-            this.btnLoad = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnChkBlk
@@ -56,24 +55,12 @@
             this.BtnSave.UseVisualStyleBackColor = true;
             this.BtnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
-            // btnLoad
-            // 
-            this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnLoad.Location = new System.Drawing.Point(108, 25);
-            this.btnLoad.Name = "btnLoad";
-            this.btnLoad.Size = new System.Drawing.Size(90, 23);
-            this.btnLoad.TabIndex = 5;
-            this.btnLoad.Text = "Load Sheet";
-            this.btnLoad.UseVisualStyleBackColor = true;
-            this.btnLoad.Click += new System.EventHandler(this.BtnLoad_Click);
-            // 
             // CastingSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1588, 55);
-            this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.btnChkBlk);
             this.Name = "CastingSheet";
@@ -85,7 +72,6 @@
         #endregion
         private System.Windows.Forms.Button btnChkBlk;
         private System.Windows.Forms.Button BtnSave;
-        private System.Windows.Forms.Button btnLoad;
     }
 }
 

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading;
+using Newtonsoft.Json;
 
 namespace LUTGCaster
 {
@@ -30,6 +31,7 @@ namespace LUTGCaster
         /// <summary>
         /// Initialises the Casting Sheet by populating the form with the required numebr of textboxes for roles and labelling things accordingly.
         /// Role textbox names are in the format: txtSxCyz where x is the show number, y is the character number and z is a letter (a-f) representign choices 1-6
+        /// Cast button names are in the format: btncastSxCy where x is the show number and y is the character number
         /// </summary>
         private void InitDyn()
         {
@@ -124,7 +126,7 @@ namespace LUTGCaster
                         Name = "lbl" + (shows.IndexOf(s) + 1) + "C" + (i + 1),
                         Padding = new Padding(0, 5, 0, 5),
                         Size = new Size(44, 23),
-                        Text = s.roles[i].name
+                        Text = s.roles[i].rName
                     };
                     gBox.Controls.Add(l);
 
@@ -164,10 +166,11 @@ namespace LUTGCaster
                         tb.TabIndex = 7;
                         tb.TextChanged += new EventHandler(UpdateAllColours);
                         tb.DoubleClick += new EventHandler(Tb_DoubleClick);
+                        tb.LostFocus += new EventHandler(UpdateShowData);
                         gBox.Controls.Add(tb);
                         gBox.Text = s.name;
                         nameBoxes.Add(tb);
-                        s.roles[i].addTextBox(tb);
+                        tb.Text = s.roles[i].names[j];
 
                     }
                 }
@@ -178,15 +181,21 @@ namespace LUTGCaster
         /// <summary>
         /// Event handler: Called by all "Cast" buttons. To show a cast role, disables all textboxes for the role, bolds the top choice
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param rName="sender"></param>
+        /// <param rName="e"></param>
         private void CastCharacter(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
             Console.WriteLine(btn.Name);
-            int charNum = int.Parse(btn.Name.Substring(10, btn.Name.Length == 11 ? 1 : 2)) - 1; //ternary to check if it's a single or two digit character number
-            int showNum = (int)char.GetNumericValue(((Control)sender).Parent.Name, 5) - 1;       //get show number from parent (groupBox) name
-            foreach (TextBox t in shows[showNum].roles[charNum].boxes)
+            List<TextBox> charTBs = new List<TextBox>();
+            foreach (TextBox t in nameBoxes)
+            {
+                if (t.Name.Substring(3, t.Name.Length - 1).Equals(btn.Name.Substring(7)))
+                {
+                    charTBs.Add(t);
+                }
+            }
+            foreach (TextBox t in charTBs)
             {
                 if (!t.ReadOnly)      //disable if enabled
                 {
@@ -220,7 +229,7 @@ namespace LUTGCaster
         /// <summary>
         /// Checks for duplicate names in ALL other textboxes present on sheet, colours each textbox accordingly
         /// </summary>
-        /// <param name="tb">Textbox name to check against</param>
+        /// <param rName="tb">Textbox rName to check against</param>
         private void UpdateColours(TextBox tb)
         {
             string name = tb.Text;
@@ -245,7 +254,7 @@ namespace LUTGCaster
                         toColour.Add(nb);
                     }
                 }
-                foreach (TextBox t in toColour) //colour all textboxes found with same name the same colour
+                foreach (TextBox t in toColour) //colour all textboxes found with same rName the same colour
                 {
                     t.ForeColor = Color.Black;
                     switch (countFirst)
@@ -307,8 +316,8 @@ namespace LUTGCaster
         /// <summary>
         /// Event handler: called when any textbox raises TextChanged event. Calls UpdateColours for all textboxes.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
+        /// <param rName="sender"></param>
+        /// <param rName="e"></param>
         private void UpdateAllColours(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
@@ -319,6 +328,40 @@ namespace LUTGCaster
             {
                 UpdateColours(t);
             }
+        }
+
+        private void UpdateShowData(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            int showNum = (int)char.GetNumericValue(((Control)sender).Parent.Name, 5) - 1;       //get show number from parent (groupBox) name
+            string temp = tb.Name.Substring(6, tb.Name.Length == 8 ? 1 : 2);
+            int charNum = int.Parse(temp) - 1; //ternary to check if it's a single or two digit character number
+            int choiceNum;
+            switch (tb.Name[tb.Name.Length - 1])
+            {
+                case 'a':
+                    choiceNum = 0;
+                    break;
+                case 'b':
+                    choiceNum = 1;
+                    break;
+                case 'c':
+                    choiceNum = 2;
+                    break;
+                case 'd':
+                    choiceNum = 3;
+                    break;
+                case 'e':
+                    choiceNum = 4;
+                    break;
+                case 'f':
+                    choiceNum = 5;
+                    break;
+                default:
+                    choiceNum = -1;
+                    break;
+            }
+            shows[showNum].roles[charNum].names[choiceNum] = tb.Text;
         }
 
         //private void DetectLocks(TextBox tb)
@@ -338,17 +381,17 @@ namespace LUTGCaster
         //        {
         //            foreach (Show.Role r in s.roles)
         //            {
-        //                cA.Add(r.name);
+        //                cA.Add(r.rName);
         //            }
         //        }
         //        else
         //        {
         //            foreach (Show.Role r in s.roles)
         //            {
-        //                cB.Add(r.name);
+        //                cB.Add(r.rName);
         //            }
         //        }
-                
+
         //    }
 
         //}
@@ -376,59 +419,10 @@ namespace LUTGCaster
                     fileName = sfd.FileName;
                     using (StreamWriter f = new StreamWriter(fileName, false))
                     {
-                        foreach (Show s in shows)
-                        {
-                            foreach (Show.Role r in s.roles)
-                            {
-                                foreach (TextBox t in r.boxes)
-                                {
-                                    f.Write(t.Text + ",");
-                                    Console.WriteLine(t.Text + ",");
-                                }
-                            }
-                        }
+                        string json = JsonConvert.SerializeObject(shows, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+                        f.Write(json);
                     }
                 }
-            }            
-        }
-
-        private void BtnLoad_Click(object sender, EventArgs e)
-        {
-
-            var fileContent = string.Empty;
-            var filePath = string.Empty;
-
-            using (OpenFileDialog ofd = new OpenFileDialog())
-            {
-                ofd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs|All files (*.*)|*.*";
-                ofd.FilterIndex = 2;
-                ofd.RestoreDirectory = true;
-
-                if (ofd.ShowDialog() == DialogResult.OK)
-                {
-                    //Get the path of specified file
-                    filePath = ofd.FileName;
-
-                    //Read the contents of the file into a stream
-                    var fileStream = ofd.OpenFile();
-
-                    using (StreamReader reader = new StreamReader(fileStream))
-                    {
-                        fileContent = reader.ReadToEnd();
-                    }
-                }
-            }
-            string[] loadedNames   = fileContent.Split(',');
-            try
-            {
-                for (int i = 0; i < nameBoxes.Count; i++)
-                {
-                    nameBoxes[i].Text = loadedNames[i];
-                }
-            }
-            catch (IndexOutOfRangeException ex)
-            {
-                MessageBox.Show("Error: loaded file does not match show setup. Please check show setup and try again." + Environment.NewLine + ex.Message);
             }
         }
 
@@ -442,7 +436,7 @@ namespace LUTGCaster
                 {
                     Flash(nb, 250, Color.MediumPurple, 5);
                 }
-            } 
+            }
         }
 
         private void Flash(TextBox textBox, int interval, Color color, int flashes)
@@ -465,7 +459,6 @@ namespace LUTGCaster
             Color original = textBox.BackColor;
             for (int i = 0; i < flashes; i++)
             {
-
                 UpdateTextbox(textBox, flashColor);
                 Thread.Sleep(interval / 2);
                 UpdateTextbox(textBox, original);

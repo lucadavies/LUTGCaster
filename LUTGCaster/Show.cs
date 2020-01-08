@@ -25,18 +25,21 @@ namespace LUTGCaster
 
         public class Role
         {
-            public string name;
-            public List<TextBox> boxes;
+            public string rName;
+            public List<string> names;
 
-            public Role(string name)
+            public Role(string rName)
             {
-                this.name = name;
-                boxes = new List<TextBox>();
-            }
-
-            public void addTextBox(TextBox tb)
-            {
-                boxes.Add(tb);
+                this.rName = rName;
+                names = new List<string>(6)
+                {
+                    "",
+                    "",
+                    "",
+                    "",
+                    "",
+                    ""
+                };
             }
         }
     }

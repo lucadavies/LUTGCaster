@@ -1,8 +1,10 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -191,6 +193,44 @@ namespace LUTGCaster
         private void BtnAddShow_Click(object sender, EventArgs e)
         {
             AddShow();
+        }
+
+        private void btnLoad_Click(object sender, EventArgs e)
+        {
+
+            var fileContent = string.Empty;
+            var filePath = string.Empty;
+
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                ofd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs|All files (*.*)|*.*";
+                ofd.FilterIndex = 2;
+                ofd.RestoreDirectory = true;
+
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    //Get the path of specified file
+                    filePath = ofd.FileName;
+
+                    //Read the contents of the file into a stream
+                    var fileStream = ofd.OpenFile();
+
+                    using (StreamReader reader = new StreamReader(fileStream))
+                    {
+                        fileContent = reader.ReadToEnd();
+                    }
+                }
+            }
+            try
+            {
+                shows = JsonConvert.DeserializeObject<List<Show>>(fileContent);
+                CastingSheet cs = new CastingSheet(shows);
+                cs.Show();
+            }
+            catch (JsonException ex)
+            {
+                MessageBox.Show("Error: loaded file is corrupt and cannot be deserialised." + Environment.NewLine + ex.Message);
+            }
         }
     }
 }
