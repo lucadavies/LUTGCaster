@@ -66,89 +66,96 @@ namespace LUTGCaster
 
         private void AddShow()
         {
-            GroupBox gBox = new GroupBox
+            if (setupShows < 10)
             {
-                Location = new Point(12, 12 + (76 * (setupShows))),
-                Name = "gBoxS" + (setupShows + 1),
-                Size = new Size(365, 70),
-                TabIndex = 7,
-                TabStop = false,
-                Text = "Show " + (setupShows + 1)
-            };
+                GroupBox gBox = new GroupBox
+                {
+                    Location = new Point(12, 12 + (76 * (setupShows))),
+                    Name = "gBoxS" + (setupShows + 1),
+                    Size = new Size(365, 70),
+                    TabIndex = 7,
+                    TabStop = false,
+                    Text = "Show " + (setupShows + 1)
+                };
 
-            Label lblName = new Label
+                Label lblName = new Label
+                {
+                    AutoSize = true,
+                    Location = new Point(6, 16),
+                    Name = "lblName" + (setupShows + 1),
+                    Size = new Size(35, 13),
+                    TabIndex = 1,
+                    Text = "Name"
+                };
+
+                Label lblChar = new Label
+                {
+                    AutoSize = true,
+                    Location = new Point(6, 42),
+                    Name = "lblChar" + (setupShows + 1),
+                    Size = new Size(58, 13),
+                    TabIndex = 2,
+                    Text = "Characters"
+                };
+
+                TextBox txtSName = new TextBox
+                {
+                    Location = new Point(70, 13),
+                    Name = "txtS1Name",
+                    Size = new Size(244, 20),
+                    TabIndex = 0
+                };
+
+                Panel panChars = new Panel
+                {
+                    Location = new Point(70, 39),
+                    Name = "panS1",
+                    Size = new Size(245, 21),
+                    TabIndex = 28
+                };
+
+                TextBox txtChar1 = new TextBox
+                {
+                    Location = new Point(0, 0),
+                    Margin = new Padding(0, 3, 0, 3),
+                    Name = "txtS" + (setupShows + 1) + "C1",
+                    Size = new Size(122, 20),
+                    TabIndex = 3
+                };
+
+                TextBox txtChar2 = new TextBox
+                {
+                    Location = new Point(122, 0),
+                    Margin = new Padding(0, 3, 0, 3),
+                    Name = "txtS" + (setupShows + 1) + "C2",
+                    Size = new Size(122, 20)
+                };
+
+                Button btnAddChar = new Button
+                {
+                    Location = new Point(320, 12),
+                    Name = "btnS" + (setupShows + 1) + "AddChar",
+                    Size = new Size(38, 48),
+                    Text = "Add Role"
+                };
+                btnAddChar.Click += new EventHandler(BtnAddChar_Click);
+
+                gBox.Controls.Add(panChars);
+                gBox.Controls.Add(lblName);
+                gBox.Controls.Add(lblChar);
+                gBox.Controls.Add(txtSName);
+                gBox.Controls.Add(btnAddChar);
+                panChars.Controls.Add(txtChar1);
+                panChars.Controls.Add(txtChar2);
+                Controls.Add(gBox);
+
+                showBoxes.Add(gBox);
+                setupShows += 1;
+            }
+            else
             {
-                AutoSize = true,
-                Location = new Point(6, 16),
-                Name = "lblName" + (setupShows + 1),
-                Size = new Size(35, 13),
-                TabIndex = 1,
-                Text = "Name"
-            };
-
-            Label lblChar = new Label
-            {
-                AutoSize = true,
-                Location = new Point(6, 42),
-                Name = "lblChar" + (setupShows + 1),
-                Size = new Size(58, 13),
-                TabIndex = 2,
-                Text = "Characters"
-            };
-
-            TextBox txtSName = new TextBox
-            {
-                Location = new Point(70, 13),
-                Name = "txtS1Name",
-                Size = new Size(244, 20),
-                TabIndex = 0
-            };
-
-            Panel panChars = new Panel
-            {
-                Location = new Point(70, 39),
-                Name = "panS1",
-                Size = new Size(245, 21),
-                TabIndex = 28
-            };
-
-            TextBox txtChar1 = new TextBox
-            {
-                Location = new Point(0, 0),
-                Margin = new Padding(0, 3, 0, 3),
-                Name = "txtS" + (setupShows + 1) + "C1",
-                Size = new Size(122, 20),
-                TabIndex = 3
-            };
-
-            TextBox txtChar2 = new TextBox
-            {
-                Location = new Point(122, 0),
-                Margin = new Padding(0, 3, 0, 3),
-                Name = "txtS" + (setupShows + 1) + "C2",
-                Size = new Size(122, 20)
-            };
-
-            Button btnAddChar = new Button
-            {
-                Location = new Point(320, 12),
-                Name = "btnS" + (setupShows + 1) + "AddChar",
-                Size = new Size(38, 48),
-                Text = "Add Role"
-            };
-            btnAddChar.Click += new EventHandler(BtnAddChar_Click);
-
-            gBox.Controls.Add(panChars);
-            gBox.Controls.Add(lblName);
-            gBox.Controls.Add(lblChar);
-            gBox.Controls.Add(txtSName);
-            gBox.Controls.Add(btnAddChar);
-            panChars.Controls.Add(txtChar1);
-            panChars.Controls.Add(txtChar2);
-            Controls.Add(gBox);
-
-            showBoxes.Add(gBox);
-            setupShows += 1;
+                MessageBox.Show("You have reached the maximum number of shows.", "LUTG Caster",  MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
 
         private void BtnAddChar_Click(object sender, EventArgs e)
