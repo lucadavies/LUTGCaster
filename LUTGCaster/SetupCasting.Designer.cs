@@ -75,7 +75,7 @@
             this.Controls.Add(this.btnAddShow);
             this.Controls.Add(this.BtnGenerate);
             this.Name = "SetupCasting";
-            this.Text = "SetupCasting";
+            this.Text = "Setup Casting Sheet...";
             this.ResumeLayout(false);
 
         }

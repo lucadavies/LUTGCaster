@@ -406,7 +406,11 @@ namespace LUTGCaster
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
+            SaveSheet();            
+        }
 
+        private void SaveSheet()
+        {
             string fileName;
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
@@ -466,6 +470,23 @@ namespace LUTGCaster
                 Thread.Sleep(interval / 2);
                 UpdateTextbox(textBox, original);
                 Thread.Sleep(interval / 2);
+            }
+        }
+
+        private void CastingSheet_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Want to save your sheet?", "Casting Sheet", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                SaveSheet();
+            }
+            else if (res == DialogResult.No)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
             }
         }
     }

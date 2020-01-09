@@ -64,7 +64,8 @@
             this.Controls.Add(this.BtnSave);
             this.Controls.Add(this.btnChkBlk);
             this.Name = "CastingSheet";
-            this.Text = "Form1";
+            this.Text = "Casting Sheet";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CastingSheet_FormClosing);
             this.ResumeLayout(false);
 
         }
