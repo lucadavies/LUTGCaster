@@ -20,12 +20,13 @@ namespace LUTGCaster
         List<TextBox> nameBoxes;
         List<Show> shows;
         Regex alphaNumSlashRgx = new Regex("[^a-zA-Z0-9/.' -]");
+        bool checkingNames = false;
 
         public CastingSheet(List<Show> shows)
         {
             InitializeComponent();
             this.shows = shows;
-            InitDyn();
+            Init();
         }
 
         /// <summary>
@@ -33,7 +34,7 @@ namespace LUTGCaster
         /// Role textbox names are in the format: txtSxCyz where x is the show number, y is the character number and z is a letter (a-f) representign choices 1-6
         /// Cast button names are in the format: btncastSxCy where x is the show number and y is the character number
         /// </summary>
-        private void InitDyn()
+        private void Init()
         {
             nameBoxes = new List<TextBox>();
             foreach (Show s in shows) //loop thorugh all shows
@@ -139,7 +140,7 @@ namespace LUTGCaster
                             Location = new Point(74 + (i * 122), 63 + (j * 20)),
                             Margin = new Padding(0)
                         };
-                        string n = "txtS1C" + (i + 1);
+                        string n = "txtS" + (shows.IndexOf(s) + 1) + "C" + (i + 1);
                         switch (j)
                         {
                             case 0:
@@ -164,7 +165,7 @@ namespace LUTGCaster
                         tb.Name = n;
                         tb.Size = new Size(122, 20);
                         tb.TabIndex = 7;
-                        tb.TextChanged += new EventHandler(UpdateAllColours);
+                        tb.TextChanged += new EventHandler(Tb_TextChanged);
                         tb.DoubleClick += new EventHandler(Tb_DoubleClick);
                         tb.LostFocus += new EventHandler(UpdateShowData);
                         gBox.Controls.Add(tb);
@@ -190,9 +191,15 @@ namespace LUTGCaster
             List<TextBox> charTBs = new List<TextBox>();
             foreach (TextBox t in nameBoxes)
             {
-                if (t.Name.Substring(3, t.Name.Length - 1).Equals(btn.Name.Substring(7)))
+                string a = t.Name.Substring(3, t.Name.Length - 4);
+                string b = btn.Name.Substring(7);
+                if (t.Name.Substring(3, t.Name.Length - 4).Equals(btn.Name.Substring(7)))
                 {
                     charTBs.Add(t);
+                    if (charTBs.Count == 6)
+                    {
+                        break;
+                    }
                 }
             }
             foreach (TextBox t in charTBs)
@@ -230,86 +237,89 @@ namespace LUTGCaster
         /// Checks for duplicate names in ALL other textboxes present on sheet, colours each textbox accordingly
         /// </summary>
         /// <param rName="tb">Textbox rName to check against</param>
-        private void UpdateColours(TextBox tb)
+        private void UpdateColours()
         {
-            string name = tb.Text;
-            if (!name.Equals(""))
+            foreach (TextBox tb in nameBoxes)
             {
-
-                int countOther = 0;
-                int countFirst = 0;
-                List<TextBox> toColour = new List<TextBox>();
-                foreach (TextBox nb in nameBoxes)   //count all first choice appearances and other appearacnes
+                string name = tb.Text;
+                if (!name.Equals(""))
                 {
-                    if (nb.Text.Equals(name))
+
+                    int countOther = 0;
+                    int countFirst = 0;
+                    List<TextBox> toColour = new List<TextBox>();
+                    foreach (TextBox nb in nameBoxes)   //count all first choice appearances and other appearacnes
                     {
-                        if (nb.Name[nb.Name.Length - 1].Equals('a'))
+                        if (nb.Text.Equals(name))
                         {
-                            countFirst++;
+                            if (nb.Name[nb.Name.Length - 1].Equals('a'))
+                            {
+                                countFirst++;
+                            }
+                            else
+                            {
+                                countOther++;
+                            }
+                            toColour.Add(nb);
                         }
-                        else
+                    }
+                    foreach (TextBox t in toColour) //colour all textboxes found with same rName the same colour
+                    {
+                        t.ForeColor = Color.Black;
+                        switch (countFirst)
                         {
-                            countOther++;
+                            case 0:
+                                t.BackColor = Color.DarkSeaGreen;
+                                break;
+                            case 1:
+                                if (countOther == 0)
+                                {
+                                    t.BackColor = Color.YellowGreen;    //1 1st choice
+                                }
+                                else
+                                {
+                                    t.BackColor = Color.Yellow;         //1 1st choice + other
+                                }
+                                break;
+                            case 2:
+                                if (countOther == 0)
+                                {
+                                    t.BackColor = Color.DarkTurquoise;      //2 1st choice
+                                }
+                                else
+                                {
+                                    t.BackColor = Color.Gold;           //2 1st choice + other
+                                }
+                                break;
+                            case 3:
+                                if (countOther == 0)
+                                {
+                                    t.BackColor = Color.SteelBlue;      //3 1st choice
+                                }
+                                else
+                                {
+                                    t.BackColor = Color.DarkOrange;     //3 1st choice + other
+                                }
+                                break;
+                            case 4:
+                                if (countOther == 0)
+                                {
+                                    t.BackColor = Color.DarkSlateBlue;       //4 1st choice
+                                    t.ForeColor = Color.White;
+
+                                }
+                                else
+                                {
+                                    t.BackColor = Color.Red;            //4 1st choice + other
+                                }
+                                break;
                         }
-                        toColour.Add(nb);
                     }
                 }
-                foreach (TextBox t in toColour) //colour all textboxes found with same rName the same colour
+                if (name.Equals(""))
                 {
-                    t.ForeColor = Color.Black;
-                    switch (countFirst)
-                    {
-                        case 0:
-                            t.BackColor = Color.DarkSeaGreen;
-                            break;
-                        case 1:
-                            if (countOther == 0)
-                            {
-                                t.BackColor = Color.YellowGreen;    //1 1st choice
-                            }
-                            else
-                            {
-                                t.BackColor = Color.Yellow;         //1 1st choice + other
-                            }
-                            break;
-                        case 2:
-                            if (countOther == 0)
-                            {
-                                t.BackColor = Color.DarkTurquoise;      //2 1st choice
-                            }
-                            else
-                            {
-                                t.BackColor = Color.Goldenrod;           //2 1st choice + other
-                            }
-                            break;
-                        case 3:
-                            if (countOther == 0)
-                            {
-                                t.BackColor = Color.SteelBlue;      //3 1st choice
-                            }
-                            else
-                            {
-                                t.BackColor = Color.DarkOrange;     //3 1st choice + other
-                            }
-                            break;
-                        case 4:
-                            if (countOther == 0)
-                            {
-                                t.BackColor = Color.DarkSlateBlue;       //4 1st choice
-                                t.ForeColor = Color.White;
-
-                            }
-                            else
-                            {
-                                t.BackColor = Color.Red;            //4 1st choice + other
-                            }
-                            break;
-                    }
+                    tb.BackColor = Color.White;
                 }
-            }
-            if (name.Equals(""))
-            {
-                tb.BackColor = Color.White;
             }
         }
 
@@ -318,15 +328,19 @@ namespace LUTGCaster
         /// </summary>
         /// <param rName="sender"></param>
         /// <param rName="e"></param>
-        private void UpdateAllColours(object sender, EventArgs e)
+        private void Tb_TextChanged(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
-            tb.Text = alphaNumSlashRgx.Replace(tb.Text, "");
-            tb.SelectionStart = tb.Text.Length;
-            tb.SelectionLength = 0;
-            foreach (TextBox t in nameBoxes)
+            string cleanText = alphaNumSlashRgx.Replace(tb.Text, "");
+            if (!tb.Text.Equals(cleanText))
             {
-                UpdateColours(t);
+                tb.Text = cleanText;
+                tb.SelectionStart = tb.Text.Length;
+                tb.SelectionLength = 0;
+            }
+            if (checkingNames)
+            {
+                UpdateColours();
             }
         }
 
@@ -487,6 +501,23 @@ namespace LUTGCaster
             else
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void btnChkNames_Click(object sender, EventArgs e)
+        {
+            if (checkingNames)
+            {
+                checkingNames = false;
+                lblChkNames.Text = "Not checking names";
+                lblChkNames.ForeColor = Color.Red;
+            }
+            else
+            {
+                checkingNames = true;
+                lblChkNames.Text = "Checking names";
+                lblChkNames.ForeColor = Color.Green;
+                UpdateColours();
             }
         }
     }

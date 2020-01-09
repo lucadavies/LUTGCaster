@@ -147,7 +147,7 @@ namespace LUTGCaster
                 gBox.Controls.Add(btnAddChar);
                 panChars.Controls.Add(txtChar1);
                 panChars.Controls.Add(txtChar2);
-                Controls.Add(gBox);
+                panShows.Controls.Add(gBox);
 
                 showBoxes.Add(gBox);
                 setupShows += 1;
