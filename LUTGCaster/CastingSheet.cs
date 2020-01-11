@@ -21,6 +21,7 @@ namespace LUTGCaster
         List<Show> shows;
         Regex alphaNumSlashRgx = new Regex("[^a-zA-Z0-9/.' -]");
         bool checkingNames = false;
+        float zoomChange = 0.05f;
 
         public CastingSheet(List<Show> shows)
         {
@@ -170,12 +171,12 @@ namespace LUTGCaster
                         tb.LostFocus += new EventHandler(UpdateShowData);
                         gBox.Controls.Add(tb);
                         gBox.Text = s.name;
+                        panAll.Controls.Add(gBox);
                         nameBoxes.Add(tb);
                         tb.Text = s.roles[i].names[j];
 
                     }
                 }
-                Height += 198; //enlarge form to fit number of shows
             }
         }
 
@@ -412,10 +413,10 @@ namespace LUTGCaster
 
         private void BtnChkBlk_Click(object sender, EventArgs e)
         {
-            foreach (TextBox tb in nameBoxes)
-            {
-                //DetectLocks(tb);
-            }
+            //foreach (TextBox tb in nameBoxes)
+            //{
+            //    DetectLocks(tb);
+            //}
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -519,6 +520,43 @@ namespace LUTGCaster
                 lblChkNames.ForeColor = Color.Green;
                 UpdateColours();
             }
+        }
+
+        private void BtnZoomOut_Click(object sender, EventArgs e)
+        {
+            Font = new Font(Font.Name, Font.Size * (1 - zoomChange), Font.Style);
+            foreach (TextBox tb in nameBoxes)
+            {
+                tb.Font = new Font(tb.Font.Name, tb.Font.Size * (1 - zoomChange), tb.Font.Style);
+            }
+        }
+
+        private void BtnZoomUp_Click(object sender, EventArgs e)
+        {
+            Font = new Font(Font.Name, Font.Size * (1 + zoomChange), Font.Style);
+            foreach (TextBox tb in nameBoxes)
+            {
+                tb.Font = new Font(tb.Font.Name, tb.Font.Size * (1 + zoomChange), tb.Font.Style);
+            }
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0112) // WM_SYSCOMMAND
+            {
+                // Check your window state here
+                if (m.WParam == new IntPtr(0xF030)) // Maximize event - SC_MAXIMIZE from Winuser.h
+                {
+                    btnZoomUp.Enabled = false;
+                    btnZoomOut.Enabled = false;
+                }
+                else if (m.WParam == new IntPtr(0xF120))
+                {
+                    btnZoomUp.Enabled = true;
+                    btnZoomOut.Enabled = true;
+                }
+            }
+            base.WndProc(ref m);
         }
     }
 }
