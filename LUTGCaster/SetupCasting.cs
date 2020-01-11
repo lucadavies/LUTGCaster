@@ -211,7 +211,7 @@ namespace LUTGCaster
             using (OpenFileDialog ofd = new OpenFileDialog())
             {
                 ofd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs|All files (*.*)|*.*";
-                ofd.FilterIndex = 2;
+                ofd.FilterIndex = 0;
                 ofd.RestoreDirectory = true;
 
                 if (ofd.ShowDialog() == DialogResult.OK)
@@ -228,15 +228,18 @@ namespace LUTGCaster
                     }
                 }
             }
-            try
+            if (!fileContent.Equals(string.Empty))
             {
-                shows = JsonConvert.DeserializeObject<List<Show>>(fileContent);
-                CastingSheet cs = new CastingSheet(shows);
-                cs.Show();
-            }
-            catch (JsonException ex)
-            {
-                MessageBox.Show("Error: loaded file is corrupt and cannot be deserialised." + Environment.NewLine + ex.Message);
+                try
+                {
+                    shows = JsonConvert.DeserializeObject<List<Show>>(fileContent);
+                    CastingSheet cs = new CastingSheet(shows);
+                    cs.Show();
+                }
+                catch (JsonException ex)
+                {
+                    MessageBox.Show("Error: loaded file is corrupt and cannot be deserialised." + Environment.NewLine + ex.Message);
+                }
             }
         }
     }
