@@ -455,7 +455,7 @@ namespace LUTGCaster
                 {
                     if (nb.Text.Equals(name))
                     {
-                        Flash(nb, 250, Color.MediumPurple, 5);
+                        Flash(nb, 250, Color.FromArgb(0xFFFFFF ^ nb.BackColor.ToArgb()), 5);
                     }
                 }
             } 
