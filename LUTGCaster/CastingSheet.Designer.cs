@@ -34,9 +34,9 @@
             this.lblChkNames = new System.Windows.Forms.Label();
             this.lblZoom = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panAll = new System.Windows.Forms.Panel();
-            this.btnZoomOut = new System.Windows.Forms.Button();
             this.btnZoomUp = new System.Windows.Forms.Button();
+            this.btnZoomOut = new System.Windows.Forms.Button();
+            this.panAll = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -110,16 +110,17 @@
             this.panel1.Size = new System.Drawing.Size(772, 42);
             this.panel1.TabIndex = 1;
             // 
-            // panAll
+            // btnZoomUp
             // 
-            this.panAll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panAll.AutoScroll = true;
-            this.panAll.Location = new System.Drawing.Point(0, 8);
-            this.panAll.Name = "panAll";
-            this.panAll.Size = new System.Drawing.Size(786, 140);
-            this.panAll.TabIndex = 0;
+            this.btnZoomUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnZoomUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZoomUp.Location = new System.Drawing.Point(388, 3);
+            this.btnZoomUp.Name = "btnZoomUp";
+            this.btnZoomUp.Size = new System.Drawing.Size(36, 36);
+            this.btnZoomUp.TabIndex = 10;
+            this.btnZoomUp.Text = "+";
+            this.btnZoomUp.UseVisualStyleBackColor = true;
+            this.btnZoomUp.Click += new System.EventHandler(this.BtnZoomUp_Click);
             // 
             // btnZoomOut
             // 
@@ -133,17 +134,16 @@
             this.btnZoomOut.UseVisualStyleBackColor = true;
             this.btnZoomOut.Click += new System.EventHandler(this.BtnZoomOut_Click);
             // 
-            // btnZoomUp
+            // panAll
             // 
-            this.btnZoomUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnZoomUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomUp.Location = new System.Drawing.Point(388, 3);
-            this.btnZoomUp.Name = "btnZoomUp";
-            this.btnZoomUp.Size = new System.Drawing.Size(36, 36);
-            this.btnZoomUp.TabIndex = 10;
-            this.btnZoomUp.Text = "+";
-            this.btnZoomUp.UseVisualStyleBackColor = true;
-            this.btnZoomUp.Click += new System.EventHandler(this.BtnZoomUp_Click);
+            this.panAll.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panAll.AutoScroll = true;
+            this.panAll.Location = new System.Drawing.Point(0, 8);
+            this.panAll.Name = "panAll";
+            this.panAll.Size = new System.Drawing.Size(786, 140);
+            this.panAll.TabIndex = 0;
             // 
             // CastingSheet
             // 

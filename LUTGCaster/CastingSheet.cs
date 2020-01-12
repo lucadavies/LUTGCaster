@@ -22,6 +22,15 @@ namespace LUTGCaster
         Regex alphaNumSlashRgx = new Regex("[^a-zA-Z0-9/.' -]");
         bool checkingNames = false;
         float zoomChange = 0.05f;
+        Color o = Color.FromArgb(198, 224, 180);
+        Color f1 = Color.FromArgb(81, 211, 81);
+        Color f1o = Color.FromArgb(255, 255, 0);
+        Color f2 = Color.FromArgb(55, 203, 255);
+        Color f2o = Color.FromArgb(255, 192, 0);
+        Color f3 = Color.FromArgb(85, 147, 203);
+        Color f3o = Color.FromArgb(237, 125, 49);
+        Color f4 = Color.FromArgb(48, 84, 150);
+        Color f4o = Color.FromArgb(255, 0, 0);
 
         public CastingSheet(List<Show> shows)
         {
@@ -270,48 +279,48 @@ namespace LUTGCaster
                         switch (countFirst)
                         {
                             case 0:
-                                t.BackColor = Color.DarkSeaGreen;
+                                t.BackColor = o;       //other
                                 break;
                             case 1:
                                 if (countOther == 0)
                                 {
-                                    t.BackColor = Color.YellowGreen;    //1 1st choice
+                                    t.BackColor = f1;    //1 1st choice
                                 }
                                 else
                                 {
-                                    t.BackColor = Color.Yellow;         //1 1st choice + other
+                                    t.BackColor = f1o;         //1 1st choice + other
                                 }
                                 break;
                             case 2:
                                 if (countOther == 0)
                                 {
-                                    t.BackColor = Color.DarkTurquoise;      //2 1st choice
+                                    t.BackColor = f2;      //2 1st choice
                                 }
                                 else
                                 {
-                                    t.BackColor = Color.Gold;           //2 1st choice + other
+                                    t.BackColor = f2o;           //2 1st choice + other
                                 }
                                 break;
                             case 3:
                                 if (countOther == 0)
                                 {
-                                    t.BackColor = Color.SteelBlue;      //3 1st choice
+                                    t.BackColor = f3;      //3 1st choice
                                 }
                                 else
                                 {
-                                    t.BackColor = Color.DarkOrange;     //3 1st choice + other
+                                    t.BackColor = f3o;     //3 1st choice + other
                                 }
                                 break;
                             case 4:
                                 if (countOther == 0)
                                 {
-                                    t.BackColor = Color.DarkSlateBlue;       //4 1st choice
+                                    t.BackColor = f4;       //4 1st choice
                                     t.ForeColor = Color.White;
 
                                 }
                                 else
                                 {
-                                    t.BackColor = Color.Red;            //4 1st choice + other
+                                    t.BackColor = f4o;            //4 1st choice + other
                                 }
                                 break;
                         }
@@ -319,7 +328,7 @@ namespace LUTGCaster
                 }
                 if (name.Equals(""))
                 {
-                    tb.BackColor = Color.White;
+                    tb.BackColor = SystemColors.Control;
                 }
             }
         }
