@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SetupCasting));
             this.btnAddShow = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.panShows = new System.Windows.Forms.Panel();
@@ -88,6 +89,7 @@
             this.Controls.Add(this.panShows);
             this.Controls.Add(this.btnLoad);
             this.Controls.Add(this.btnAddShow);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "SetupCasting";
             this.Text = "Setup Casting Sheet...";

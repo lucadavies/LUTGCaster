@@ -52,6 +52,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
     <Compile Include="CastingSheet.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +73,9 @@
       <DependentUpon>SetupCasting.cs</DependentUpon>
     </Compile>
     <Compile Include="Show.cs" />
+    <EmbeddedResource Include="About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CastingSheet.resx">
       <DependentUpon>CastingSheet.cs</DependentUpon>
     </EmbeddedResource>
@@ -78,6 +87,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="SetupCasting.resx">
       <DependentUpon>SetupCasting.cs</DependentUpon>
@@ -95,6 +105,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Aether_Wing Avatar %28Large Cropped%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lutgLogo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

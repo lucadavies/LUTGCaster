@@ -567,5 +567,11 @@ namespace LUTGCaster
             }
             base.WndProc(ref m);
         }
+
+        private void LLblAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            About ab = new About();
+            ab.Show();
+        }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CastingSheet));
             this.btnChkBlk = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.btnChkNames = new System.Windows.Forms.Button();
@@ -37,6 +38,7 @@
             this.btnZoomUp = new System.Windows.Forms.Button();
             this.btnZoomOut = new System.Windows.Forms.Button();
             this.panAll = new System.Windows.Forms.Panel();
+            this.lLblAbout = new System.Windows.Forms.LinkLabel();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,7 +55,7 @@
             // 
             // BtnSave
             // 
-            this.BtnSave.Location = new System.Drawing.Point(0, 3);
+            this.BtnSave.Location = new System.Drawing.Point(12, 3);
             this.BtnSave.Name = "BtnSave";
             this.BtnSave.Size = new System.Drawing.Size(90, 36);
             this.BtnSave.TabIndex = 4;
@@ -64,7 +66,7 @@
             // btnChkNames
             // 
             this.btnChkNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnChkNames.Location = new System.Drawing.Point(693, 3);
+            this.btnChkNames.Location = new System.Drawing.Point(697, 3);
             this.btnChkNames.Name = "btnChkNames";
             this.btnChkNames.Size = new System.Drawing.Size(75, 36);
             this.btnChkNames.TabIndex = 5;
@@ -77,7 +79,7 @@
             this.lblChkNames.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblChkNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChkNames.ForeColor = System.Drawing.Color.Red;
-            this.lblChkNames.Location = new System.Drawing.Point(448, 6);
+            this.lblChkNames.Location = new System.Drawing.Point(452, 1);
             this.lblChkNames.Name = "lblChkNames";
             this.lblChkNames.Size = new System.Drawing.Size(239, 36);
             this.lblChkNames.TabIndex = 6;
@@ -88,7 +90,7 @@
             // 
             this.lblZoom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblZoom.AutoSize = true;
-            this.lblZoom.Location = new System.Drawing.Point(306, 15);
+            this.lblZoom.Location = new System.Drawing.Point(318, 15);
             this.lblZoom.Name = "lblZoom";
             this.lblZoom.Size = new System.Drawing.Size(34, 13);
             this.lblZoom.TabIndex = 8;
@@ -105,16 +107,16 @@
             this.panel1.Controls.Add(this.btnChkBlk);
             this.panel1.Controls.Add(this.btnChkNames);
             this.panel1.Controls.Add(this.lblChkNames);
-            this.panel1.Location = new System.Drawing.Point(12, 157);
+            this.panel1.Location = new System.Drawing.Point(0, 181);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(772, 42);
+            this.panel1.Size = new System.Drawing.Size(784, 42);
             this.panel1.TabIndex = 1;
             // 
             // btnZoomUp
             // 
             this.btnZoomUp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnZoomUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomUp.Location = new System.Drawing.Point(388, 3);
+            this.btnZoomUp.Location = new System.Drawing.Point(400, 3);
             this.btnZoomUp.Name = "btnZoomUp";
             this.btnZoomUp.Size = new System.Drawing.Size(36, 36);
             this.btnZoomUp.TabIndex = 10;
@@ -126,7 +128,7 @@
             // 
             this.btnZoomOut.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnZoomOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomOut.Location = new System.Drawing.Point(346, 3);
+            this.btnZoomOut.Location = new System.Drawing.Point(358, 3);
             this.btnZoomOut.Name = "btnZoomOut";
             this.btnZoomOut.Size = new System.Drawing.Size(36, 36);
             this.btnZoomOut.TabIndex = 9;
@@ -142,17 +144,32 @@
             this.panAll.AutoScroll = true;
             this.panAll.Location = new System.Drawing.Point(0, 8);
             this.panAll.Name = "panAll";
-            this.panAll.Size = new System.Drawing.Size(786, 140);
+            this.panAll.Size = new System.Drawing.Size(786, 167);
             this.panAll.TabIndex = 0;
+            // 
+            // lLblAbout
+            // 
+            this.lLblAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lLblAbout.AutoSize = true;
+            this.lLblAbout.Location = new System.Drawing.Point(728, 234);
+            this.lLblAbout.Name = "lLblAbout";
+            this.lLblAbout.Size = new System.Drawing.Size(44, 13);
+            this.lLblAbout.TabIndex = 2;
+            this.lLblAbout.TabStop = true;
+            this.lLblAbout.Text = "About...";
+            this.lLblAbout.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.lLblAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LLblAbout_LinkClicked);
             // 
             // CastingSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(784, 211);
+            this.ClientSize = new System.Drawing.Size(784, 256);
+            this.Controls.Add(this.lLblAbout);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panAll);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(800, 250);
             this.Name = "CastingSheet";
             this.Text = "Casting Sheet";
@@ -160,6 +177,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -173,6 +191,7 @@
         private System.Windows.Forms.Panel panAll;
         private System.Windows.Forms.Button btnZoomUp;
         private System.Windows.Forms.Button btnZoomOut;
+        private System.Windows.Forms.LinkLabel lLblAbout;
     }
 }
 
