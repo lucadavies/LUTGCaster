@@ -22,6 +22,7 @@ namespace LUTGCaster
         Regex alphaNumSlashRgx = new Regex("[^a-zA-Z0-9/.' -]");
         bool checkingNames = false;
         float zoomChange = 0.05f;
+        int numChoices = 6;
         Color o = Color.FromArgb(198, 224, 180);
         Color f1 = Color.FromArgb(81, 211, 81);
         Color f1o = Color.FromArgb(255, 255, 0);
@@ -52,10 +53,10 @@ namespace LUTGCaster
                 int index = shows.IndexOf(s);
                 GroupBox gBox = new GroupBox
                 {
-                    Location = new Point(12, 12 + (198 * index)),
+                    Location = new Point(12, 12 + ((80 + (numChoices * 20)) * index)),
                     Name = "gBoxS" + (index + 1),
                     Padding = new Padding(3, 3, 3, 10),
-                    Size = new Size(1544, 192),
+                    Size = new Size(1544, 72 + (numChoices * 20)),
                     TabIndex = index,
                     TabStop = false,
                     Text = "<Show " + index + ">"
@@ -74,7 +75,7 @@ namespace LUTGCaster
                 };
                 gBox.Controls.Add(lblCharHead);
 
-                for (int i = 0; i < 6; i++)
+                for (int i = 0; i < numChoices; i++) //loop to create 6 choice labels
                 {
                     Label lbl = new Label
                     {
@@ -141,7 +142,7 @@ namespace LUTGCaster
                     };
                     gBox.Controls.Add(l);
 
-                    for (int j = 0; j < 6; j++) //loop to create six TextBoxes 
+                    for (int j = 0; j < numChoices; j++) //loop to create six TextBoxes 
                     {
                         TextBox tb = new TextBox
                         {
@@ -305,6 +306,7 @@ namespace LUTGCaster
                                 if (countOther == 0)
                                 {
                                     t.BackColor = f3;      //3 1st choice
+                                    t.ForeColor = Color.White;
                                 }
                                 else
                                 {
