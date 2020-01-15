@@ -60,7 +60,7 @@ namespace LUTGCaster
                 }
                 shows.Add(s);
             }
-            CastingSheet cs = new CastingSheet(shows);
+            CastingSheet cs = new CastingSheet(shows, (int)numUDChoices.Value);
             cs.Show();
         }
 
@@ -232,13 +232,26 @@ namespace LUTGCaster
             {
                 try
                 {
-                    shows = JsonConvert.DeserializeObject<List<Show>>(fileContent);
-                    CastingSheet cs = new CastingSheet(shows);
+                    string[] s = { "", ""};
+                    s = fileContent.Split('|');
+                    string json = s[0];
+                    string choicesTxt = s[1];
+                    shows = JsonConvert.DeserializeObject<List<Show>>(json);
+                    CastingSheet cs = new CastingSheet(shows, (s[1].Equals("") ? 6 : Convert.ToInt32(s[1])));
                     cs.Show();
+                    cs.Close();
                 }
                 catch (JsonException ex)
                 {
                     MessageBox.Show("Error: loaded file is corrupt and cannot be deserialised." + Environment.NewLine + ex.Message);
+                }
+                catch (IndexOutOfRangeException ex)
+                {
+                    MessageBox.Show("Error: loaded file is corrupt and cannot be loaded." + Environment.NewLine + ex.Message);
+                }
+                catch (FormatException ex)
+                {
+                    MessageBox.Show("Error: loaded file is corrupt and cannot be loaded." + Environment.NewLine + ex.Message);
                 }
             }
         }

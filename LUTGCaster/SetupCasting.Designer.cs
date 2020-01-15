@@ -33,6 +33,9 @@
             this.btnLoad = new System.Windows.Forms.Button();
             this.panShows = new System.Windows.Forms.Panel();
             this.btnGenerate = new System.Windows.Forms.Button();
+            this.numUDChoices = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.numUDChoices)).BeginInit();
             this.SuspendLayout();
             // 
             // btnAddShow
@@ -79,12 +82,45 @@
             this.btnGenerate.UseVisualStyleBackColor = true;
             this.btnGenerate.Click += new System.EventHandler(this.BtnGenerate_Click);
             // 
+            // numUDChoices
+            // 
+            this.numUDChoices.Location = new System.Drawing.Point(584, 429);
+            this.numUDChoices.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.numUDChoices.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.numUDChoices.Name = "numUDChoices";
+            this.numUDChoices.Size = new System.Drawing.Size(120, 20);
+            this.numUDChoices.TabIndex = 35;
+            this.numUDChoices.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(481, 431);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 13);
+            this.label1.TabIndex = 36;
+            this.label1.Text = "Number of Choices:";
+            // 
             // SetupCasting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(984, 461);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.numUDChoices);
             this.Controls.Add(this.btnGenerate);
             this.Controls.Add(this.panShows);
             this.Controls.Add(this.btnLoad);
@@ -93,7 +129,9 @@
             this.MinimumSize = new System.Drawing.Size(500, 500);
             this.Name = "SetupCasting";
             this.Text = "Setup Casting Sheet...";
+            ((System.ComponentModel.ISupportInitialize)(this.numUDChoices)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -102,5 +140,7 @@
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Panel panShows;
         private System.Windows.Forms.Button btnGenerate;
+        private System.Windows.Forms.NumericUpDown numUDChoices;
+        private System.Windows.Forms.Label label1;
     }
 }

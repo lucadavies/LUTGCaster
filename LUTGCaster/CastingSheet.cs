@@ -22,7 +22,7 @@ namespace LUTGCaster
         Regex alphaNumSlashRgx = new Regex("[^a-zA-Z0-9/.' -]");
         bool checkingNames = false;
         float zoomChange = 0.05f;
-        int numChoices = 6;
+        int numChoices;
         Color o = Color.FromArgb(198, 224, 180);
         Color f1 = Color.FromArgb(81, 211, 81);
         Color f1o = Color.FromArgb(255, 255, 0);
@@ -33,10 +33,11 @@ namespace LUTGCaster
         Color f4 = Color.FromArgb(48, 84, 150);
         Color f4o = Color.FromArgb(255, 0, 0);
 
-        public CastingSheet(List<Show> shows)
+        public CastingSheet(List<Show> shows, int numChoices)
         {
             InitializeComponent();
             this.shows = shows;
+            this.numChoices = numChoices;
             Init();
         }
 
@@ -451,6 +452,7 @@ namespace LUTGCaster
                     {
                         string json = JsonConvert.SerializeObject(shows, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
                         f.Write(json);
+                        f.Write("|" + numChoices);
                     }
                 }
             }
