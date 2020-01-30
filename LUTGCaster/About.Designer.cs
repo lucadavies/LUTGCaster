@@ -43,6 +43,8 @@
             this.lLblLUTG = new System.Windows.Forms.LinkLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tbPgHelp = new System.Windows.Forms.TabPage();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.lblAbout = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -64,8 +66,6 @@
             this.txt3 = new System.Windows.Forms.TextBox();
             this.txt1 = new System.Windows.Forms.TextBox();
             this.tbPgAbout = new System.Windows.Forms.TabPage();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -250,6 +250,30 @@
             this.tbPgHelp.Text = "Help";
             this.tbPgHelp.UseVisualStyleBackColor = true;
             // 
+            // label20
+            // 
+            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label20.Location = new System.Drawing.Point(212, 53);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(146, 17);
+            this.label20.TabIndex = 22;
+            this.label20.Text = "Can Call";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.label19.Location = new System.Drawing.Point(9, 53);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(184, 17);
+            this.label19.TabIndex = 21;
+            this.label19.Text = "Cannot Call";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // label18
             // 
             this.label18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -300,7 +324,7 @@
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(71, 13);
             this.label13.TabIndex = 15;
-            this.label13.Text = "3x 1st Choice";
+            this.label13.Text = "1x 1st Choice";
             // 
             // label14
             // 
@@ -479,34 +503,10 @@
             this.tbPgAbout.Location = new System.Drawing.Point(4, 22);
             this.tbPgAbout.Name = "tbPgAbout";
             this.tbPgAbout.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgAbout.Size = new System.Drawing.Size(370, 219);
+            this.tbPgAbout.Size = new System.Drawing.Size(370, 227);
             this.tbPgAbout.TabIndex = 0;
             this.tbPgAbout.Text = "About";
             this.tbPgAbout.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label19.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label19.Location = new System.Drawing.Point(9, 53);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(184, 17);
-            this.label19.TabIndex = 21;
-            this.label19.Text = "Cannot Call";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label20
-            // 
-            this.label20.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label20.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.label20.Location = new System.Drawing.Point(212, 53);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(146, 17);
-            this.label20.TabIndex = 22;
-            this.label20.Text = "Can Call";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // About
             // 

@@ -239,7 +239,6 @@ namespace LUTGCaster
                     shows = JsonConvert.DeserializeObject<List<Show>>(json);
                     CastingSheet cs = new CastingSheet(shows, (s[1].Equals("") ? 6 : Convert.ToInt32(s[1])));
                     cs.Show();
-                    cs.Close();
                 }
                 catch (JsonException ex)
                 {
