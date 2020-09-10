@@ -1,6 +1,6 @@
 # Thanks for stopping by! I hope you find this useful :)
 
-The built program can be downloaded using this link https://drive.google.com/open?id=1ZyuZFH-luA4CLcQcAN5wn9fB1-N4B3vy
+The built program can be downloaded using this link https://drive.google.com/file/d/1idb112gPtaQB-d_RWQPDbN9rl5oLS3Lh/view?usp=sharing
 
 To set up a new casting sheet:
 
