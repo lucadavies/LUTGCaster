@@ -641,10 +641,23 @@ namespace LUTGCaster
                     btnZoomUp.Enabled = false;
                     btnZoomOut.Enabled = false;
                 }
-                else if (m.WParam == new IntPtr(0xF120))
+                else if (m.WParam == new IntPtr(0xF120)) // Restore event - SC_RESTORE from Winuser.h
                 {
                     btnZoomUp.Enabled = true;
                     btnZoomOut.Enabled = true;
+                }
+                else if (m.WParam == new IntPtr(0xF012)) // Drag move event - SC_DRAGMOVE from Winuser.h
+                {
+                    if (btnZoomUp.Enabled || btnZoomOut.Enabled)
+                    {
+                        btnZoomUp.Enabled = false;
+                        btnZoomOut.Enabled = false;
+                    }
+                    else
+                    {
+                        btnZoomUp.Enabled = true;
+                        btnZoomOut.Enabled = true;
+                    }
                 }
             }
             base.WndProc(ref m);
