@@ -24,7 +24,8 @@ namespace LUTGCaster
         bool checkingNames = false;
         float zoomChange = 0.05f;
         int numChoices;
-        Dictionary<string, List<string>> d = new Dictionary<string, List<string>>(); //records locked in names - key is actor, value is show/role that must be freed to remove the block
+        Dictionary<string, List<string>> lockDict = new Dictionary<string, List<string>>(); //records locked in names - key is actor, value is show/role that must be freed to remove the block
+        List<string> viewedLocks = new List<string>();
         Color o = Color.FromArgb(198, 224, 180);
         Color f1 = Color.FromArgb(81, 211, 81);
         Color f1o = Color.FromArgb(255, 255, 0);
@@ -201,12 +202,9 @@ namespace LUTGCaster
         private void CastCharacter(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
-            Console.WriteLine(btn.Name);
             List<TextBox> charTBs = new List<TextBox>();
             foreach (TextBox t in nameBoxes)
             {
-                string a = t.Name.Substring(3, t.Name.Length - 4);
-                string b = btn.Name.Substring(7);
                 if (t.Name.Substring(3, t.Name.Length - 4).Equals(btn.Name.Substring(7)))
                 {
                     charTBs.Add(t);
@@ -253,7 +251,7 @@ namespace LUTGCaster
         /// <param rName="tb">Textbox rName to check against</param>
         private void UpdateColours()
         {
-            d = new Dictionary<string, List<string>>();
+            lockDict = new Dictionary<string, List<string>>();
             int countOther;
             int countFirst;
             char pos; //role position
@@ -346,50 +344,90 @@ namespace LUTGCaster
                 character = (int)char.GetNumericValue(tb.Name[6]);
                 if (countFirst > 0 && countOther > 0 && !pos.Equals('a'))
                 {
-                    string t = shows[show - 1].name + ">" + shows[show - 1].roles[character - 1].rName + ">Choice" + pos;
-                    Console.WriteLine(tb.Text + ": " + t);
-                    if (d.ContainsKey(tb.Text))
+                    string t = shows[show - 1].name + " > " + shows[show - 1].roles[character - 1].rName + " > Choice ";
+                    switch (pos)
                     {
-                        if (!d[tb.Text].Contains(t))
+                        case 'b':
+                            t += "2";
+                            break;
+                        case 'c':
+                            t += "3";
+                            break;
+                        case 'd':
+                            t += "4";
+                            break;
+                        case 'e':
+                            t += "5";
+                            break;
+                        case 'f':
+                            t += "6";
+                            break;
+                        default:
+                            break;
+                    }
+                    if (lockDict.ContainsKey(tb.Text))
+                    {
+                        if (!lockDict[tb.Text].Contains(t))
                         {
-                            d[tb.Text].Add(t);
+                            lockDict[tb.Text].Add(t);
                         }
                     }
                     else
                     {
-                        d.Add(tb.Text, new List<string>() { t });
+                        lockDict.Add(tb.Text, new List<string>() { t });
                     }
                 }
             }
+            viewedLocks.Clear();
             UpdateLockSuggestion();
         }
 
+        /// <summary>
+        /// Reads the lock dictionary to find the least locked of all locked names and displays it
+        /// </summary>
         private void UpdateLockSuggestion()
         {
-            int minLock = 99;
+            int minLock = 999;
             string minLockName = "";
-            foreach (string name in d.Keys)
+            foreach (string name in lockDict.Keys)
             {
-                List<string> tmp = d[name];
-                if (tmp.Count == 1)
+                List<string> tmp = lockDict[name];
+                int score = 1;
+                foreach (string l in tmp)
                 {
-                    minLockName = name;
-                    break;
-                }
-                else
-                {
-                    if (tmp.Count < minLock)
+                    switch (l[l.Length - 1])
                     {
-                        minLock = tmp.Count;
-                        minLockName = name;
+                        case 'b':
+                            score += 1;
+                            break;
+                        case 'c':
+                            score += 2;
+                            break;
+                        case 'd':
+                            score += 3;
+                            break;
+                        case 'e':
+                            score += 4;
+                            break;
+                        case 'f':
+                            score += 5;
+                            break;
+                        default:
+                            break;
                     }
+                }
+                if (score < minLock && !viewedLocks.Contains(name))
+                {
+                    minLock = score;
+                    minLockName = name;
                 }
             }
             if (!minLockName.Equals(""))
             {
                 lblLockName.Text = minLockName;
                 txtNextLock.Text = "";
-                foreach (string s in d[minLockName])
+                viewedLocks.Add(minLockName);
+                foreach (string s in lockDict[minLockName])
                 {
                     txtNextLock.Text = txtNextLock.Text + s + Environment.NewLine;
                 }
@@ -423,12 +461,17 @@ namespace LUTGCaster
             }
         }
 
+        /// <summary>
+        /// Event handler: called when a textbox loses focus. Ensures the data inside it is copied into the internal shows variable
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UpdateShowData(object sender, EventArgs e)
         {
             TextBox tb = (TextBox)sender;
             int showNum = (int)char.GetNumericValue(((Control)sender).Parent.Name, 5) - 1;       //get show number from parent (groupBox) name
-            string temp = tb.Name.Substring(6, tb.Name.Length == 8 ? 1 : 2);
-            int charNum = int.Parse(temp) - 1; //ternary to check if it's a single or two digit character number
+            string temp = tb.Name.Substring(6, tb.Name.Length == 8 ? 1 : 2);                     //ternary to check if it's a single or two digit character number
+            int charNum = int.Parse(temp) - 1; 
             int choiceNum;
             switch (tb.Name[tb.Name.Length - 1])
             {
@@ -455,46 +498,6 @@ namespace LUTGCaster
                     break;
             }
             shows[showNum].roles[charNum].names[choiceNum] = tb.Text;
-        }
-
-        private void DetectLocks(TextBox tb)
-        {
-            List<TextBox> appearBelow = new List<TextBox>();
-            List<TextBox> appearAbove = new List<TextBox>();
-            List<string> cA = new List<string>();
-            List<string> cB = new List<string>();
-            int pos = (int)char.GetNumericValue(tb.Name[tb.Name.Length - 1]);
-            int show = (int)char.GetNumericValue(tb.Name[4]);
-            int character = (int)char.GetNumericValue(tb.Name[6]);
-            foreach (Show s in shows)
-            {
-                Console.WriteLine(tb.Name[4]);
-                Console.WriteLine(shows.IndexOf(s) + 1);
-                if (tb.Name[4].Equals(Convert.ToChar(shows.IndexOf(s) + 1)))
-                {
-                    foreach (Show.Role r in s.roles)
-                    {
-                        cA.Add(r.rName);
-                    }
-                }
-                else
-                {
-                    foreach (Show.Role r in s.roles)
-                    {
-                        cB.Add(r.rName);
-                    }
-                }
-
-            }
-
-        }
-
-        private void BtnChkBlk_Click(object sender, EventArgs e)
-        {
-            foreach (TextBox tb in nameBoxes)
-            {
-                DetectLocks(tb);
-            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)
@@ -530,14 +533,23 @@ namespace LUTGCaster
             string name = t.Text;
             if (!name.Equals(""))
             {
-                foreach (TextBox nb in nameBoxes)
-                {
-                    if (nb.Text.Equals(name))
-                    {
-                        Flash(nb, 250, Color.FromArgb(0xFFFFFF ^ nb.BackColor.ToArgb()), 5);
-                    }
-                }
+                FlashName(name);
             } 
+        }
+
+        /// <summary>
+        /// Flashes textboxes containing the provided name
+        /// </summary>
+        /// <param name="name">Name to find and flash</param>
+        private void FlashName(string name)
+        {
+            foreach (TextBox nb in nameBoxes)
+            {
+                if (nb.Text.Equals(name))
+                {
+                    Flash(nb, 250, Color.FromArgb(0xFFFFFF ^ nb.BackColor.ToArgb()), 5);
+                }
+            }
         }
 
         private void Flash(TextBox textBox, int interval, Color color, int flashes)
@@ -584,7 +596,7 @@ namespace LUTGCaster
             }
         }
 
-        private void btnChkNames_Click(object sender, EventArgs e)
+        private void BtnChkNames_Click(object sender, EventArgs e)
         {
             if (checkingNames)
             {
@@ -642,6 +654,20 @@ namespace LUTGCaster
         {
             About ab = new About();
             ab.Show();
+        }
+
+        private void BtnFlash_Click(object sender, EventArgs e)
+        {
+            FlashName(lblLockName.Text);
+        }
+
+        private void BtnNextLock_Click(object sender, EventArgs e)
+        {
+            if (viewedLocks.Count == lockDict.Count) //if all locked names have been viewed, clear list and start over
+            {
+                viewedLocks.Clear();
+            }
+            UpdateLockSuggestion();
         }
     }
 }

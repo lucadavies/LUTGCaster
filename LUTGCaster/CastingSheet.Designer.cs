@@ -34,16 +34,18 @@
             this.lblChkNames = new System.Windows.Forms.Label();
             this.lblZoom = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnFlash = new System.Windows.Forms.Button();
+            this.lLblAbout = new System.Windows.Forms.LinkLabel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblLockName = new System.Windows.Forms.Label();
+            this.txtNextLock = new System.Windows.Forms.TextBox();
             this.lblLock = new System.Windows.Forms.Label();
             this.btnZoomUp = new System.Windows.Forms.Button();
             this.btnZoomOut = new System.Windows.Forms.Button();
             this.panAll = new System.Windows.Forms.Panel();
-            this.lLblAbout = new System.Windows.Forms.LinkLabel();
-            this.txtNextLock = new System.Windows.Forms.TextBox();
-            this.lblLockName = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnNextLock = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,19 +62,19 @@
             // 
             // btnChkNames
             // 
-            this.btnChkNames.Location = new System.Drawing.Point(639, 3);
+            this.btnChkNames.Location = new System.Drawing.Point(618, 3);
             this.btnChkNames.Name = "btnChkNames";
             this.btnChkNames.Size = new System.Drawing.Size(114, 27);
             this.btnChkNames.TabIndex = 5;
             this.btnChkNames.Text = "Toggle Checking";
             this.btnChkNames.UseVisualStyleBackColor = true;
-            this.btnChkNames.Click += new System.EventHandler(this.btnChkNames_Click);
+            this.btnChkNames.Click += new System.EventHandler(this.BtnChkNames_Click);
             // 
             // lblChkNames
             // 
             this.lblChkNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblChkNames.ForeColor = System.Drawing.Color.Red;
-            this.lblChkNames.Location = new System.Drawing.Point(436, -5);
+            this.lblChkNames.Location = new System.Drawing.Point(415, -5);
             this.lblChkNames.Name = "lblChkNames";
             this.lblChkNames.Size = new System.Drawing.Size(197, 36);
             this.lblChkNames.TabIndex = 6;
@@ -82,7 +84,7 @@
             // lblZoom
             // 
             this.lblZoom.AutoSize = true;
-            this.lblZoom.Location = new System.Drawing.Point(679, 44);
+            this.lblZoom.Location = new System.Drawing.Point(657, 45);
             this.lblZoom.Name = "lblZoom";
             this.lblZoom.Size = new System.Drawing.Size(34, 13);
             this.lblZoom.TabIndex = 8;
@@ -92,6 +94,8 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.btnNextLock);
+            this.panel1.Controls.Add(this.btnFlash);
             this.panel1.Controls.Add(this.lLblAbout);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.label1);
@@ -109,22 +113,83 @@
             this.panel1.Size = new System.Drawing.Size(960, 79);
             this.panel1.TabIndex = 1;
             // 
+            // btnFlash
+            // 
+            this.btnFlash.Location = new System.Drawing.Point(90, 46);
+            this.btnFlash.Name = "btnFlash";
+            this.btnFlash.Size = new System.Drawing.Size(75, 23);
+            this.btnFlash.TabIndex = 15;
+            this.btnFlash.Text = "Highlight";
+            this.btnFlash.UseVisualStyleBackColor = true;
+            this.btnFlash.Click += new System.EventHandler(this.BtnFlash_Click);
+            // 
+            // lLblAbout
+            // 
+            this.lLblAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lLblAbout.AutoSize = true;
+            this.lLblAbout.Location = new System.Drawing.Point(913, 59);
+            this.lLblAbout.Margin = new System.Windows.Forms.Padding(3);
+            this.lLblAbout.Name = "lLblAbout";
+            this.lLblAbout.Size = new System.Drawing.Size(44, 13);
+            this.lLblAbout.TabIndex = 2;
+            this.lLblAbout.TabStop = true;
+            this.lLblAbout.Text = "About...";
+            this.lLblAbout.VisitedLinkColor = System.Drawing.Color.Blue;
+            this.lLblAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LLblAbout_LinkClicked);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Location = new System.Drawing.Point(899, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(2, 73);
+            this.label2.TabIndex = 5;
+            // 
+            // label1
+            // 
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label1.Location = new System.Drawing.Point(420, 3);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(2, 73);
+            this.label1.TabIndex = 0;
+            // 
+            // lblLockName
+            // 
+            this.lblLockName.Location = new System.Drawing.Point(48, 3);
+            this.lblLockName.Name = "lblLockName";
+            this.lblLockName.Size = new System.Drawing.Size(122, 13);
+            this.lblLockName.TabIndex = 14;
+            this.lblLockName.Text = "None";
+            // 
+            // txtNextLock
+            // 
+            this.txtNextLock.BackColor = System.Drawing.SystemColors.Control;
+            this.txtNextLock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtNextLock.Location = new System.Drawing.Point(171, 1);
+            this.txtNextLock.Multiline = true;
+            this.txtNextLock.Name = "txtNextLock";
+            this.txtNextLock.ReadOnly = true;
+            this.txtNextLock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtNextLock.Size = new System.Drawing.Size(238, 72);
+            this.txtNextLock.TabIndex = 13;
+            // 
             // lblLock
             // 
             this.lblLock.AutoSize = true;
             this.lblLock.Location = new System.Drawing.Point(3, 3);
             this.lblLock.Margin = new System.Windows.Forms.Padding(3);
             this.lblLock.Name = "lblLock";
-            this.lblLock.Size = new System.Drawing.Size(55, 13);
+            this.lblLock.Size = new System.Drawing.Size(39, 13);
             this.lblLock.TabIndex = 11;
-            this.lblLock.Text = "Next lock:";
+            this.lblLock.Text = "Locks:";
             // 
             // btnZoomUp
             // 
             this.btnZoomUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomUp.Location = new System.Drawing.Point(716, 33);
+            this.btnZoomUp.Location = new System.Drawing.Point(695, 33);
             this.btnZoomUp.Name = "btnZoomUp";
-            this.btnZoomUp.Size = new System.Drawing.Size(36, 33);
+            this.btnZoomUp.Size = new System.Drawing.Size(36, 36);
             this.btnZoomUp.TabIndex = 10;
             this.btnZoomUp.Text = "+";
             this.btnZoomUp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -134,9 +199,9 @@
             // btnZoomOut
             // 
             this.btnZoomOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomOut.Location = new System.Drawing.Point(639, 34);
+            this.btnZoomOut.Location = new System.Drawing.Point(618, 33);
             this.btnZoomOut.Name = "btnZoomOut";
-            this.btnZoomOut.Size = new System.Drawing.Size(36, 32);
+            this.btnZoomOut.Size = new System.Drawing.Size(36, 36);
             this.btnZoomOut.TabIndex = 9;
             this.btnZoomOut.Text = "-";
             this.btnZoomOut.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -154,58 +219,6 @@
             this.panAll.Size = new System.Drawing.Size(984, 356);
             this.panAll.TabIndex = 0;
             // 
-            // lLblAbout
-            // 
-            this.lLblAbout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lLblAbout.AutoSize = true;
-            this.lLblAbout.Location = new System.Drawing.Point(913, 59);
-            this.lLblAbout.Margin = new System.Windows.Forms.Padding(3);
-            this.lLblAbout.Name = "lLblAbout";
-            this.lLblAbout.Size = new System.Drawing.Size(44, 13);
-            this.lLblAbout.TabIndex = 2;
-            this.lLblAbout.TabStop = true;
-            this.lLblAbout.Text = "About...";
-            this.lLblAbout.VisitedLinkColor = System.Drawing.Color.Blue;
-            this.lLblAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LLblAbout_LinkClicked);
-            // 
-            // txtNextLock
-            // 
-            this.txtNextLock.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNextLock.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtNextLock.Location = new System.Drawing.Point(192, 3);
-            this.txtNextLock.Multiline = true;
-            this.txtNextLock.Name = "txtNextLock";
-            this.txtNextLock.ReadOnly = true;
-            this.txtNextLock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtNextLock.Size = new System.Drawing.Size(238, 66);
-            this.txtNextLock.TabIndex = 13;
-            this.txtNextLock.Text = "None";
-            // 
-            // lblLockName
-            // 
-            this.lblLockName.Location = new System.Drawing.Point(64, 3);
-            this.lblLockName.Name = "lblLockName";
-            this.lblLockName.Size = new System.Drawing.Size(122, 13);
-            this.lblLockName.TabIndex = 14;
-            this.lblLockName.Text = "None";
-            // 
-            // label1
-            // 
-            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(441, 3);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(2, 73);
-            this.label1.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label2.Location = new System.Drawing.Point(899, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(2, 73);
-            this.label2.TabIndex = 5;
-            // 
             // label3
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
@@ -215,6 +228,16 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(960, 2);
             this.label3.TabIndex = 15;
+            // 
+            // btnNextLock
+            // 
+            this.btnNextLock.Location = new System.Drawing.Point(9, 46);
+            this.btnNextLock.Name = "btnNextLock";
+            this.btnNextLock.Size = new System.Drawing.Size(75, 23);
+            this.btnNextLock.TabIndex = 16;
+            this.btnNextLock.Text = "Next";
+            this.btnNextLock.UseVisualStyleBackColor = true;
+            this.btnNextLock.Click += new System.EventHandler(this.BtnNextLock_Click);
             // 
             // CastingSheet
             // 
@@ -252,6 +275,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnFlash;
+        private System.Windows.Forms.Button btnNextLock;
     }
 }
 
