@@ -387,15 +387,17 @@ namespace LUTGCaster
             }
             if (!minLockName.Equals(""))
             {
-                lblNextLock.Text = minLockName + " locked by ";
+                lblLockName.Text = minLockName;
+                txtNextLock.Text = "";
                 foreach (string s in d[minLockName])
                 {
-                    lblNextLock.Text = lblNextLock.Text + Environment.NewLine + s;
+                    txtNextLock.Text = txtNextLock.Text + s + Environment.NewLine;
                 }
             }
             else
             {
-                lblNextLock.Text = "None";
+                txtNextLock.Text = "";
+                lblLockName.Text = "None";
             }
             
         }
