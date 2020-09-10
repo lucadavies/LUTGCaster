@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading;
 using Newtonsoft.Json;
+using System.Collections;
 
 namespace LUTGCaster
 {
@@ -23,6 +24,7 @@ namespace LUTGCaster
         bool checkingNames = false;
         float zoomChange = 0.05f;
         int numChoices;
+        Dictionary<string, List<string>> d = new Dictionary<string, List<string>>(); //records locked in names - key is actor, value is show/role that must be freed to remove the block
         Color o = Color.FromArgb(198, 224, 180);
         Color f1 = Color.FromArgb(81, 211, 81);
         Color f1o = Color.FromArgb(255, 255, 0);
@@ -251,14 +253,19 @@ namespace LUTGCaster
         /// <param rName="tb">Textbox rName to check against</param>
         private void UpdateColours()
         {
+            d = new Dictionary<string, List<string>>();
+            int countOther;
+            int countFirst;
+            char pos; //role position
+            int show; //show number
+            int character; //character number
             foreach (TextBox tb in nameBoxes)
             {
+                countOther = 0;
+                countFirst = 0;
                 string name = tb.Text;
                 if (!name.Equals(""))
                 {
-
-                    int countOther = 0;
-                    int countFirst = 0;
                     List<TextBox> toColour = new List<TextBox>();
                     foreach (TextBox nb in nameBoxes)   //count all first choice appearances and other appearacnes
                     {
@@ -271,6 +278,7 @@ namespace LUTGCaster
                             else
                             {
                                 countOther++;
+                                
                             }
                             toColour.Add(nb);
                         }
@@ -333,7 +341,63 @@ namespace LUTGCaster
                 {
                     tb.BackColor = SystemColors.Control;
                 }
+                pos = tb.Name[tb.Name.Length - 1];
+                show = (int)char.GetNumericValue(tb.Name[4]);
+                character = (int)char.GetNumericValue(tb.Name[6]);
+                if (countFirst > 0 && countOther > 0 && !pos.Equals('a'))
+                {
+                    string t = shows[show - 1].name + ">" + shows[show - 1].roles[character - 1].rName + ">Choice" + pos;
+                    Console.WriteLine(tb.Text + ": " + t);
+                    if (d.ContainsKey(tb.Text))
+                    {
+                        if (!d[tb.Text].Contains(t))
+                        {
+                            d[tb.Text].Add(t);
+                        }
+                    }
+                    else
+                    {
+                        d.Add(tb.Text, new List<string>() { t });
+                    }
+                }
             }
+            UpdateLockSuggestion();
+        }
+
+        private void UpdateLockSuggestion()
+        {
+            int minLock = 99;
+            string minLockName = "";
+            foreach (string name in d.Keys)
+            {
+                List<string> tmp = d[name];
+                if (tmp.Count == 1)
+                {
+                    minLockName = name;
+                    break;
+                }
+                else
+                {
+                    if (tmp.Count < minLock)
+                    {
+                        minLock = tmp.Count;
+                        minLockName = name;
+                    }
+                }
+            }
+            if (!minLockName.Equals(""))
+            {
+                lblNextLock.Text = minLockName + " locked by ";
+                foreach (string s in d[minLockName])
+                {
+                    lblNextLock.Text = lblNextLock.Text + Environment.NewLine + s;
+                }
+            }
+            else
+            {
+                lblNextLock.Text = "None";
+            }
+            
         }
 
         /// <summary>
@@ -391,44 +455,44 @@ namespace LUTGCaster
             shows[showNum].roles[charNum].names[choiceNum] = tb.Text;
         }
 
-        //private void DetectLocks(TextBox tb)
-        //{
-        //    List<TextBox> appearBelow = new List<TextBox>();
-        //    List<TextBox> appearAbove = new List<TextBox>();
-        //    List<string> cA = new List<string>();
-        //    List<string> cB = new List<string>();
-        //    int pos = (int)char.GetNumericValue(tb.Name[tb.Name.Length - 1]);
-        //    int show = (int)char.GetNumericValue(tb.Name[4]);
-        //    int character = (int)char.GetNumericValue(tb.Name[6]);
-        //    foreach (Show s in shows)
-        //    {
-        //        Console.WriteLine(tb.Name[4]);
-        //        Console.WriteLine(Convert.ToChar(shows.IndexOf(s) + 1));
-        //        if (tb.Name[4].Equals(Convert.ToChar(shows.IndexOf(s) + 1)))
-        //        {
-        //            foreach (Show.Role r in s.roles)
-        //            {
-        //                cA.Add(r.rName);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            foreach (Show.Role r in s.roles)
-        //            {
-        //                cB.Add(r.rName);
-        //            }
-        //        }
+        private void DetectLocks(TextBox tb)
+        {
+            List<TextBox> appearBelow = new List<TextBox>();
+            List<TextBox> appearAbove = new List<TextBox>();
+            List<string> cA = new List<string>();
+            List<string> cB = new List<string>();
+            int pos = (int)char.GetNumericValue(tb.Name[tb.Name.Length - 1]);
+            int show = (int)char.GetNumericValue(tb.Name[4]);
+            int character = (int)char.GetNumericValue(tb.Name[6]);
+            foreach (Show s in shows)
+            {
+                Console.WriteLine(tb.Name[4]);
+                Console.WriteLine(shows.IndexOf(s) + 1);
+                if (tb.Name[4].Equals(Convert.ToChar(shows.IndexOf(s) + 1)))
+                {
+                    foreach (Show.Role r in s.roles)
+                    {
+                        cA.Add(r.rName);
+                    }
+                }
+                else
+                {
+                    foreach (Show.Role r in s.roles)
+                    {
+                        cB.Add(r.rName);
+                    }
+                }
 
-        //    }
+            }
 
-        //}
+        }
 
         private void BtnChkBlk_Click(object sender, EventArgs e)
         {
-            //foreach (TextBox tb in nameBoxes)
-            //{
-            //    DetectLocks(tb);
-            //}
+            foreach (TextBox tb in nameBoxes)
+            {
+                DetectLocks(tb);
+            }
         }
 
         private void BtnSave_Click(object sender, EventArgs e)

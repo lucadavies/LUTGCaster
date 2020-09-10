@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CastingSheet));
-            this.btnChkBlk = new System.Windows.Forms.Button();
             this.BtnSave = new System.Windows.Forms.Button();
             this.btnChkNames = new System.Windows.Forms.Button();
             this.lblChkNames = new System.Windows.Forms.Label();
@@ -39,19 +38,10 @@
             this.btnZoomOut = new System.Windows.Forms.Button();
             this.panAll = new System.Windows.Forms.Panel();
             this.lLblAbout = new System.Windows.Forms.LinkLabel();
+            this.lblLock = new System.Windows.Forms.Label();
+            this.lblNextLock = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // btnChkBlk
-            // 
-            this.btnChkBlk.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.btnChkBlk.Location = new System.Drawing.Point(117, 3);
-            this.btnChkBlk.Name = "btnChkBlk";
-            this.btnChkBlk.Size = new System.Drawing.Size(104, 36);
-            this.btnChkBlk.TabIndex = 3;
-            this.btnChkBlk.Text = "Check Blocks";
-            this.btnChkBlk.UseVisualStyleBackColor = true;
-            this.btnChkBlk.Click += new System.EventHandler(this.BtnChkBlk_Click);
             // 
             // BtnSave
             // 
@@ -100,11 +90,12 @@
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Controls.Add(this.lblNextLock);
+            this.panel1.Controls.Add(this.lblLock);
             this.panel1.Controls.Add(this.btnZoomUp);
             this.panel1.Controls.Add(this.btnZoomOut);
             this.panel1.Controls.Add(this.BtnSave);
             this.panel1.Controls.Add(this.lblZoom);
-            this.panel1.Controls.Add(this.btnChkBlk);
             this.panel1.Controls.Add(this.btnChkNames);
             this.panel1.Controls.Add(this.lblChkNames);
             this.panel1.Location = new System.Drawing.Point(0, 181);
@@ -160,6 +151,27 @@
             this.lLblAbout.VisitedLinkColor = System.Drawing.Color.Blue;
             this.lLblAbout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LLblAbout_LinkClicked);
             // 
+            // lblLock
+            // 
+            this.lblLock.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblLock.AutoSize = true;
+            this.lblLock.Location = new System.Drawing.Point(108, 3);
+            this.lblLock.Name = "lblLock";
+            this.lblLock.Size = new System.Drawing.Size(55, 13);
+            this.lblLock.TabIndex = 11;
+            this.lblLock.Text = "Next lock:";
+            // 
+            // lblNextLock
+            // 
+            this.lblNextLock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblNextLock.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNextLock.Location = new System.Drawing.Point(169, 3);
+            this.lblNextLock.Name = "lblNextLock";
+            this.lblNextLock.Size = new System.Drawing.Size(133, 36);
+            this.lblNextLock.TabIndex = 12;
+            this.lblNextLock.Text = "None";
+            // 
             // CastingSheet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -182,7 +194,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnChkBlk;
         private System.Windows.Forms.Button BtnSave;
         private System.Windows.Forms.Button btnChkNames;
         private System.Windows.Forms.Label lblChkNames;
@@ -192,6 +203,8 @@
         private System.Windows.Forms.Button btnZoomUp;
         private System.Windows.Forms.Button btnZoomOut;
         private System.Windows.Forms.LinkLabel lLblAbout;
+        private System.Windows.Forms.Label lblNextLock;
+        private System.Windows.Forms.Label lblLock;
     }
 }
 
