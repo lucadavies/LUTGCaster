@@ -24,6 +24,7 @@ namespace LUTGCaster
         bool checkingNames = false;
         float zoomChange = 0.05f;
         int numChoices;
+        string filePath;
         Dictionary<string, List<string>> lockDict = new Dictionary<string, List<string>>(); //records locked in names - key is actor, value is show/role that must be freed to remove the block
         List<string> viewedLocks = new List<string>();
         Color o = Color.FromArgb(198, 224, 180);
@@ -36,11 +37,12 @@ namespace LUTGCaster
         Color f4 = Color.FromArgb(48, 84, 150);
         Color f4o = Color.FromArgb(255, 0, 0);
 
-        public CastingSheet(List<Show> shows, int numChoices)
+        public CastingSheet(List<Show> shows, int numChoices, string filePath = null)
         {
             InitializeComponent();
             this.shows = shows;
             this.numChoices = numChoices;
+            this.filePath = filePath;
             Init();
         }
 
@@ -249,6 +251,7 @@ namespace LUTGCaster
                 }
 
             }
+            AutoSave();
         }
 
         /// <summary>
@@ -505,16 +508,16 @@ namespace LUTGCaster
                     break;
             }
             shows[showNum].roles[charNum].names[choiceNum] = tb.Text;
+            AutoSave();
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
+        private void BtnSaveAs_Click(object sender, EventArgs e)
         {
-            SaveSheet();            
+            SaveAs();
         }
 
-        private void SaveSheet()
+        private void SaveAs()
         {
-            string fileName;
             using (SaveFileDialog sfd = new SaveFileDialog())
             {
                 sfd.Filter = "Theatre Group Casting Sheet (*.tgcs)|*.tgcs";
@@ -523,15 +526,44 @@ namespace LUTGCaster
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
-                    fileName = sfd.FileName;
-                    using (StreamWriter f = new StreamWriter(fileName, false))
+                    filePath = sfd.FileName;
+                    using (StreamWriter f = new StreamWriter(filePath, false))
                     {
                         string json = JsonConvert.SerializeObject(shows, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
                         f.Write(json);
                         f.Write("|" + numChoices);
                     }
+                    lblSaveStatus.Text = "Sheet saved as " + Path.GetFileName(filePath) + " at " + DateTime.Now.ToString("hh:mm:ss tt");
                 }
             }
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            AutoSave(false);
+        }
+
+        private void AutoSave(bool auto = true)
+        {
+            if (filePath != null)
+            {
+                using (StreamWriter f = new StreamWriter(filePath, false))
+                {
+                    string json = JsonConvert.SerializeObject(shows, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+                    f.Write(json);
+                    f.Write("|" + numChoices);
+                }
+                lblSaveStatus.Text = "Sheet " + (auto ? "auto-saved" : "saved") + " as " + Path.GetFileName(filePath) + " at " + DateTime.Now.ToString("hh:mm:ss tt");
+            }
+            else if (!auto)
+            {
+                SaveAs();
+            }
+            else
+            {
+                lblSaveStatus.Text = "Unsaved changes detected.";
+            }
+            
         }
 
         /// <summary>
@@ -592,14 +624,12 @@ namespace LUTGCaster
             if (checkingNames)
             {
                 checkingNames = false;
-                lblChkNames.Text = "Not checking names";
-                lblChkNames.ForeColor = Color.Red;
+                btnChkNames.BackColor = Color.Red;
             }
             else
             {
                 checkingNames = true;
-                lblChkNames.Text = "Checking names";
-                lblChkNames.ForeColor = Color.Green;
+                btnChkNames.BackColor = Color.Green;
                 UpdateColours();
             }
         }
@@ -644,18 +674,25 @@ namespace LUTGCaster
 
         private void CastingSheet_FormClosing(object sender, FormClosingEventArgs e)
         {
-            DialogResult res = MessageBox.Show("Want to save your sheet?", "Casting Sheet", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
+            if (filePath == null)
             {
-                SaveSheet();
-            }
-            else if (res == DialogResult.No)
-            {
-                e.Cancel = false;
+                DialogResult res = MessageBox.Show("Do you want to save your sheet?", "Casting Sheet", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+                if (res == DialogResult.Yes)
+                {
+                    SaveAs();
+                }
+                else if (res == DialogResult.No)
+                {
+                    e.Cancel = false;
+                }
+                else
+                {
+                    e.Cancel = true;
+                }
             }
             else
             {
-                e.Cancel = true;
+
             }
         }
 
@@ -690,6 +727,5 @@ namespace LUTGCaster
             }
             base.WndProc(ref m);
         }
-
     }
 }

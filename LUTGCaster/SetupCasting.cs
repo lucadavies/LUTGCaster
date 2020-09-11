@@ -237,7 +237,7 @@ namespace LUTGCaster
                     string json = s[0];
                     string choicesTxt = s[1];
                     shows = JsonConvert.DeserializeObject<List<Show>>(json);
-                    CastingSheet cs = new CastingSheet(shows, (s[1].Equals("") ? 6 : Convert.ToInt32(s[1])));
+                    CastingSheet cs = new CastingSheet(shows, (s[1].Equals("") ? 6 : Convert.ToInt32(s[1])), filePath);
                     cs.Show();
                 }
                 catch (JsonException ex)
