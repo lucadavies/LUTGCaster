@@ -534,16 +534,6 @@ namespace LUTGCaster
             }
         }
 
-        private void Tb_DoubleClick(object sender, EventArgs e)
-        {
-            TextBox t = (TextBox)sender;
-            string name = t.Text;
-            if (!name.Equals(""))
-            {
-                FlashName(name);
-            } 
-        }
-
         /// <summary>
         /// Flashes textboxes containing the provided name
         /// </summary>
@@ -564,16 +554,6 @@ namespace LUTGCaster
             new Thread(() => FlashInternal(textBox, interval, color, flashes)).Start();
         }
 
-        private delegate void UpdateTextboxDelegate(TextBox textBox, Color originalColor);
-        private void UpdateTextbox(TextBox textBox, Color color)
-        {
-            if (textBox.InvokeRequired)
-            {
-                this.Invoke(new UpdateTextboxDelegate(UpdateTextbox), new object[] { textBox, color });
-            }
-            textBox.BackColor = color;
-        }
-
         private void FlashInternal(TextBox textBox, int interval, Color flashColor, int flashes)
         {
             Color original = textBox.BackColor;
@@ -586,20 +566,24 @@ namespace LUTGCaster
             }
         }
 
-        private void CastingSheet_FormClosing(object sender, FormClosingEventArgs e)
+        private void UpdateTextbox(TextBox textBox, Color color)
         {
-            DialogResult res = MessageBox.Show("Want to save your sheet?", "Casting Sheet", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
-            if (res == DialogResult.Yes)
+            if (textBox.InvokeRequired)
             {
-                SaveSheet();
+                this.Invoke(new UpdateTextboxDelegate(UpdateTextbox), new object[] { textBox, color });
             }
-            else if (res == DialogResult.No)
+            textBox.BackColor = color;
+        }
+
+        private delegate void UpdateTextboxDelegate(TextBox textBox, Color originalColor);
+
+        private void Tb_DoubleClick(object sender, EventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            string name = t.Text;
+            if (!name.Equals(""))
             {
-                e.Cancel = false;
-            }
-            else
-            {
-                e.Cancel = true;
+                FlashName(name);
             }
         }
 
@@ -638,6 +622,43 @@ namespace LUTGCaster
             }
         }
 
+        private void LLblAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            About ab = new About();
+            ab.Show();
+        }
+
+        private void BtnFlash_Click(object sender, EventArgs e)
+        {
+            FlashName(lblLockName.Text);
+        }
+
+        private void BtnNextLock_Click(object sender, EventArgs e)
+        {
+            if (viewedLocks.Count == lockDict.Count) //if all locked names have been viewed, clear list and start over
+            {
+                viewedLocks.Clear();
+            }
+            UpdateLockSuggestion();
+        }
+
+        private void CastingSheet_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Want to save your sheet?", "Casting Sheet", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Warning);
+            if (res == DialogResult.Yes)
+            {
+                SaveSheet();
+            }
+            else if (res == DialogResult.No)
+            {
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
+        }
+
         protected override void WndProc(ref Message m)
         {
             if (m.Msg == 0x0112) // WM_SYSCOMMAND
@@ -670,24 +691,5 @@ namespace LUTGCaster
             base.WndProc(ref m);
         }
 
-        private void LLblAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            About ab = new About();
-            ab.Show();
-        }
-
-        private void BtnFlash_Click(object sender, EventArgs e)
-        {
-            FlashName(lblLockName.Text);
-        }
-
-        private void BtnNextLock_Click(object sender, EventArgs e)
-        {
-            if (viewedLocks.Count == lockDict.Count) //if all locked names have been viewed, clear list and start over
-            {
-                viewedLocks.Clear();
-            }
-            UpdateLockSuggestion();
-        }
     }
 }
