@@ -43,6 +43,7 @@ namespace LUTGCaster
             this.shows = shows;
             this.numChoices = numChoices;
             this.filePath = filePath;
+            Text += " - [" + Path.GetFileNameWithoutExtension(filePath) + "]";
             Init();
         }
 
