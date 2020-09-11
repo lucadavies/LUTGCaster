@@ -34,6 +34,7 @@
             this.lblChkNames = new System.Windows.Forms.Label();
             this.lblZoom = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnNextLock = new System.Windows.Forms.Button();
             this.btnFlash = new System.Windows.Forms.Button();
             this.lLblAbout = new System.Windows.Forms.LinkLabel();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,7 +46,6 @@
             this.btnZoomOut = new System.Windows.Forms.Button();
             this.panAll = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnNextLock = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -112,6 +112,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(960, 79);
             this.panel1.TabIndex = 1;
+            // 
+            // btnNextLock
+            // 
+            this.btnNextLock.Location = new System.Drawing.Point(9, 46);
+            this.btnNextLock.Name = "btnNextLock";
+            this.btnNextLock.Size = new System.Drawing.Size(75, 23);
+            this.btnNextLock.TabIndex = 16;
+            this.btnNextLock.Text = "Next";
+            this.btnNextLock.UseVisualStyleBackColor = true;
+            this.btnNextLock.Click += new System.EventHandler(this.BtnNextLock_Click);
             // 
             // btnFlash
             // 
@@ -228,16 +238,6 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(960, 2);
             this.label3.TabIndex = 15;
-            // 
-            // btnNextLock
-            // 
-            this.btnNextLock.Location = new System.Drawing.Point(9, 46);
-            this.btnNextLock.Name = "btnNextLock";
-            this.btnNextLock.Size = new System.Drawing.Size(75, 23);
-            this.btnNextLock.TabIndex = 16;
-            this.btnNextLock.Text = "Next";
-            this.btnNextLock.UseVisualStyleBackColor = true;
-            this.btnNextLock.Click += new System.EventHandler(this.BtnNextLock_Click);
             // 
             // CastingSheet
             // 

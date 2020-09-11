@@ -60,9 +60,10 @@ namespace LUTGCaster
                     Location = new Point(12, 12 + ((80 + (numChoices * 20)) * index)),
                     Name = "gBoxS" + (index + 1),
                     Padding = new Padding(3, 3, 3, 10),
-                    Size = new Size(1544, 72 + (numChoices * 20)),
+                    Size = new Size(202 + ((s.roles.Count - 1) * 122), 72 + (numChoices * 20)),
                     TabIndex = index,
                     TabStop = false,
+                    Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0),
                     Text = "<Show " + index + ">"
                 };
                 Controls.Add(gBox);
@@ -74,6 +75,7 @@ namespace LUTGCaster
                     Name = "lblCharHead" + index,
                     Padding = new Padding(0, 5, 0, 5),
                     Size = new Size(53, 23),
+                    Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
                     TabIndex = 0,
                     Text = "Character"
                 };
@@ -90,6 +92,7 @@ namespace LUTGCaster
                         Name = "lblChoiceHeadS" + index,
                         Padding = new Padding(0, 2, 0, 3),
                         Size = new Size(65, 20),
+                        Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
                         TabIndex = 1
                     };
                     switch (i)
@@ -126,9 +129,10 @@ namespace LUTGCaster
                 {
                     Button btn = new Button
                     {
-                        Location = new Point(71 + (i * 122), 16),
+                        Location = new Point(74 + (i * 122), 19),
                         Name = "btnCastS" + (shows.IndexOf(s) + 1) + "C" + (i + 1),
                         Size = new Size(122, 20),
+                        Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
                         Text = "Cast",
                         UseVisualStyleBackColor = true
                     };
@@ -137,11 +141,13 @@ namespace LUTGCaster
 
                     Label l = new Label
                     {
-                        AutoSize = true,
-                        Location = new Point(71 + (i * 122), 37),
+                        AutoSize = false,
+                        Location = new Point(74 + (i * 122), 37),
                         Name = "lbl" + (shows.IndexOf(s) + 1) + "C" + (i + 1),
                         Padding = new Padding(0, 5, 0, 5),
-                        Size = new Size(44, 23),
+                        Size = new Size(122, 23),
+                        Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
+                        AutoEllipsis = true,
                         Text = s.roles[i].rName
                     };
                     gBox.Controls.Add(l);
@@ -321,6 +327,7 @@ namespace LUTGCaster
                                 }
                                 break;
                             case 4:
+                            default:
                                 if (countOther == 0)
                                 {
                                     t.BackColor = f4;       //4 1st choice
