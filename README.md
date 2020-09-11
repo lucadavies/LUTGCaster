@@ -1,6 +1,6 @@
 # Thanks for stopping by! I hope you find this useful :)
 
-The built program can be downloaded using this link https://drive.google.com/file/d/1idb112gPtaQB-d_RWQPDbN9rl5oLS3Lh/view?usp=sharing
+The built program can be downloaded using this link https://drive.google.com/file/d/1b5fLt8BLvR0nDTuf4li3NIX71PjZkp_C/view?usp=sharing
 
 To set up a new casting sheet:
 
@@ -19,7 +19,6 @@ Using the Casting Sheet:
 1. When a role has been cast, remove the 2nd-6th choices and click "Cast" to hide the other boxes
 
 Some notes:
-* If the zoom buttons are greyed out, maximise the window again and click the actual "Minimise" button (as opposed to dragging the title bar fromthe top of the screen), this is a known bug.
 * When clicking "Cast", make sure all names have been removed from the lower down choices or else the hidden names will still contribute towards the colour of those names elsewhere. This is to prevent accidental clicks of the Cast button deleting other choices and causing confusion.
 * If a name appears the wrong colour, check it doesn't have any extra spaces (or other whitespace characters) at the end. I plan to fix this at next update (if I get around to it)
 
