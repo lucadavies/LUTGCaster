@@ -16,7 +16,7 @@ namespace LUTGCaster
     {
         int setupShows = 0;
         List<Show> shows = new List<Show>();
-        List<GroupBox> showBoxes = new List<GroupBox>();
+        List<GroupBox> showBoxes = new List<GroupBox>(); //holds groupboxes for each show and its textboxes, buttons, etc...
 
         public SetupCasting()
         {
@@ -64,97 +64,133 @@ namespace LUTGCaster
             cs.Show();
         }
 
+        /// <summary>
+        /// Creates controls and background resources to add an additional show 
+        /// </summary>
         private void AddShow()
         {
-            if (setupShows < 10)
+            if (btnRemShow.Enabled == false)
             {
-                GroupBox gBox = new GroupBox
-                {
-                    Location = new Point(12, 12 + (76 * (setupShows))),
-                    Name = "gBoxS" + (setupShows + 1),
-                    Size = new Size(365, 70),
-                    TabIndex = 7,
-                    TabStop = false,
-                    Text = "Show " + (setupShows + 1)
-                };
-
-                Label lblName = new Label
-                {
-                    AutoSize = true,
-                    Location = new Point(6, 16),
-                    Name = "lblName" + (setupShows + 1),
-                    Size = new Size(35, 13),
-                    TabIndex = 1,
-                    Text = "Name"
-                };
-
-                Label lblChar = new Label
-                {
-                    AutoSize = true,
-                    Location = new Point(6, 42),
-                    Name = "lblChar" + (setupShows + 1),
-                    Size = new Size(58, 13),
-                    TabIndex = 2,
-                    Text = "Characters"
-                };
-
-                TextBox txtSName = new TextBox
-                {
-                    Location = new Point(70, 13),
-                    Name = "txtS1Name",
-                    Size = new Size(244, 20),
-                    TabIndex = 0
-                };
-
-                Panel panChars = new Panel
-                {
-                    Location = new Point(70, 39),
-                    Name = "panS1",
-                    Size = new Size(245, 21),
-                    TabIndex = 28
-                };
-
-                TextBox txtChar1 = new TextBox
-                {
-                    Location = new Point(0, 0),
-                    Margin = new Padding(0, 3, 0, 3),
-                    Name = "txtS" + (setupShows + 1) + "C1",
-                    Size = new Size(122, 20),
-                    TabIndex = 3
-                };
-
-                TextBox txtChar2 = new TextBox
-                {
-                    Location = new Point(122, 0),
-                    Margin = new Padding(0, 3, 0, 3),
-                    Name = "txtS" + (setupShows + 1) + "C2",
-                    Size = new Size(122, 20)
-                };
-
-                Button btnAddChar = new Button
-                {
-                    Location = new Point(320, 12),
-                    Name = "btnS" + (setupShows + 1) + "AddChar",
-                    Size = new Size(38, 48),
-                    Text = "Add Role"
-                };
-                btnAddChar.Click += new EventHandler(BtnAddChar_Click);
-
-                gBox.Controls.Add(panChars);
-                gBox.Controls.Add(lblName);
-                gBox.Controls.Add(lblChar);
-                gBox.Controls.Add(txtSName);
-                gBox.Controls.Add(btnAddChar);
-                panChars.Controls.Add(txtChar1);
-                panChars.Controls.Add(txtChar2);
-                panShows.Controls.Add(gBox);
-
-                showBoxes.Add(gBox);
-                setupShows += 1;
+                btnRemShow.Enabled = true;
             }
-            else
+            GroupBox gBox = new GroupBox
             {
-                MessageBox.Show("You have reached the maximum number of shows.", "LUTG Caster",  MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Location = new Point(12, 12 + (76 * (setupShows))),
+                Name = "gBoxS" + (setupShows + 1),
+                Size = new Size(406, 70),
+                TabIndex = 7,
+                TabStop = false,
+                Text = "Show " + (setupShows + 1)
+            };
+
+            Label lblName = new Label
+            {
+                AutoSize = true,
+                Location = new Point(6, 16),
+                Name = "lblName" + (setupShows + 1),
+                Size = new Size(35, 13),
+                TabIndex = 1,
+                Text = "Name"
+            };
+
+            Label lblChar = new Label
+            {
+                AutoSize = true,
+                Location = new Point(6, 42),
+                Name = "lblChar" + (setupShows + 1),
+                Size = new Size(58, 13),
+                TabIndex = 2,
+                Text = "Characters"
+            };
+
+            TextBox txtSName = new TextBox
+            {
+                Location = new Point(70, 13),
+                Name = "txtS" + (setupShows + 1) + "Name",
+                Size = new Size(244, 20),
+                TabIndex = 0
+            };
+
+            Panel panChars = new Panel
+            {
+                Location = new Point(70, 39),
+                Name = "panS" + (setupShows + 1),
+                Size = new Size(245, 21),
+                TabIndex = 28
+            };
+
+            TextBox txtChar1 = new TextBox
+            {
+                Location = new Point(0, 0),
+                Margin = new Padding(0, 3, 0, 3),
+                Name = "txtS" + (setupShows + 1) + "C1",
+                Size = new Size(122, 20),
+                TabIndex = 3
+            };
+
+            TextBox txtChar2 = new TextBox
+            {
+                Location = new Point(122, 0),
+                Margin = new Padding(0, 3, 0, 3),
+                Name = "txtS" + (setupShows + 1) + "C2",
+                Size = new Size(122, 20)
+            };
+
+            Button btnAddChar = new Button
+            {
+                Location = new Point(320, 12),
+                Name = "btnS" + (setupShows + 1) + "AddChar",
+                Size = new Size(38, 48),
+                Anchor = AnchorStyles.Right,
+                Text = "Add Role"
+            };
+            btnAddChar.Click += new EventHandler(BtnAddChar_Click);
+
+            Button btnRemChar = new Button
+            {
+                Location = new Point(361, 12),
+                Name = "btnS" + (setupShows + 1) + "RemChar",
+                Size = new Size(38, 48),
+                Anchor = AnchorStyles.Right,
+                Text = "Remove Role"
+            };
+            btnRemChar.Click += new EventHandler(BtnRemChar_Click);
+
+            gBox.Controls.Add(panChars);
+            gBox.Controls.Add(lblName);
+            gBox.Controls.Add(lblChar);
+            gBox.Controls.Add(txtSName);
+            gBox.Controls.Add(btnAddChar);
+            gBox.Controls.Add(btnRemChar);
+            panChars.Controls.Add(txtChar1);
+            panChars.Controls.Add(txtChar2);
+            panShows.Controls.Add(gBox);
+            panShows.Controls.SetChildIndex(gBox, 0); //make on top of pre-existing controls (mainly to appear in front of label
+
+            showBoxes.Add(gBox);
+            setupShows++;
+
+            if (setupShows == 9)
+            {
+                btnAddShow.Enabled = false;
+            }
+        }
+
+        /// <summary>
+        /// Removes controls and background resources of the LAST show
+        /// </summary>
+        private void RemoveShow()
+        {
+            if (btnAddShow.Enabled == false)
+            {
+                btnAddShow.Enabled = true;
+            }
+            panShows.Controls.Remove(showBoxes[showBoxes.Count - 1]);
+            showBoxes.RemoveAt(showBoxes.Count - 1);
+            setupShows--;
+            if (setupShows == 0)
+            {
+                btnRemShow.Enabled = false;
             }
         }
 
@@ -164,37 +200,36 @@ namespace LUTGCaster
             AddChar(showIndex);
         }
 
+        private void BtnRemChar_Click(object sender, EventArgs e)
+        {
+            int showIndex = (int)char.GetNumericValue(((Button)sender).Name[4]) - 1;
+            RemoveChar(showIndex);
+        }
+
         private void AddChar(int showIndex)
         {
             GroupBox gBox = showBoxes[showIndex];
-            Panel pan = null;
-            Button btn = null;
-            foreach (Control c in gBox.Controls)
-            {
-                if (c is Panel)
-                {
-                    pan = (Panel)c; //unsafe but internal
-                }
-                else if (c is Button)
-                {
-                    btn = (Button)c;
-                }
-            }
-            if (!(pan == null) && !(btn == null))
-            {
-                gBox.Width += 122;
-                pan.Width += 122;
+            Panel pan = (Panel)gBox.Controls.Find("panS" + (showIndex + 1), false)[0]; //gets panel containing char textboxes
+            gBox.Width += 122;
+            pan.Width += 122;
 
-                TextBox txt = new TextBox
-                {
-                    Location = new Point((((pan.Width - 1) / 122) - 1) * 122, 0),
-                    Margin = new Padding(0, 3, 0, 3),
-                    Name = "txtS" + (setupShows + 1) + "C" + (pan.Width - 1) / 122,
-                    Size = new Size(122, 20)
-                };
-                pan.Controls.Add(txt);
-                btn.Location = new Point(btn.Location.X + 122, btn.Location.Y);
-            }
+            TextBox txt = new TextBox
+            {
+                Location = new Point((((pan.Width - 1) / 122) - 1) * 122, 0),
+                Margin = new Padding(0, 3, 0, 3),
+                Name = "txtS" + (setupShows + 1) + "C" + (pan.Width - 1) / 122,
+                Size = new Size(122, 20)
+            };
+            pan.Controls.Add(txt);
+        }
+
+        private void RemoveChar(int showIndex)
+        {
+            GroupBox gBox = showBoxes[showIndex];
+            Panel pan = (Panel)gBox.Controls.Find("panS" + (showIndex + 1), false)[0]; //gets panel containing char textboxes
+            pan.Controls.Remove(pan.Controls.Find("txtS" + (setupShows + 1) + "C" + (pan.Width - 1) / 122, false)[0]);
+            gBox.Width -= 122;
+            pan.Width -= 122;
         }
 
         private void BtnAddShow_Click(object sender, EventArgs e)
@@ -202,7 +237,12 @@ namespace LUTGCaster
             AddShow();
         }
 
-        private void btnLoad_Click(object sender, EventArgs e)
+        private void BtnRemShow_Click(object sender, EventArgs e)
+        {
+            RemoveShow();
+        }
+
+        private void BtnLoad_Click(object sender, EventArgs e)
         {
 
             var fileContent = string.Empty;

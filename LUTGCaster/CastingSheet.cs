@@ -17,7 +17,6 @@ namespace LUTGCaster
 {
     public partial class CastingSheet : Form
     {
-
         List<TextBox> nameBoxes;
         List<Show> shows;
         Regex alphaNumSlashRgx = new Regex("[^a-zA-Z0-9/.' -]");
@@ -27,15 +26,16 @@ namespace LUTGCaster
         string filePath;
         Dictionary<string, List<string>> lockDict = new Dictionary<string, List<string>>(); //records locked in names - key is actor, value is show/role that must be freed to remove the block
         List<string> viewedLocks = new List<string>();
-        Color o = Color.FromArgb(198, 224, 180);
-        Color f1 = Color.FromArgb(81, 211, 81);
-        Color f1o = Color.FromArgb(255, 255, 0);
-        Color f2 = Color.FromArgb(55, 203, 255);
-        Color f2o = Color.FromArgb(255, 192, 0);
-        Color f3 = Color.FromArgb(85, 147, 203);
-        Color f3o = Color.FromArgb(237, 125, 49);
-        Color f4 = Color.FromArgb(48, 84, 150);
-        Color f4o = Color.FromArgb(255, 0, 0);
+
+        readonly Color o = Color.FromArgb(198, 224, 180);
+        readonly Color f1 = Color.FromArgb(81, 211, 81);
+        readonly Color f1o = Color.FromArgb(255, 255, 0);
+        readonly Color f2 = Color.FromArgb(55, 203, 255);
+        readonly Color f2o = Color.FromArgb(255, 192, 0);
+        readonly Color f3 = Color.FromArgb(85, 147, 203);
+        readonly Color f3o = Color.FromArgb(237, 125, 49);
+        readonly Color f4 = Color.FromArgb(48, 84, 150);
+        readonly Color f4o = Color.FromArgb(255, 0, 0);
 
         public CastingSheet(List<Show> shows, int numChoices, string filePath = null)
         {
