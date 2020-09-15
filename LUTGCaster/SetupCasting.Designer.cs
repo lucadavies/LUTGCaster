@@ -77,14 +77,15 @@
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 100F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.label2.Location = new System.Drawing.Point(107, 121);
+            this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(788, 153);
+            this.label2.Size = new System.Drawing.Size(984, 403);
             this.label2.TabIndex = 0;
             this.label2.Text = "Show Setup";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnGenerate
             // 
@@ -99,7 +100,8 @@
             // 
             // numUDChoices
             // 
-            this.numUDChoices.Location = new System.Drawing.Point(584, 429);
+            this.numUDChoices.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.numUDChoices.Location = new System.Drawing.Point(589, 421);
             this.numUDChoices.Maximum = new decimal(new int[] {
             6,
             0,
@@ -121,8 +123,9 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(481, 431);
+            this.label1.Location = new System.Drawing.Point(486, 423);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 36;
@@ -154,11 +157,10 @@
             this.Controls.Add(this.panShows);
             this.Controls.Add(this.btnLoad);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(500, 500);
+            this.MinimumSize = new System.Drawing.Size(750, 500);
             this.Name = "SetupCasting";
             this.Text = "Setup Casting Sheet...";
             this.panShows.ResumeLayout(false);
-            this.panShows.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDChoices)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

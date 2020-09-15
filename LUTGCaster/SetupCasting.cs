@@ -17,6 +17,7 @@ namespace LUTGCaster
         int setupShows = 0;
         List<Show> shows = new List<Show>();
         List<GroupBox> showBoxes = new List<GroupBox>(); //holds groupboxes for each show and its textboxes, buttons, etc...
+        List<int> charNumbers = new List<int>(); //records how many characters in each show
 
         public SetupCasting()
         {
@@ -152,7 +153,8 @@ namespace LUTGCaster
                 Name = "btnS" + (setupShows + 1) + "RemChar",
                 Size = new Size(38, 48),
                 Anchor = AnchorStyles.Right,
-                Text = "Remove Role"
+                Text = "Rm. Role",
+                Enabled = false
             };
             btnRemChar.Click += new EventHandler(BtnRemChar_Click);
 
@@ -168,6 +170,7 @@ namespace LUTGCaster
             panShows.Controls.SetChildIndex(gBox, 0); //make on top of pre-existing controls (mainly to appear in front of label
 
             showBoxes.Add(gBox);
+            charNumbers.Add(2);
             setupShows++;
 
             if (setupShows == 9)
@@ -187,6 +190,7 @@ namespace LUTGCaster
             }
             panShows.Controls.Remove(showBoxes[showBoxes.Count - 1]);
             showBoxes.RemoveAt(showBoxes.Count - 1);
+            charNumbers.RemoveAt(charNumbers.Count - 1);
             setupShows--;
             if (setupShows == 0)
             {
@@ -196,14 +200,32 @@ namespace LUTGCaster
 
         private void BtnAddChar_Click(object sender, EventArgs e)
         {
-            int showIndex = (int)char.GetNumericValue(((Button)sender).Name[4]) - 1;
+            Button b = (Button)sender;
+            int showIndex = (int)char.GetNumericValue(b.Name[4]) - 1;
+            if (charNumbers[showIndex] == 2) //reenable remove char button
+            {
+                ((Button)b.Parent.Controls.Find("btnS" + (showIndex + 1) + "RemChar", false)[0]).Enabled = true; 
+            }
             AddChar(showIndex);
+            if (charNumbers[showIndex] == 50)
+            {
+                b.Enabled = false;
+            }
         }
 
         private void BtnRemChar_Click(object sender, EventArgs e)
         {
-            int showIndex = (int)char.GetNumericValue(((Button)sender).Name[4]) - 1;
+            Button b = (Button)sender;
+            int showIndex = (int)char.GetNumericValue((b).Name[4]) - 1;
+            if (charNumbers[showIndex] == 50) //reenable add char button
+            {
+                ((Button)b.Parent.Controls.Find("btnS" + (showIndex + 1) + "AddChar", false)[0]).Enabled = true;
+            }
             RemoveChar(showIndex);
+            if (charNumbers[showIndex] == 2)
+            {
+                b.Enabled = false;
+            }
         }
 
         private void AddChar(int showIndex)
@@ -212,12 +234,13 @@ namespace LUTGCaster
             Panel pan = (Panel)gBox.Controls.Find("panS" + (showIndex + 1), false)[0]; //gets panel containing char textboxes
             gBox.Width += 122;
             pan.Width += 122;
+            charNumbers[showIndex]++;
 
             TextBox txt = new TextBox
             {
                 Location = new Point((((pan.Width - 1) / 122) - 1) * 122, 0),
                 Margin = new Padding(0, 3, 0, 3),
-                Name = "txtS" + (setupShows + 1) + "C" + (pan.Width - 1) / 122,
+                Name = "txtS" + (setupShows + 1) + "C" + charNumbers[showIndex],
                 Size = new Size(122, 20)
             };
             pan.Controls.Add(txt);
@@ -227,7 +250,8 @@ namespace LUTGCaster
         {
             GroupBox gBox = showBoxes[showIndex];
             Panel pan = (Panel)gBox.Controls.Find("panS" + (showIndex + 1), false)[0]; //gets panel containing char textboxes
-            pan.Controls.Remove(pan.Controls.Find("txtS" + (setupShows + 1) + "C" + (pan.Width - 1) / 122, false)[0]);
+            pan.Controls.Remove(pan.Controls.Find("txtS" + (setupShows + 1) + "C" + charNumbers[showIndex], false)[0]);
+            charNumbers[showIndex]--;
             gBox.Width -= 122;
             pan.Width -= 122;
         }
