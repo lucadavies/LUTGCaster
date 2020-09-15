@@ -204,58 +204,6 @@ namespace LUTGCaster
         }
 
         /// <summary>
-        /// Event handler: Called by all "Cast" buttons. To show a cast role, disables all textboxes for the role, bolds the top choice
-        /// </summary>
-        /// <param rName="sender"></param>
-        /// <param rName="e"></param>
-        private void CastCharacter(object sender, EventArgs e)
-        {
-            Button btn = (Button)sender;
-            List<TextBox> charTBs = new List<TextBox>();
-            foreach (TextBox t in nameBoxes)
-            {
-                if (t.Name.Substring(3, t.Name.Length - 4).Equals(btn.Name.Substring(7)))
-                {
-                    charTBs.Add(t);
-                    if (charTBs.Count == 6)
-                    {
-                        break;
-                    }
-                }
-            }
-            foreach (TextBox t in charTBs)
-            {
-                if (!t.ReadOnly)      //disable if enabled
-                {
-                    t.ReadOnly = true;
-                    if (t.Name[t.Name.Length - 1].Equals('a')) //bold if first choice
-                    {
-                        t.Font = new Font(t.Font, FontStyle.Bold);
-                    }
-                    else
-                    {
-                        t.Visible = false;
-                    }
-                }
-                else      //enable if disabled
-
-                {
-                    t.ReadOnly = false;
-                    if (t.Name[t.Name.Length - 1].Equals('a')) //unbold if first choice
-                    {
-                        t.Font = new Font(t.Font, FontStyle.Regular);
-                    }
-                    else
-                    {
-                        t.Visible = true;
-                    }
-                }
-
-            }
-            AutoSave();
-        }
-
-        /// <summary>
         /// Checks for duplicate names in ALL other textboxes present on sheet, colours each textbox accordingly
         /// </summary>
         /// <param rName="tb">Textbox rName to check against</param>
@@ -452,27 +400,6 @@ namespace LUTGCaster
         }
 
         /// <summary>
-        /// Event handler: called when any textbox raises TextChanged event. Calls UpdateColours for all textboxes.
-        /// </summary>
-        /// <param rName="sender"></param>
-        /// <param rName="e"></param>
-        private void Tb_TextChanged(object sender, EventArgs e)
-        {
-            TextBox tb = (TextBox)sender;
-            string cleanText = alphaNumSlashRgx.Replace(tb.Text, "");
-            if (!tb.Text.Equals(cleanText))
-            {
-                tb.Text = cleanText;
-                tb.SelectionStart = tb.Text.Length;
-                tb.SelectionLength = 0;
-            }
-            if (checkingNames)
-            {
-                UpdateColours();
-            }
-        }
-
-        /// <summary>
         /// Event handler: called when a textbox loses focus. Ensures the data inside it is copied into the internal shows variable
         /// </summary>
         /// <param name="sender"></param>
@@ -512,9 +439,56 @@ namespace LUTGCaster
             AutoSave();
         }
 
-        private void BtnSaveAs_Click(object sender, EventArgs e)
+        /// <summary>
+        /// Event handler: Called by all "Cast" buttons. To show a cast role, disables all textboxes for the role, bolds the top choice
+        /// </summary>
+        /// <param rName="sender"></param>
+        /// <param rName="e"></param>
+        private void CastCharacter(object sender, EventArgs e)
         {
-            SaveAs();
+            Button btn = (Button)sender;
+            List<TextBox> charTBs = new List<TextBox>();
+            foreach (TextBox t in nameBoxes)
+            {
+                if (t.Name.Substring(3, t.Name.Length - 4).Equals(btn.Name.Substring(7)))
+                {
+                    charTBs.Add(t);
+                    if (charTBs.Count == 6)
+                    {
+                        break;
+                    }
+                }
+            }
+            foreach (TextBox t in charTBs)
+            {
+                if (!t.ReadOnly)      //disable if enabled
+                {
+                    t.ReadOnly = true;
+                    if (t.Name[t.Name.Length - 1].Equals('a')) //bold if first choice
+                    {
+                        t.Font = new Font(t.Font, FontStyle.Bold);
+                    }
+                    else
+                    {
+                        t.Visible = false;
+                    }
+                }
+                else      //enable if disabled
+
+                {
+                    t.ReadOnly = false;
+                    if (t.Name[t.Name.Length - 1].Equals('a')) //unbold if first choice
+                    {
+                        t.Font = new Font(t.Font, FontStyle.Regular);
+                    }
+                    else
+                    {
+                        t.Visible = true;
+                    }
+                }
+
+            }
+            AutoSave();
         }
 
         private void SaveAs()
@@ -539,11 +513,6 @@ namespace LUTGCaster
             }
         }
 
-        private void BtnSave_Click(object sender, EventArgs e)
-        {
-            AutoSave(false);
-        }
-
         private void AutoSave(bool auto = true)
         {
             if (filePath != null)
@@ -564,7 +533,53 @@ namespace LUTGCaster
             {
                 lblSaveStatus.Text = "Unsaved changes detected.";
             }
-            
+
+        }
+
+        /// <summary>
+        /// Event handler: called when any textbox raises TextChanged event. Calls UpdateColours for all textboxes.
+        /// </summary>
+        /// <param rName="sender"></param>
+        /// <param rName="e"></param>
+        private void Tb_TextChanged(object sender, EventArgs e)
+        {
+            TextBox tb = (TextBox)sender;
+            string cleanText = alphaNumSlashRgx.Replace(tb.Text, "");
+            if (!tb.Text.Equals(cleanText))
+            {
+                tb.Text = cleanText;
+                tb.SelectionStart = tb.Text.Length;
+                tb.SelectionLength = 0;
+            }
+            if (checkingNames)
+            {
+                UpdateColours();
+            }
+        }
+
+        private void BtnChkNames_Click(object sender, EventArgs e)
+        {
+            if (checkingNames)
+            {
+                checkingNames = false;
+                btnChkNames.BackColor = Color.Red;
+            }
+            else
+            {
+                checkingNames = true;
+                btnChkNames.BackColor = Color.Green;
+                UpdateColours();
+            }
+        }
+
+        private void Tb_DoubleClick(object sender, EventArgs e)
+        {
+            TextBox t = (TextBox)sender;
+            string name = t.Text;
+            if (!name.Equals(""))
+            {
+                FlashName(name);
+            }
         }
 
         /// <summary>
@@ -610,31 +625,6 @@ namespace LUTGCaster
 
         private delegate void UpdateTextboxDelegate(TextBox textBox, Color originalColor);
 
-        private void Tb_DoubleClick(object sender, EventArgs e)
-        {
-            TextBox t = (TextBox)sender;
-            string name = t.Text;
-            if (!name.Equals(""))
-            {
-                FlashName(name);
-            }
-        }
-
-        private void BtnChkNames_Click(object sender, EventArgs e)
-        {
-            if (checkingNames)
-            {
-                checkingNames = false;
-                btnChkNames.BackColor = Color.Red;
-            }
-            else
-            {
-                checkingNames = true;
-                btnChkNames.BackColor = Color.Green;
-                UpdateColours();
-            }
-        }
-
         private void BtnZoomOut_Click(object sender, EventArgs e)
         {
             Font = new Font(Font.Name, Font.Size * (1 - zoomChange), Font.Style);
@@ -644,19 +634,13 @@ namespace LUTGCaster
             }
         }
 
-        private void BtnZoomUp_Click(object sender, EventArgs e)
+        private void BtnZoomIn_Click(object sender, EventArgs e)
         {
             Font = new Font(Font.Name, Font.Size * (1 + zoomChange), Font.Style);
             foreach (TextBox tb in nameBoxes)
             {
                 tb.Font = new Font(tb.Font.Name, tb.Font.Size * (1 + zoomChange), tb.Font.Style);
             }
-        }
-
-        private void LLblAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            About ab = new About();
-            ab.Show();
         }
 
         private void BtnFlash_Click(object sender, EventArgs e)
@@ -671,6 +655,22 @@ namespace LUTGCaster
                 viewedLocks.Clear();
             }
             UpdateLockSuggestion();
+        }
+
+        private void LLblAbout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            About ab = new About();
+            ab.Show();
+        }
+
+        private void BtnSaveAs_Click(object sender, EventArgs e)
+        {
+            SaveAs();
+        }
+
+        private void BtnSave_Click(object sender, EventArgs e)
+        {
+            AutoSave(false);
         }
 
         private void CastingSheet_FormClosing(object sender, FormClosingEventArgs e)
@@ -704,24 +704,24 @@ namespace LUTGCaster
                 // Check your window state here
                 if (m.WParam == new IntPtr(0xF030)) // Maximize event - SC_MAXIMIZE from Winuser.h
                 {
-                    btnZoomUp.Enabled = false;
+                    btnZoomIn.Enabled = false;
                     btnZoomOut.Enabled = false;
                 }
                 else if (m.WParam == new IntPtr(0xF120)) // Restore event - SC_RESTORE from Winuser.h
                 {
-                    btnZoomUp.Enabled = true;
+                    btnZoomIn.Enabled = true;
                     btnZoomOut.Enabled = true;
                 }
                 else if (m.WParam == new IntPtr(0xF012)) // Drag move event - SC_DRAGMOVE from Winuser.h
                 {
-                    if (btnZoomUp.Enabled || btnZoomOut.Enabled)
+                    if (btnZoomIn.Enabled || btnZoomOut.Enabled)
                     {
-                        btnZoomUp.Enabled = false;
+                        btnZoomIn.Enabled = false;
                         btnZoomOut.Enabled = false;
                     }
                     else
                     {
-                        btnZoomUp.Enabled = true;
+                        btnZoomIn.Enabled = true;
                         btnZoomOut.Enabled = true;
                     }
                 }

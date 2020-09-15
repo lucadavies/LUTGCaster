@@ -70,7 +70,7 @@ namespace LUTGCaster
             }
         }
 
-        private void txt_DoubleClick(object sender, EventArgs e)
+        private void Txt_DoubleClick(object sender, EventArgs e)
         {
             foreach(TextBox t in txts)
             {

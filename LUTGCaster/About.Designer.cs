@@ -314,7 +314,7 @@
             this.txt9.Size = new System.Drawing.Size(68, 20);
             this.txt9.TabIndex = 16;
             this.txt9.Text = "John Smith";
-            this.txt9.DoubleClick += new System.EventHandler(this.txt_DoubleClick);
+            this.txt9.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
             // label13
             // 
@@ -405,7 +405,7 @@
             this.txt8.Size = new System.Drawing.Size(68, 20);
             this.txt8.TabIndex = 7;
             this.txt8.Text = "John Smith";
-            this.txt8.DoubleClick += new System.EventHandler(this.txt_DoubleClick);
+            this.txt8.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
             // txt6
             // 
@@ -416,7 +416,7 @@
             this.txt6.Size = new System.Drawing.Size(68, 20);
             this.txt6.TabIndex = 6;
             this.txt6.Text = "John Smith";
-            this.txt6.DoubleClick += new System.EventHandler(this.txt_DoubleClick);
+            this.txt6.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
             // txt4
             // 
@@ -428,7 +428,7 @@
             this.txt4.Size = new System.Drawing.Size(68, 20);
             this.txt4.TabIndex = 5;
             this.txt4.Text = "John Smith";
-            this.txt4.DoubleClick += new System.EventHandler(this.txt_DoubleClick);
+            this.txt4.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
             // txt2
             // 
@@ -440,7 +440,7 @@
             this.txt2.Size = new System.Drawing.Size(68, 20);
             this.txt2.TabIndex = 4;
             this.txt2.Text = "John Smith";
-            this.txt2.DoubleClick += new System.EventHandler(this.txt_DoubleClick);
+            this.txt2.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
             // txt7
             // 
@@ -451,7 +451,7 @@
             this.txt7.Size = new System.Drawing.Size(68, 20);
             this.txt7.TabIndex = 3;
             this.txt7.Text = "John Smith";
-            this.txt7.DoubleClick += new System.EventHandler(this.txt_DoubleClick);
+            this.txt7.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
             // txt5
             // 
@@ -462,7 +462,7 @@
             this.txt5.Size = new System.Drawing.Size(68, 20);
             this.txt5.TabIndex = 2;
             this.txt5.Text = "John Smith";
-            this.txt5.DoubleClick += new System.EventHandler(this.txt_DoubleClick);
+            this.txt5.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
             // txt3
             // 
@@ -473,7 +473,7 @@
             this.txt3.Size = new System.Drawing.Size(68, 20);
             this.txt3.TabIndex = 1;
             this.txt3.Text = "John Smith";
-            this.txt3.DoubleClick += new System.EventHandler(this.txt_DoubleClick);
+            this.txt3.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
             // txt1
             // 
@@ -484,7 +484,7 @@
             this.txt1.Size = new System.Drawing.Size(68, 20);
             this.txt1.TabIndex = 0;
             this.txt1.Text = "John Smith";
-            this.txt1.DoubleClick += new System.EventHandler(this.txt_DoubleClick);
+            this.txt1.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
             // tbPgAbout
             // 

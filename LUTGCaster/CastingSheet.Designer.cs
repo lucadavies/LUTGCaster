@@ -42,7 +42,7 @@
             this.lblLockName = new System.Windows.Forms.Label();
             this.txtNextLock = new System.Windows.Forms.TextBox();
             this.lblLock = new System.Windows.Forms.Label();
-            this.btnZoomUp = new System.Windows.Forms.Button();
+            this.btnZoomIn = new System.Windows.Forms.Button();
             this.btnZoomOut = new System.Windows.Forms.Button();
             this.panAll = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -85,7 +85,7 @@
             this.panel1.Controls.Add(this.lblLockName);
             this.panel1.Controls.Add(this.txtNextLock);
             this.panel1.Controls.Add(this.lblLock);
-            this.panel1.Controls.Add(this.btnZoomUp);
+            this.panel1.Controls.Add(this.btnZoomIn);
             this.panel1.Controls.Add(this.btnZoomOut);
             this.panel1.Controls.Add(this.lblZoom);
             this.panel1.Controls.Add(this.btnChkNames);
@@ -199,17 +199,17 @@
             this.lblLock.TabIndex = 11;
             this.lblLock.Text = "Locks:";
             // 
-            // btnZoomUp
+            // btnZoomIn
             // 
-            this.btnZoomUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomUp.Location = new System.Drawing.Point(505, 33);
-            this.btnZoomUp.Name = "btnZoomUp";
-            this.btnZoomUp.Size = new System.Drawing.Size(36, 36);
-            this.btnZoomUp.TabIndex = 10;
-            this.btnZoomUp.Text = "+";
-            this.btnZoomUp.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnZoomUp.UseVisualStyleBackColor = true;
-            this.btnZoomUp.Click += new System.EventHandler(this.BtnZoomUp_Click);
+            this.btnZoomIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZoomIn.Location = new System.Drawing.Point(505, 33);
+            this.btnZoomIn.Name = "btnZoomIn";
+            this.btnZoomIn.Size = new System.Drawing.Size(36, 36);
+            this.btnZoomIn.TabIndex = 10;
+            this.btnZoomIn.Text = "+";
+            this.btnZoomIn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnZoomIn.UseVisualStyleBackColor = true;
+            this.btnZoomIn.Click += new System.EventHandler(this.BtnZoomIn_Click);
             // 
             // btnZoomOut
             // 
@@ -281,7 +281,7 @@
         private System.Windows.Forms.Label lblZoom;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panAll;
-        private System.Windows.Forms.Button btnZoomUp;
+        private System.Windows.Forms.Button btnZoomIn;
         private System.Windows.Forms.Button btnZoomOut;
         private System.Windows.Forms.LinkLabel lLblAbout;
         private System.Windows.Forms.Label lblLock;

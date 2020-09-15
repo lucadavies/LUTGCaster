@@ -24,11 +24,6 @@ namespace LUTGCaster
             InitializeComponent();
         }
 
-        private void BtnGenerate_Click(object sender, EventArgs e)
-        {
-            GenerateCastingSheet();
-        }
-
         /// <summary>
         /// Extracts show information from this form and contructs a list of Show objects to intantiate a new CastinSheet with.
         /// </summary>
@@ -36,27 +31,19 @@ namespace LUTGCaster
         {
             shows = new List<Show>();
 
-            foreach (GroupBox g in showBoxes)
+            for (int i = 0; i < showBoxes.Count; i++)
             {
-                Panel p = new Panel();
-                TextBox t = new TextBox();
-                foreach (Control c in g.Controls)
-                {
-                    if (c is Panel)
-                    {
-                        p = (Panel)c;
-                    }
-                    else if (c is TextBox)
-                    {
-                        t = (TextBox)c;
-                    }
-                }
+                Panel p = (Panel)showBoxes[i].Controls.Find("panS" + (i + 1), false)[0];
+                TextBox t = (TextBox)showBoxes[i].Controls.Find("txtS" + (i + 1) + "Name", false)[0];
                 Show s = new Show(t.Text);
-                foreach (Control c in p.Controls)
+
+                TextBox nb;
+                for (int j = 0; j < charNumbers[i]; j++)
                 {
-                    if (!((TextBox)c).Text.Equals(""))
+                    nb = (TextBox)p.Controls.Find("txtS" + (i + 1) + "C" + (j + 1), false)[0];
+                    if (!nb.Text.Equals(""))
                     {
-                        s.addRole(((TextBox)c).Text);
+                        s.addRole(nb.Text);
                     }
                 }
                 shows.Add(s);
@@ -198,36 +185,6 @@ namespace LUTGCaster
             }
         }
 
-        private void BtnAddChar_Click(object sender, EventArgs e)
-        {
-            Button b = (Button)sender;
-            int showIndex = (int)char.GetNumericValue(b.Name[4]) - 1;
-            if (charNumbers[showIndex] == 2) //reenable remove char button
-            {
-                ((Button)b.Parent.Controls.Find("btnS" + (showIndex + 1) + "RemChar", false)[0]).Enabled = true; 
-            }
-            AddChar(showIndex);
-            if (charNumbers[showIndex] == 50)
-            {
-                b.Enabled = false;
-            }
-        }
-
-        private void BtnRemChar_Click(object sender, EventArgs e)
-        {
-            Button b = (Button)sender;
-            int showIndex = (int)char.GetNumericValue((b).Name[4]) - 1;
-            if (charNumbers[showIndex] == 50) //reenable add char button
-            {
-                ((Button)b.Parent.Controls.Find("btnS" + (showIndex + 1) + "AddChar", false)[0]).Enabled = true;
-            }
-            RemoveChar(showIndex);
-            if (charNumbers[showIndex] == 2)
-            {
-                b.Enabled = false;
-            }
-        }
-
         private void AddChar(int showIndex)
         {
             GroupBox gBox = showBoxes[showIndex];
@@ -264,6 +221,36 @@ namespace LUTGCaster
         private void BtnRemShow_Click(object sender, EventArgs e)
         {
             RemoveShow();
+        }
+
+        private void BtnAddChar_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            int showIndex = (int)char.GetNumericValue(b.Name[4]) - 1;
+            if (charNumbers[showIndex] == 2) //reenable remove char button
+            {
+                ((Button)b.Parent.Controls.Find("btnS" + (showIndex + 1) + "RemChar", false)[0]).Enabled = true;
+            }
+            AddChar(showIndex);
+            if (charNumbers[showIndex] == 50)
+            {
+                b.Enabled = false;
+            }
+        }
+
+        private void BtnRemChar_Click(object sender, EventArgs e)
+        {
+            Button b = (Button)sender;
+            int showIndex = (int)char.GetNumericValue((b).Name[4]) - 1;
+            if (charNumbers[showIndex] == 50) //reenable add char button
+            {
+                ((Button)b.Parent.Controls.Find("btnS" + (showIndex + 1) + "AddChar", false)[0]).Enabled = true;
+            }
+            RemoveChar(showIndex);
+            if (charNumbers[showIndex] == 2)
+            {
+                b.Enabled = false;
+            }
         }
 
         private void BtnLoad_Click(object sender, EventArgs e)
@@ -317,6 +304,11 @@ namespace LUTGCaster
                     MessageBox.Show("Error: loaded file is corrupt and cannot be loaded." + Environment.NewLine + ex.Message);
                 }
             }
+        }
+
+        private void BtnGenerate_Click(object sender, EventArgs e)
+        {
+            GenerateCastingSheet();
         }
     }
 }
