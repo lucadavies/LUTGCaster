@@ -1,6 +1,6 @@
 # Thanks for stopping by! I hope you find this useful :)
 
-The built program can be downloaded using this link https://drive.google.com/file/d/1b5fLt8BLvR0nDTuf4li3NIX71PjZkp_C/view?usp=sharing
+The built program can be downloaded using this link https://drive.google.com/file/d/1gRoht6UUyO0HkMhrcCXR8djvucKYajLn/view?usp=sharing
 
 To set up a new casting sheet:
 
@@ -28,4 +28,4 @@ Bugs:
 Enjoy! :)
 - Luca, SEO 2019/20
 
-28/02/2020
+15/09/2020
