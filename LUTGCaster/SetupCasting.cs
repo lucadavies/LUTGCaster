@@ -107,23 +107,6 @@ namespace LUTGCaster
                 TabIndex = 28
             };
 
-            TextBox txtChar1 = new TextBox
-            {
-                Location = new Point(0, 0),
-                Margin = new Padding(0, 3, 0, 3),
-                Name = "txtS" + (setupShows + 1) + "C1",
-                Size = new Size(122, 20),
-                TabIndex = 3
-            };
-
-            TextBox txtChar2 = new TextBox
-            {
-                Location = new Point(122, 0),
-                Margin = new Padding(0, 3, 0, 3),
-                Name = "txtS" + (setupShows + 1) + "C2",
-                Size = new Size(122, 20)
-            };
-
             Button btnAddChar = new Button
             {
                 Location = new Point(320, 12),
@@ -145,16 +128,33 @@ namespace LUTGCaster
             };
             btnRemChar.Click += new EventHandler(BtnRemChar_Click);
 
-            gBox.Controls.Add(panChars);
+            TextBox txtChar1 = new TextBox
+            {
+                Location = new Point(0, 0),
+                Margin = new Padding(0, 3, 0, 3),
+                Name = "txtS" + (setupShows + 1) + "C1",
+                Size = new Size(122, 20),
+                TabIndex = 3
+            };
+
+            TextBox txtChar2 = new TextBox
+            {
+                Location = new Point(122, 0),
+                Margin = new Padding(0, 3, 0, 3),
+                Name = "txtS" + (setupShows + 1) + "C2",
+                Size = new Size(122, 20)
+            };
+
             gBox.Controls.Add(lblName);
             gBox.Controls.Add(lblChar);
             gBox.Controls.Add(txtSName);
+            gBox.Controls.Add(panChars);
             gBox.Controls.Add(btnAddChar);
             gBox.Controls.Add(btnRemChar);
             panChars.Controls.Add(txtChar1);
             panChars.Controls.Add(txtChar2);
             panShows.Controls.Add(gBox);
-            panShows.Controls.SetChildIndex(gBox, 0); //make on top of pre-existing controls (mainly to appear in front of label
+            panShows.Controls.SetChildIndex(gBox, showBoxes.Count); //make on top of pre-existing controls (mainly to appear in front of full panel decorative label
 
             showBoxes.Add(gBox);
             charNumbers.Add(2);

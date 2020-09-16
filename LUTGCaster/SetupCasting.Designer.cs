@@ -55,7 +55,7 @@
             // btnLoad
             // 
             this.btnLoad.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLoad.Location = new System.Drawing.Point(746, 409);
+            this.btnLoad.Location = new System.Drawing.Point(496, 409);
             this.btnLoad.Name = "btnLoad";
             this.btnLoad.Size = new System.Drawing.Size(90, 40);
             this.btnLoad.TabIndex = 32;
@@ -72,7 +72,7 @@
             this.panShows.Controls.Add(this.label2);
             this.panShows.Location = new System.Drawing.Point(0, 0);
             this.panShows.Name = "panShows";
-            this.panShows.Size = new System.Drawing.Size(984, 403);
+            this.panShows.Size = new System.Drawing.Size(734, 403);
             this.panShows.TabIndex = 33;
             // 
             // label2
@@ -82,7 +82,7 @@
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.label2.Location = new System.Drawing.Point(0, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(984, 403);
+            this.label2.Size = new System.Drawing.Size(734, 403);
             this.label2.TabIndex = 0;
             this.label2.Text = "Show Setup";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -90,7 +90,7 @@
             // btnGenerate
             // 
             this.btnGenerate.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnGenerate.Location = new System.Drawing.Point(842, 409);
+            this.btnGenerate.Location = new System.Drawing.Point(592, 409);
             this.btnGenerate.Name = "btnGenerate";
             this.btnGenerate.Size = new System.Drawing.Size(130, 40);
             this.btnGenerate.TabIndex = 34;
@@ -101,7 +101,7 @@
             // numUDChoices
             // 
             this.numUDChoices.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.numUDChoices.Location = new System.Drawing.Point(589, 421);
+            this.numUDChoices.Location = new System.Drawing.Point(339, 421);
             this.numUDChoices.Maximum = new decimal(new int[] {
             6,
             0,
@@ -125,7 +125,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(486, 423);
+            this.label1.Location = new System.Drawing.Point(236, 423);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 36;
@@ -148,7 +148,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.ClientSize = new System.Drawing.Size(984, 461);
+            this.ClientSize = new System.Drawing.Size(734, 461);
             this.Controls.Add(this.btnRemShow);
             this.Controls.Add(this.btnAddShow);
             this.Controls.Add(this.label1);
