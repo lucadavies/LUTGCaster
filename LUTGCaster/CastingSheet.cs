@@ -137,9 +137,10 @@ namespace LUTGCaster
                         Size = new Size(122, 20),
                         Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0),
                         Text = "Cast",
+                        Enabled = false,
                         UseVisualStyleBackColor = true
                     };
-                    btn.Click += new EventHandler(CastCharacter);
+                    btn.Click += new EventHandler(BtnCast_Click);
                     gBox.Controls.Add(btn);
 
                     Label l = new Label
@@ -220,7 +221,7 @@ namespace LUTGCaster
                 countOther = 0;
                 countFirst = 0;
                 string name = tb.Text;
-                if (!name.Equals(""))
+                if (!name.Equals("") && !name.Equals("RON"))
                 {
                     List<TextBox> toColour = new List<TextBox>();
                     foreach (TextBox nb in nameBoxes)   //count all first choice appearances and other appearacnes
@@ -342,6 +343,39 @@ namespace LUTGCaster
         }
 
         /// <summary>
+        /// Changes the cast button to show either "Cast" or "RON" and to be enabled when these options are available
+        /// </summary>
+        /// <param name="btn"></param>
+        private void UpdateCastButtons()
+        {
+            foreach (GroupBox gb in panAll.Controls.OfType<GroupBox>())
+            {
+                foreach (Button btn in gb.Controls.OfType<Button>())
+                {
+                    List<TextBox> charTBs = getCharacterBoxesFromButton(btn);
+
+                    string textMinusFirst = charTBs.GetRange(1, charTBs.Count - 1).Select(n => n.Text).ToList().Aggregate((i, j) => i + j);
+                    string allTexts = charTBs.Select(n => n.Text).ToList().Aggregate((i, j) => i + j);
+                    if (!charTBs[0].Text.Equals("") && !charTBs[0].Text.Equals("RON") && textMinusFirst.Equals("") && charTBs[0].BackColor == f1)
+                    {
+                        btn.Text = "Cast";
+                        btn.Enabled = true;
+                    }
+                    else if (allTexts.Equals("") || allTexts.Equals("RON"))
+                    {
+                        btn.Text = "RON";
+                        btn.Enabled = true;
+                    }
+                    else
+                    {
+                        btn.Text = "Cast";
+                        btn.Enabled = false;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
         /// Reads the lock dictionary to find the least locked of all locked names and displays it
         /// </summary>
         private void UpdateLockSuggestion()
@@ -440,13 +474,66 @@ namespace LUTGCaster
         }
 
         /// <summary>
-        /// Event handler: Called by all "Cast" buttons. To show a cast role, disables all textboxes for the role, bolds the top choice
+        /// Casts or RONs a role. To show a role that has been cast or RONed, disables all textboxes for the role, bolds the top choice (Colours it black for RON)
+        /// </summary>
+        /// <param name="btn"></param>
+        /// <param name="ron"></param>
+        private void CastRONChar(Button btn)
+        {
+            List<TextBox> charTBs = getCharacterBoxesFromButton(btn);
+            foreach (TextBox t in charTBs)
+            {
+                if (!t.ReadOnly)      //disable if enabled
+                {
+                    t.ReadOnly = true;
+                    if (t.Name[t.Name.Length - 1].Equals('a')) //bold if first choice
+                    {
+                        t.Font = new Font(t.Font, FontStyle.Bold);
+                        if (btn.Text.Equals("RON"))
+                        {
+                            t.Text = "RON";
+                            t.BackColor = Color.Black;
+                            t.ForeColor = Color.White;
+                        }
+                    }
+                    else
+                    {
+                        t.Visible = false;
+                    }
+                }
+                else      //enable if disabled
+                {
+                    t.ReadOnly = false;
+                    if (t.Name[t.Name.Length - 1].Equals('a')) //unbold if first choice
+                    {
+                        t.Font = new Font(t.Font, FontStyle.Regular);
+                        if (t.Text.Equals("RON"))
+                        {
+                            t.Text = "";
+                        }
+                    }
+                    else
+                    {
+                        t.Visible = true;
+                    }
+                }
+            }
+            AutoSave();       
+        }
+
+        /// <summary>
+        /// Event handler: Called by all "Cast" buttons.
         /// </summary>
         /// <param rName="sender"></param>
         /// <param rName="e"></param>
-        private void CastCharacter(object sender, EventArgs e)
+        private void BtnCast_Click(object sender, EventArgs e)
         {
             Button btn = (Button)sender;
+            CastRONChar(btn);
+        }
+
+        private List<TextBox> getCharacterBoxesFromButton(Button btn)
+        {
             List<TextBox> charTBs = new List<TextBox>();
             foreach (TextBox t in nameBoxes)
             {
@@ -459,36 +546,7 @@ namespace LUTGCaster
                     }
                 }
             }
-            foreach (TextBox t in charTBs)
-            {
-                if (!t.ReadOnly)      //disable if enabled
-                {
-                    t.ReadOnly = true;
-                    if (t.Name[t.Name.Length - 1].Equals('a')) //bold if first choice
-                    {
-                        t.Font = new Font(t.Font, FontStyle.Bold);
-                    }
-                    else
-                    {
-                        t.Visible = false;
-                    }
-                }
-                else      //enable if disabled
-
-                {
-                    t.ReadOnly = false;
-                    if (t.Name[t.Name.Length - 1].Equals('a')) //unbold if first choice
-                    {
-                        t.Font = new Font(t.Font, FontStyle.Regular);
-                    }
-                    else
-                    {
-                        t.Visible = true;
-                    }
-                }
-
-            }
-            AutoSave();
+            return charTBs;
         }
 
         private void SaveAs()
@@ -554,6 +612,7 @@ namespace LUTGCaster
             if (checkingNames)
             {
                 UpdateColours();
+                UpdateCastButtons();
             }
         }
 
@@ -569,6 +628,7 @@ namespace LUTGCaster
                 checkingNames = true;
                 btnChkNames.BackColor = Color.Green;
                 UpdateColours();
+                UpdateCastButtons();
             }
         }
 
