@@ -33,14 +33,14 @@ namespace LUTGCaster
 
             for (int i = 0; i < showBoxes.Count; i++)
             {
-                Panel p = (Panel)showBoxes[i].Controls.Find("panS" + (i + 1), false)[0];
-                TextBox t = (TextBox)showBoxes[i].Controls.Find("txtS" + (i + 1) + "Name", false)[0];
+                Panel p = (Panel)showBoxes[i].Controls["panS" + (i + 1)];
+                TextBox t = (TextBox)showBoxes[i].Controls["txtS" + (i + 1) + "Name"];
                 Show s = new Show(t.Text);
 
                 TextBox nb;
                 for (int j = 0; j < charNumbers[i]; j++)
                 {
-                    nb = (TextBox)p.Controls.Find("txtS" + (i + 1) + "C" + (j + 1), false)[0];
+                    nb = (TextBox)p.Controls["txtS" + (i + 1) + "C" + (j + 1)];
                     if (!nb.Text.Equals(""))
                     {
                         s.addRole(nb.Text);
@@ -188,7 +188,7 @@ namespace LUTGCaster
         private void AddChar(int showIndex)
         {
             GroupBox gBox = showBoxes[showIndex];
-            Panel pan = (Panel)gBox.Controls.Find("panS" + (showIndex + 1), false)[0]; //gets panel containing char textboxes
+            Panel pan = (Panel)gBox.Controls["panS" + (showIndex + 1)]; //gets panel containing char textboxes
             gBox.Width += 122;
             pan.Width += 122;
             charNumbers[showIndex]++;
@@ -197,7 +197,7 @@ namespace LUTGCaster
             {
                 Location = new Point((((pan.Width - 1) / 122) - 1) * 122, 0),
                 Margin = new Padding(0, 3, 0, 3),
-                Name = "txtS" + (setupShows + 1) + "C" + charNumbers[showIndex],
+                Name = "txtS" + (showIndex + 1) + "C" + charNumbers[showIndex],
                 Size = new Size(122, 20)
             };
             pan.Controls.Add(txt);
@@ -206,8 +206,8 @@ namespace LUTGCaster
         private void RemoveChar(int showIndex)
         {
             GroupBox gBox = showBoxes[showIndex];
-            Panel pan = (Panel)gBox.Controls.Find("panS" + (showIndex + 1), false)[0]; //gets panel containing char textboxes
-            pan.Controls.Remove(pan.Controls.Find("txtS" + (setupShows + 1) + "C" + charNumbers[showIndex], false)[0]);
+            Panel pan = (Panel)gBox.Controls["panS" + (showIndex + 1)]; //gets panel containing char textboxes
+            pan.Controls.Remove(pan.Controls["txtS" + (setupShows + 1) + "C" + charNumbers[showIndex]]);
             charNumbers[showIndex]--;
             gBox.Width -= 122;
             pan.Width -= 122;
@@ -229,7 +229,7 @@ namespace LUTGCaster
             int showIndex = (int)char.GetNumericValue(b.Name[4]) - 1;
             if (charNumbers[showIndex] == 2) //reenable remove char button
             {
-                ((Button)b.Parent.Controls.Find("btnS" + (showIndex + 1) + "RemChar", false)[0]).Enabled = true;
+                ((Button)b.Parent.Controls["btnS" + (showIndex + 1) + "RemChar"]).Enabled = true;
             }
             AddChar(showIndex);
             if (charNumbers[showIndex] == 50)
@@ -244,7 +244,7 @@ namespace LUTGCaster
             int showIndex = (int)char.GetNumericValue((b).Name[4]) - 1;
             if (charNumbers[showIndex] == 50) //reenable add char button
             {
-                ((Button)b.Parent.Controls.Find("btnS" + (showIndex + 1) + "AddChar", false)[0]).Enabled = true;
+                ((Button)b.Parent.Controls["btnS" + (showIndex + 1) + "AddChar"]).Enabled = true;
             }
             RemoveChar(showIndex);
             if (charNumbers[showIndex] == 2)
