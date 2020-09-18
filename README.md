@@ -1,6 +1,6 @@
 # Thanks for stopping by! I hope you find this useful :)
 
-The built program can be downloaded using this link https://drive.google.com/file/d/1gRoht6UUyO0HkMhrcCXR8djvucKYajLn/view?usp=sharing
+The built program can be downloaded using this link https://drive.google.com/file/d/1ZL_mW-Gjg0B-NCBInUW9AXlddgTK168F/view?usp=sharing
 
 To set up a new casting sheet:
 
@@ -19,6 +19,7 @@ Using the Casting Sheet:
 1. When a role has been cast, remove the 2nd-6th choices and click "Cast" to hide the other boxes
 
 Some notes:
+* Various autosaves are used: in the folder were the program is run from, the Backup folder holds a copy of a casting sheet when first opened/created. Until first saved by the user, the temp folder holds a temporary working copy of the casting sheet. In use, casting sheets are auto saved on every name change / Casting / RONing.
 * When clicking "Cast", make sure all names have been removed from the lower down choices or else the hidden names will still contribute towards the colour of those names elsewhere. This is to prevent accidental clicks of the Cast button deleting other choices and causing confusion.
 * If a name appears the wrong colour, check it doesn't have any extra spaces (or other whitespace characters) at the end. I plan to fix this at next update (if I get around to it)
 
@@ -28,4 +29,4 @@ Bugs:
 Enjoy! :)
 - Luca, SEO 2019/20
 
-15/09/2020
+18/09/2020
