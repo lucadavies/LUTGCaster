@@ -24,6 +24,7 @@ namespace LUTGCaster
         float zoomChange = 0.05f;
         int numChoices;
         string filePath;
+        bool userSaved = false;
         Dictionary<string, List<string>> lockDict = new Dictionary<string, List<string>>(); //records locked in names - key is actor, value is show/role that must be freed to remove the block
         List<string> viewedLocks = new List<string>();
 
@@ -43,7 +44,6 @@ namespace LUTGCaster
             this.shows = shows;
             this.numChoices = numChoices;
             this.filePath = filePath;
-            Text += " - [" + Path.GetFileNameWithoutExtension(filePath) + "]";
             Init();
         }
 
@@ -53,6 +53,25 @@ namespace LUTGCaster
         /// Cast button names are in the format: btncastSxCy where x is the show number and y is the character number
         /// </summary>
         private void Init()
+        {
+            LoadShows();
+            Save(Application.StartupPath + "\\Backup\\Backup-CastingSheet-" + DateTime.Now.ToString("yyyyMMddTHHmmss") + ".tgcs", true);
+            if (filePath == null) //assign temp file name if not opened from file
+            {
+                filePath = Application.StartupPath + "\\temp\\CastingSheet-" + DateTime.Now.ToString("yyyyMMddTHHmmss") + ".tgcs";
+            }
+            else //do not force SaveAs if open from file
+            {
+                userSaved = true;
+            }
+            Save(filePath, true);
+            Text = "Casting Sheet - [" + Path.GetFileName(filePath) + "]";
+        }
+        
+        /// <summary>
+        /// Loads show data onto UI
+        /// </summary>
+        private void LoadShows()
         {
             nameBoxes = new List<TextBox>();
             foreach (Show s in shows) //loop thorugh all shows
@@ -470,7 +489,7 @@ namespace LUTGCaster
                     break;
             }
             shows[showNum].roles[charNum].names[choiceNum] = tb.Text;
-            AutoSave();
+            Save(filePath, true);
         }
 
         /// <summary>
@@ -518,7 +537,7 @@ namespace LUTGCaster
                     }
                 }
             }
-            AutoSave();       
+            Save(filePath, true);       
         }
 
         /// <summary>
@@ -559,29 +578,37 @@ namespace LUTGCaster
 
                 if (sfd.ShowDialog() == DialogResult.OK)
                 {
+                    string oldFile = filePath;
                     filePath = sfd.FileName;
-                    using (StreamWriter f = new StreamWriter(filePath, false))
+                    if (WriteToFile(filePath)) //if file saved successfully
                     {
-                        string json = JsonConvert.SerializeObject(shows, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
-                        f.Write(json);
-                        f.Write("|" + numChoices);
+                        lblSaveStatus.Text = "Sheet saved as " + Path.GetFileName(filePath) + " at " + DateTime.Now.ToString("hh:mm:ss tt");
+                        if (!userSaved) //delete temporary file if this is the first user-invoked save
+                        {
+                            File.Delete(oldFile);
+                        }
+                        userSaved = true;
+                        Text = "Casting Sheet - [" + Path.GetFileName(filePath) + "]";
                     }
-                    lblSaveStatus.Text = "Sheet saved as " + Path.GetFileName(filePath) + " at " + DateTime.Now.ToString("hh:mm:ss tt");
+                    else
+                    {
+                        lblSaveStatus.Text = "Sheet save failed. Please try again.";
+                    }
                 }
             }
         }
 
-        private void AutoSave(bool auto = true)
+        /// <summary>
+        /// Saves casting sheet to file
+        /// </summary>
+        /// <param name="path">The full filepath to save to</param>
+        /// <param name="auto">Denotes if this was an auto-save or user-invoked save</param>
+        private void Save(string path, bool auto)
         {
-            if (filePath != null)
+            if (userSaved || auto)
             {
-                using (StreamWriter f = new StreamWriter(filePath, false))
-                {
-                    string json = JsonConvert.SerializeObject(shows, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
-                    f.Write(json);
-                    f.Write("|" + numChoices);
-                }
-                lblSaveStatus.Text = "Sheet " + (auto ? "auto-saved" : "saved") + " as " + Path.GetFileName(filePath) + " at " + DateTime.Now.ToString("hh:mm:ss tt");
+                WriteToFile(path);
+                lblSaveStatus.Text = "Sheet " + (auto ? "auto-saved" : "saved") + " as " + Path.GetFileName(path) + " at " + DateTime.Now.ToString("hh:mm:ss tt");
             }
             else if (!auto)
             {
@@ -592,6 +619,33 @@ namespace LUTGCaster
                 lblSaveStatus.Text = "Unsaved changes detected.";
             }
 
+        }
+
+        /// <summary>
+        /// Writes contents of <i>shows</i> to file specified
+        /// </summary>
+        /// <param name="fi">The full filepath to save to</param>
+        /// <returns>True is file save successful
+        ///         False if file save failed</returns>
+        private bool WriteToFile(string fi)
+        {
+            try
+            {
+                Directory.CreateDirectory(Path.GetDirectoryName(fi));
+                using (StreamWriter f = new StreamWriter(fi, false))
+                {
+                    string json = JsonConvert.SerializeObject(shows, Formatting.Indented, new JsonSerializerSettings { ReferenceLoopHandling = ReferenceLoopHandling.Ignore });
+                    f.Write(json);
+                    f.Write("|" + numChoices);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show("Error saving file." + Environment.NewLine + e.Message, "Casting Sheet", MessageBoxButtons.OK);
+                return false;
+            }
+            
         }
 
         /// <summary>
@@ -730,7 +784,7 @@ namespace LUTGCaster
 
         private void BtnSave_Click(object sender, EventArgs e)
         {
-            AutoSave(false);
+            Save(filePath, false);
         }
 
         private void CastingSheet_FormClosing(object sender, FormClosingEventArgs e)
@@ -753,7 +807,7 @@ namespace LUTGCaster
             }
             else
             {
-                AutoSave();
+                Save(filePath, true);
             }
         }
 

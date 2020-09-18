@@ -248,9 +248,9 @@
             // 
             this.lblSaveStatus.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblSaveStatus.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSaveStatus.Location = new System.Drawing.Point(727, 446);
+            this.lblSaveStatus.Location = new System.Drawing.Point(440, 446);
             this.lblSaveStatus.Name = "lblSaveStatus";
-            this.lblSaveStatus.Size = new System.Drawing.Size(257, 13);
+            this.lblSaveStatus.Size = new System.Drawing.Size(544, 13);
             this.lblSaveStatus.TabIndex = 18;
             this.lblSaveStatus.Text = "SHEET NOT SAVED";
             this.lblSaveStatus.TextAlign = System.Drawing.ContentAlignment.TopRight;
