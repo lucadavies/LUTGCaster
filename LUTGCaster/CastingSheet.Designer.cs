@@ -54,7 +54,7 @@
             // 
             this.btnChkNames.BackColor = System.Drawing.Color.Red;
             this.btnChkNames.ForeColor = System.Drawing.Color.White;
-            this.btnChkNames.Location = new System.Drawing.Point(428, 3);
+            this.btnChkNames.Location = new System.Drawing.Point(487, 3);
             this.btnChkNames.Name = "btnChkNames";
             this.btnChkNames.Size = new System.Drawing.Size(114, 27);
             this.btnChkNames.TabIndex = 5;
@@ -65,7 +65,7 @@
             // lblZoom
             // 
             this.lblZoom.AutoSize = true;
-            this.lblZoom.Location = new System.Drawing.Point(467, 45);
+            this.lblZoom.Location = new System.Drawing.Point(526, 45);
             this.lblZoom.Name = "lblZoom";
             this.lblZoom.Size = new System.Drawing.Size(34, 13);
             this.lblZoom.TabIndex = 8;
@@ -164,7 +164,7 @@
             // label1
             // 
             this.label1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.label1.Location = new System.Drawing.Point(420, 3);
+            this.label1.Location = new System.Drawing.Point(479, 5);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(2, 73);
             this.label1.TabIndex = 0;
@@ -186,7 +186,7 @@
             this.txtNextLock.Name = "txtNextLock";
             this.txtNextLock.ReadOnly = true;
             this.txtNextLock.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtNextLock.Size = new System.Drawing.Size(238, 72);
+            this.txtNextLock.Size = new System.Drawing.Size(302, 72);
             this.txtNextLock.TabIndex = 13;
             // 
             // lblLock
@@ -202,7 +202,7 @@
             // btnZoomIn
             // 
             this.btnZoomIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomIn.Location = new System.Drawing.Point(505, 33);
+            this.btnZoomIn.Location = new System.Drawing.Point(564, 33);
             this.btnZoomIn.Name = "btnZoomIn";
             this.btnZoomIn.Size = new System.Drawing.Size(36, 36);
             this.btnZoomIn.TabIndex = 10;
@@ -214,7 +214,7 @@
             // btnZoomOut
             // 
             this.btnZoomOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomOut.Location = new System.Drawing.Point(428, 33);
+            this.btnZoomOut.Location = new System.Drawing.Point(487, 33);
             this.btnZoomOut.Name = "btnZoomOut";
             this.btnZoomOut.Size = new System.Drawing.Size(36, 36);
             this.btnZoomOut.TabIndex = 9;

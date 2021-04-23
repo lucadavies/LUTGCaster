@@ -25,9 +25,12 @@ namespace LUTGCaster
         int numChoices;
         string filePath;
         bool userSaved = false;
+        bool isFlashing = false;
         Dictionary<string, List<string>> lockDict = new Dictionary<string, List<string>>(); //records locked in names - key is actor, value is show/role that must be freed to remove the block
         List<string> viewedLocks = new List<string>();
 
+        readonly int flashInterval = 250;
+        readonly int flashCount = 5;
         readonly Color o = Color.FromArgb(198, 224, 180);
         readonly Color f1 = Color.FromArgb(81, 211, 81);
         readonly Color f1o = Color.FromArgb(255, 255, 0);
@@ -706,7 +709,7 @@ namespace LUTGCaster
             {
                 if (nb.Text.Equals(name))
                 {
-                    Flash(nb, 250, Color.FromArgb(0xFFFFFF ^ nb.BackColor.ToArgb()), 5);
+                    Flash(nb, flashInterval, Color.FromArgb(0xFFFFFF ^ nb.BackColor.ToArgb()), flashCount);
                 }
             }
         }
@@ -721,11 +724,13 @@ namespace LUTGCaster
             Color original = textBox.BackColor;
             for (int i = 0; i < flashes; i++)
             {
+                isFlashing = true;
                 UpdateTextbox(textBox, flashColor);
                 Thread.Sleep(interval / 2);
                 UpdateTextbox(textBox, original);
                 Thread.Sleep(interval / 2);
             }
+            isFlashing = false;
         }
 
         private void UpdateTextbox(TextBox textBox, Color color)
@@ -808,6 +813,10 @@ namespace LUTGCaster
             else
             {
                 Save(filePath, true);
+            }
+            if (isFlashing)
+            {
+                e.Cancel = true;
             }
         }
 

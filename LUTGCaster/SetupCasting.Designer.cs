@@ -32,11 +32,13 @@
             this.btnAddShow = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.panShows = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.btnGenerate = new System.Windows.Forms.Button();
             this.numUDChoices = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRemShow = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             this.panShows.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numUDChoices)).BeginInit();
             this.SuspendLayout();
@@ -69,11 +71,20 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panShows.AutoScroll = true;
+            this.panShows.Controls.Add(this.label3);
             this.panShows.Controls.Add(this.label2);
             this.panShows.Location = new System.Drawing.Point(0, 0);
             this.panShows.Name = "panShows";
             this.panShows.Size = new System.Drawing.Size(734, 403);
             this.panShows.TabIndex = 33;
+            // 
+            // label3
+            // 
+            this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label3.Location = new System.Drawing.Point(12, 401);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(710, 2);
+            this.label3.TabIndex = 1;
             // 
             // label2
             // 
@@ -101,7 +112,7 @@
             // numUDChoices
             // 
             this.numUDChoices.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.numUDChoices.Location = new System.Drawing.Point(339, 421);
+            this.numUDChoices.Location = new System.Drawing.Point(297, 421);
             this.numUDChoices.Maximum = new decimal(new int[] {
             6,
             0,
@@ -125,7 +136,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(236, 423);
+            this.label1.Location = new System.Drawing.Point(194, 423);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(100, 13);
             this.label1.TabIndex = 36;
@@ -143,12 +154,21 @@
             this.btnRemShow.UseVisualStyleBackColor = true;
             this.btnRemShow.Click += new System.EventHandler(this.BtnRemShow_Click);
             // 
+            // label4
+            // 
+            this.label4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label4.Location = new System.Drawing.Point(423, 409);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(2, 46);
+            this.label4.TabIndex = 38;
+            // 
             // SetupCasting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(734, 461);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnRemShow);
             this.Controls.Add(this.btnAddShow);
             this.Controls.Add(this.label1);
@@ -176,5 +196,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnRemShow;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
