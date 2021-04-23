@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading;
 using Newtonsoft.Json;
 using System.Collections;
+using System.Reflection;
 
 namespace LUTGCaster
 {
@@ -43,6 +44,19 @@ namespace LUTGCaster
 
         public CastingSheet(List<Show> shows, int numChoices, string filePath = null)
         {
+            AppDomain.CurrentDomain.AssemblyResolve += (sender, args) =>
+            {
+                string resourceName = new AssemblyName(args.Name).Name + ".dll";
+                string resource = Array.Find(this.GetType().Assembly.GetManifestResourceNames(), element => element.EndsWith(resourceName));
+
+                using (var stream = Assembly.GetExecutingAssembly().GetManifestResourceStream(resource))
+                {
+                    Byte[] assemblyData = new Byte[stream.Length];
+                    stream.Read(assemblyData, 0, assemblyData.Length);
+                    return Assembly.Load(assemblyData);
+                }
+            };
+
             InitializeComponent();
             this.shows = shows;
             this.numChoices = numChoices;
