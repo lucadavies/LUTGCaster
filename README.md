@@ -1,12 +1,12 @@
 # Thanks for stopping by! I hope you find this useful :)
 
-#### IMPORTANT: This is a WINDOWS application. it will not run on MacOS. Annoyingly, it will also not run on university computers (you must be an administrator on the computer). You must run it from your own computer. Windows will shout at you that the application is from an "unknown publisher" (that's me). Click "Run Anyway" to continue (you may need to click "More Info" before th "Run Anyway" button is shown).
+#### IMPORTANT: This is a WINDOWS application. it will not run on MacOS. Annoyingly, it will also not run on university computers (you must be an administrator on the computer). You must run it from your own computer. Windows will shout at you that the application is from an "unknown publisher" (that's me). Click "Run Anyway" to continue (you may need to click "More Info" before the "Run Anyway" button is shown).
 
 TL;DR - you must run this on a personal Windows computer.
 
-#### The built program for Windows can be downloaded from <a href="https://drive.google.com/file/d/1ZL_mW-Gjg0B-NCBInUW9AXlddgTK168F/view?usp=sharing" target="_blank">here</a>.
+#### The built program for Windows can be downloaded from <a href="https://drive.google.com/file/d/1ZL_mW-Gjg0B-NCBInUW9AXlddgTK168F/view?usp=sharing" target="_blank">here</a>. (25/04/2021)
 
-##### If that fails to run for whatever reason, a backup versoin is available <a href="https://drive.google.com/file/d/1X35w8wFu25LkgDOpbzbayMH4AoKAy-xq/view?usp=sharing" target="_blank">here</a>.
+##### If that fails to run for whatever reason, a backup versoin is available <a href="https://drive.google.com/file/d/1X35w8wFu25LkgDOpbzbayMH4AoKAy-xq/view?usp=sharing" target="_blank">here</a>. (18/09/2020)
 
 ## Usage
 
@@ -37,4 +37,4 @@ Bugs:
 Enjoy! :)
 - Luca, SEO 2019/20
 
-18/09/2020
+25/04/2021
