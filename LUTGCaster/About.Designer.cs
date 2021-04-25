@@ -148,7 +148,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 7;
-            this.label6.Text = "18/09/2020";
+            this.label6.Text = "25/04/2020";
             // 
             // label7
             // 
@@ -210,8 +210,8 @@
             this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Controls.Add(this.tbPgHelp);
             this.tabControl1.Controls.Add(this.tbPgAbout);
+            this.tabControl1.Controls.Add(this.tbPgHelp);
             this.tabControl1.Location = new System.Drawing.Point(12, 4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
