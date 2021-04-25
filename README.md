@@ -1,6 +1,6 @@
 # Thanks for stopping by! I hope you find this useful :)
 
-#### IMPORTANT: This is a WINDOWS application. it will not run on MacOS. Annoyingly, it will also not run on university computers (you must be an administrator on the computer). You must run it from your own computer. Windows will shout at you that the application is from an "unknown publisher" (that's me). Click "Run Anyway" to continue (you may need to click "More Info" before th "Run Anyway" button is shown).
+#### IMPORTANT: This is a WINDOWS application. it will not run on MacOS. Annoyingly, it will also not run on university computers (you must be an administrator on the computer). You must run it from your own computer. Windows will shout at you that the application is from an "unknown publisher" (that's me). Click "Run Anyway" to continue (you may need to click "More Info" before the "Run Anyway" button is shown).
 
 TL;DR - you must run this on a personal Windows computer.
 
