@@ -21,7 +21,7 @@ namespace LUTGCaster
         List<TextBox> nameBoxes;
         List<Show> shows;
         Regex alphaNumSlashRgx = new Regex("[^a-zA-Z0-9/.' -]");
-        bool checkingNames = false;
+        bool ready = false;
         float zoomChange = 0.05f;
         int numChoices;
         string filePath;
@@ -83,6 +83,10 @@ namespace LUTGCaster
             }
             Save(filePath, true);
             Text = "Casting Sheet - [" + Path.GetFileName(filePath) + "]";
+
+            ready = true;
+            UpdateColours();
+            UpdateCastButtons();
         }
         
         /// <summary>
@@ -243,7 +247,6 @@ namespace LUTGCaster
         /// <summary>
         /// Checks for duplicate names in ALL other textboxes present on sheet, colours each textbox accordingly
         /// </summary>
-        /// <param rName="tb">Textbox rName to check against</param>
         private void UpdateColours()
         {
             lockDict = new Dictionary<string, List<string>>();
@@ -381,7 +384,6 @@ namespace LUTGCaster
         /// <summary>
         /// Changes the cast button to show either "Cast" or "RON" and to be enabled when these options are available
         /// </summary>
-        /// <param name="btn"></param>
         private void UpdateCastButtons()
         {
             foreach (GroupBox gb in panAll.Controls.OfType<GroupBox>())
@@ -680,24 +682,8 @@ namespace LUTGCaster
                 tb.SelectionStart = tb.Text.Length;
                 tb.SelectionLength = 0;
             }
-            if (checkingNames)
+            if (ready)
             {
-                UpdateColours();
-                UpdateCastButtons();
-            }
-        }
-
-        private void BtnChkNames_Click(object sender, EventArgs e)
-        {
-            if (checkingNames)
-            {
-                checkingNames = false;
-                btnChkNames.BackColor = Color.Red;
-            }
-            else
-            {
-                checkingNames = true;
-                btnChkNames.BackColor = Color.Green;
                 UpdateColours();
                 UpdateCastButtons();
             }

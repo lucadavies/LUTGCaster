@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CastingSheet));
-            this.btnChkNames = new System.Windows.Forms.Button();
             this.lblZoom = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnSave = new System.Windows.Forms.Button();
@@ -50,22 +49,10 @@
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnChkNames
-            // 
-            this.btnChkNames.BackColor = System.Drawing.Color.Red;
-            this.btnChkNames.ForeColor = System.Drawing.Color.White;
-            this.btnChkNames.Location = new System.Drawing.Point(487, 3);
-            this.btnChkNames.Name = "btnChkNames";
-            this.btnChkNames.Size = new System.Drawing.Size(114, 27);
-            this.btnChkNames.TabIndex = 5;
-            this.btnChkNames.Text = "Toggle Checking";
-            this.btnChkNames.UseVisualStyleBackColor = false;
-            this.btnChkNames.Click += new System.EventHandler(this.BtnChkNames_Click);
-            // 
             // lblZoom
             // 
             this.lblZoom.AutoSize = true;
-            this.lblZoom.Location = new System.Drawing.Point(526, 45);
+            this.lblZoom.Location = new System.Drawing.Point(557, 31);
             this.lblZoom.Name = "lblZoom";
             this.lblZoom.Size = new System.Drawing.Size(34, 13);
             this.lblZoom.TabIndex = 8;
@@ -88,7 +75,6 @@
             this.panel1.Controls.Add(this.btnZoomIn);
             this.panel1.Controls.Add(this.btnZoomOut);
             this.panel1.Controls.Add(this.lblZoom);
-            this.panel1.Controls.Add(this.btnChkNames);
             this.panel1.Location = new System.Drawing.Point(12, 370);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(960, 79);
@@ -201,25 +187,23 @@
             // 
             // btnZoomIn
             // 
-            this.btnZoomIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomIn.Location = new System.Drawing.Point(564, 33);
+            this.btnZoomIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZoomIn.Location = new System.Drawing.Point(597, 5);
             this.btnZoomIn.Name = "btnZoomIn";
-            this.btnZoomIn.Size = new System.Drawing.Size(36, 36);
+            this.btnZoomIn.Size = new System.Drawing.Size(64, 64);
             this.btnZoomIn.TabIndex = 10;
             this.btnZoomIn.Text = "+";
-            this.btnZoomIn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnZoomIn.UseVisualStyleBackColor = true;
             this.btnZoomIn.Click += new System.EventHandler(this.BtnZoomIn_Click);
             // 
             // btnZoomOut
             // 
-            this.btnZoomOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnZoomOut.Location = new System.Drawing.Point(487, 33);
+            this.btnZoomOut.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnZoomOut.Location = new System.Drawing.Point(487, 5);
             this.btnZoomOut.Name = "btnZoomOut";
-            this.btnZoomOut.Size = new System.Drawing.Size(36, 36);
+            this.btnZoomOut.Size = new System.Drawing.Size(64, 64);
             this.btnZoomOut.TabIndex = 9;
             this.btnZoomOut.Text = "-";
-            this.btnZoomOut.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnZoomOut.UseVisualStyleBackColor = true;
             this.btnZoomOut.Click += new System.EventHandler(this.BtnZoomOut_Click);
             // 
@@ -277,7 +261,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button btnChkNames;
         private System.Windows.Forms.Label lblZoom;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panAll;
