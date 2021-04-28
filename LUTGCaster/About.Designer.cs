@@ -42,6 +42,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lLblLUTG = new System.Windows.Forms.LinkLabel();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tbPgAbout = new System.Windows.Forms.TabPage();
             this.tbPgHelp = new System.Windows.Forms.TabPage();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
@@ -65,12 +66,11 @@
             this.txt5 = new System.Windows.Forms.TextBox();
             this.txt3 = new System.Windows.Forms.TextBox();
             this.txt1 = new System.Windows.Forms.TextBox();
-            this.tbPgAbout = new System.Windows.Forms.TabPage();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tbPgHelp.SuspendLayout();
             this.tbPgAbout.SuspendLayout();
+            this.tbPgHelp.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -148,7 +148,7 @@
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(65, 13);
             this.label6.TabIndex = 7;
-            this.label6.Text = "25/04/2020";
+            this.label6.Text = "29/04/2020";
             // 
             // label7
             // 
@@ -217,6 +217,28 @@
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(378, 253);
             this.tabControl1.TabIndex = 12;
+            // 
+            // tbPgAbout
+            // 
+            this.tbPgAbout.Controls.Add(this.pictureBox2);
+            this.tbPgAbout.Controls.Add(this.lLblLUTG);
+            this.tbPgAbout.Controls.Add(this.pictureBox1);
+            this.tbPgAbout.Controls.Add(this.label8);
+            this.tbPgAbout.Controls.Add(this.label1);
+            this.tbPgAbout.Controls.Add(this.label7);
+            this.tbPgAbout.Controls.Add(this.label2);
+            this.tbPgAbout.Controls.Add(this.label6);
+            this.tbPgAbout.Controls.Add(this.LLblGithub);
+            this.tbPgAbout.Controls.Add(this.label5);
+            this.tbPgAbout.Controls.Add(this.label3);
+            this.tbPgAbout.Controls.Add(this.label4);
+            this.tbPgAbout.Location = new System.Drawing.Point(4, 22);
+            this.tbPgAbout.Name = "tbPgAbout";
+            this.tbPgAbout.Padding = new System.Windows.Forms.Padding(3);
+            this.tbPgAbout.Size = new System.Drawing.Size(370, 227);
+            this.tbPgAbout.TabIndex = 0;
+            this.tbPgAbout.Text = "About";
+            this.tbPgAbout.UseVisualStyleBackColor = true;
             // 
             // tbPgHelp
             // 
@@ -486,28 +508,6 @@
             this.txt1.Text = "John Smith";
             this.txt1.DoubleClick += new System.EventHandler(this.Txt_DoubleClick);
             // 
-            // tbPgAbout
-            // 
-            this.tbPgAbout.Controls.Add(this.pictureBox2);
-            this.tbPgAbout.Controls.Add(this.lLblLUTG);
-            this.tbPgAbout.Controls.Add(this.pictureBox1);
-            this.tbPgAbout.Controls.Add(this.label8);
-            this.tbPgAbout.Controls.Add(this.label1);
-            this.tbPgAbout.Controls.Add(this.label7);
-            this.tbPgAbout.Controls.Add(this.label2);
-            this.tbPgAbout.Controls.Add(this.label6);
-            this.tbPgAbout.Controls.Add(this.LLblGithub);
-            this.tbPgAbout.Controls.Add(this.label5);
-            this.tbPgAbout.Controls.Add(this.label3);
-            this.tbPgAbout.Controls.Add(this.label4);
-            this.tbPgAbout.Location = new System.Drawing.Point(4, 22);
-            this.tbPgAbout.Name = "tbPgAbout";
-            this.tbPgAbout.Padding = new System.Windows.Forms.Padding(3);
-            this.tbPgAbout.Size = new System.Drawing.Size(370, 227);
-            this.tbPgAbout.TabIndex = 0;
-            this.tbPgAbout.Text = "About";
-            this.tbPgAbout.UseVisualStyleBackColor = true;
-            // 
             // About
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -522,10 +522,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tbPgHelp.ResumeLayout(false);
-            this.tbPgHelp.PerformLayout();
             this.tbPgAbout.ResumeLayout(false);
             this.tbPgAbout.PerformLayout();
+            this.tbPgHelp.ResumeLayout(false);
+            this.tbPgHelp.PerformLayout();
             this.ResumeLayout(false);
 
         }
