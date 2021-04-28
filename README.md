@@ -13,18 +13,18 @@ TL;DR - you must run this on a personal Windows computer.
 To set up a new casting sheet:
 
 1. Click "Add Show", enter the title of the show and names of the characters/roles available (clicking the "Add Role" button as needed). Repeat for each show.
-1. Select the maximum number of actors that may be candidate for any given role with the number selector
-1. Click "Generate Casting Sheet"
+1. Select the maximum number of actors that may be candidate for any given role with the number selector.
+1. Click "Generate Casting Sheet".
 1. Then click "Save Sheet" on the Casting Sheet screen to ensure you work isn't lost!!
 
 Using the Casting Sheet:
 
 1. Enter all actors into the appropriate boxes beneath each role for each show
 1. Save sheet when done
-1. All names will remain white until the "Toggle Checking" button is clicked to enable active colouring of names.
-1. The zoom buttons may be used to crudely scale the interface for better viewing on a projector
+1. Names will be coloured automatically as you enter them. The colours always update to reflect to the state of a name.
+1. The zoom buttons may be used to crudely scale the interface for better viewing on a projector.
 1. The "About..." link will bring up a window to explain the meaning of colours and information about the application.
-1. When a role has been cast, remove the 2nd-6th choices and click "Cast" to hide the other boxes
+1. When a role has been cast, remove the 2nd-6th choices and click "Cast" to hide the other boxes.
 
 Some notes:
 * Various autosaves are used: in the folder where the program is run from, the Backup folder holds a copy of a casting sheet when first opened/created. Until first saved by the user, the temp folder holds a temporary working copy of the casting sheet. In use, casting sheets are auto saved on every name change / Casting / RONing.
