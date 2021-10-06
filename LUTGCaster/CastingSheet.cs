@@ -390,7 +390,7 @@ namespace LUTGCaster
             {
                 foreach (Button btn in gb.Controls.OfType<Button>())
                 {
-                    List<TextBox> charTBs = getCharacterBoxesFromButton(btn);
+                    List<TextBox> charTBs = GetCharacterBoxesFromButton(btn);
 
                     string textMinusFirst = charTBs.GetRange(1, charTBs.Count - 1).Select(n => n.Text).ToList().Aggregate((i, j) => i + j);
                     string allTexts = charTBs.Select(n => n.Text).ToList().Aggregate((i, j) => i + j);
@@ -518,7 +518,7 @@ namespace LUTGCaster
         /// <param name="ron"></param>
         private void CastRONChar(Button btn)
         {
-            List<TextBox> charTBs = getCharacterBoxesFromButton(btn);
+            List<TextBox> charTBs = GetCharacterBoxesFromButton(btn);
             foreach (TextBox t in charTBs)
             {
                 if (!t.ReadOnly)      //disable if enabled
@@ -570,7 +570,7 @@ namespace LUTGCaster
             CastRONChar(btn);
         }
 
-        private List<TextBox> getCharacterBoxesFromButton(Button btn)
+        private List<TextBox> GetCharacterBoxesFromButton(Button btn)
         {
             List<TextBox> charTBs = new List<TextBox>();
             foreach (TextBox t in nameBoxes)

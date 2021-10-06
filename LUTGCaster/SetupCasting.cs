@@ -57,7 +57,7 @@ namespace LUTGCaster
                     nb = (TextBox)p.Controls["txtS" + (i + 1) + "C" + (j + 1)];
                     if (!nb.Text.Equals(""))
                     {
-                        s.addRole(nb.Text);
+                        s.AddRole(nb.Text);
                     }
                 }
                 shows.Add(s);

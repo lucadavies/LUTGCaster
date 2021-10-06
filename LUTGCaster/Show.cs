@@ -14,12 +14,16 @@ namespace LUTGCaster
 
         public Show(string name)
         {
-            this.name = name;
+			this.name = name;
             roles = new List<Role>();
         }
 
-        public void addRole(string rName)
+        public void AddRole(string rName)
         {
+            if (string.IsNullOrWhiteSpace(rName))
+            {
+                throw new ArgumentNullException(nameof(rName));
+            }
             roles.Add(new Role(rName));
         }
 
