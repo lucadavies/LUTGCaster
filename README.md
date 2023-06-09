@@ -2,7 +2,7 @@
 
 #### IMPORTANT: This is a WINDOWS application. it will not run on MacOS. Annoyingly, it will also not run on university computers (you must be an administrator on the computer). You must run it from your own computer. Windows will shout at you that the application is from an "unknown publisher" (that's me). Click "Run Anyway" to continue (you may need to click "More Info" before the "Run Anyway" button is shown).
 
-TL;DR - you must run this on a personal Windows computer.
+TL;DR - you must run this on a personal Windows computer (University machines will likely block it running).
 
 #### The built program for Windows can be downloaded from <a href="https://drive.google.com/file/d/1ZL_mW-Gjg0B-NCBInUW9AXlddgTK168F/view?usp=sharing" target="_blank">here</a>. (29/04/2021)
 
